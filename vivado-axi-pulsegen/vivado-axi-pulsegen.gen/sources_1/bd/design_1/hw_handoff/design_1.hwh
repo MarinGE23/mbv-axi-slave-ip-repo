@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Sep 27 03:48:35 2025" VIVADOVERSION="2025.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Sep 27 08:31:08 2025" VIVADOVERSION="2025.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:basys3:part0:1.2" DEVICE="7a35t" NAME="design_1" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -7,6 +7,11 @@
     <PORT DIR="O" NAME="pulse_out_0" SIGIS="undef" SIGNAME="axi_pulsegen_0_pulse_out">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_pulsegen_0" PORT="pulse_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="pulsegen_reset_0" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_pulsegen_reset_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_pulsegen_0" PORT="pulsegen_reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
@@ -42,7 +47,7 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
-    <MODULE COREREVISION="3" FULLNAME="/axi_pulsegen_0" HWVERSION="1.0" INSTANCE="axi_pulsegen_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_pulsegen" VLNV="xilinx.com:user:axi_pulsegen:1.0">
+    <MODULE COREREVISION="4" FULLNAME="/axi_pulsegen_0" HWVERSION="1.0" INSTANCE="axi_pulsegen_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_pulsegen" VLNV="xilinx.com:user:axi_pulsegen:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -62,6 +67,11 @@
         <PORT DIR="O" NAME="pulse_out" SIGIS="undef" SIGNAME="axi_pulsegen_0_pulse_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="pulse_out_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pulsegen_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_pulsegen_reset_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="pulsegen_reset_0"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">

@@ -5,3 +5,5 @@ set_property src_info {type:XDC file:1 line:31 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN U16   IOSTANDARD LVCMOS33 } [get_ports pulse_out_0]
 set_property src_info {type:XDC file:1 line:67 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports reset]
+set_property src_info {type:XDC file:1 line:70 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports pulsegen_reset_0]

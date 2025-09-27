@@ -48,13 +48,14 @@
 
 
 // IP VLNV: xilinx.com:user:axi_pulsegen:1.0
-// IP Revision: 3
+// IP Revision: 4
 
 (* X_CORE_INFO = "axi_pulsegen,Vivado 2025.1" *)
 (* CHECK_LICENSE_TYPE = "design_1_axi_pulsegen_0_0,axi_pulsegen,{}" *)
-(* CORE_GENERATION_INFO = "design_1_axi_pulsegen_0_0,axi_pulsegen,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_pulsegen,x_ipVersion=1.0,x_ipCoreRevision=3,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4,CLK_FREQ_HZ=100000000,PERIOD_DEF=100000000,WIDTH_DEF=50000000}" *)
+(* CORE_GENERATION_INFO = "design_1_axi_pulsegen_0_0,axi_pulsegen,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_pulsegen,x_ipVersion=1.0,x_ipCoreRevision=4,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4,CLK_FREQ_HZ=100000000,PERIOD_DEF=100000000,WIDTH_DEF=50000000}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_axi_pulsegen_0_0 (
+  pulsegen_reset,
   pulse_out,
   s00_axi_aclk,
   s00_axi_aresetn,
@@ -79,6 +80,10 @@ module design_1_axi_pulsegen_0_0 (
   s00_axi_rready
 );
 
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 pulsegen_reset RST" *)
+(* X_INTERFACE_MODE = "slave" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pulsegen_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+input wire pulsegen_reset;
 output wire pulse_out;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK" *)
 (* X_INTERFACE_MODE = "slave" *)
@@ -137,6 +142,7 @@ input wire s00_axi_rready;
     .PERIOD_DEF(100000000),
     .WIDTH_DEF(50000000)
   ) inst (
+    .pulsegen_reset(pulsegen_reset),
     .pulse_out(pulse_out),
     .s00_axi_aclk(s00_axi_aclk),
     .s00_axi_aresetn(s00_axi_aresetn),

@@ -15,6 +15,7 @@ module axi_pulsegen #
     )
     (
         // Users to add ports here
+        input  wire pulsegen_reset,
         output wire pulse_out,  // Pulse output
         // User ports ends
         // Do not modify the ports beyond this line
@@ -52,6 +53,7 @@ module axi_pulsegen #
         .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
     ) axi_pulsegen_slave_lite_v1_0_S00_AXI_inst (
         .pulse_out(pulse_out),
+        .pulsegen_reset(pulsegen_reset),
         .S_AXI_ACLK(s00_axi_aclk),
         .S_AXI_ARESETN(s00_axi_aresetn),
         .S_AXI_AWADDR(s00_axi_awaddr),

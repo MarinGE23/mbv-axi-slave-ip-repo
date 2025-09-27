@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x7F259E50180A20CE",
+      "boundary_crc": "0x96579255AAE5045B",
       "device": "xc7a35tcpg236-1",
       "gen_directory": "../../../../vivado-axi-pulsegen.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -83,6 +83,20 @@
       },
       "pulse_out_0": {
         "direction": "O"
+      },
+      "pulsegen_reset_0": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -578,7 +592,7 @@
       },
       "axi_pulsegen_0": {
         "vlnv": "xilinx.com:user:axi_pulsegen:1.0",
-        "ip_revision": "3",
+        "ip_revision": "4",
         "xci_name": "design_1_axi_pulsegen_0_0",
         "xci_path": "ip\\design_1_axi_pulsegen_0_0\\design_1_axi_pulsegen_0_0.xci",
         "inst_hier_path": "axi_pulsegen_0",
@@ -657,6 +671,12 @@
           "axi_smc/aclk",
           "axi_uartlite_0/s_axi_aclk",
           "axi_pulsegen_0/s00_axi_aclk"
+        ]
+      },
+      "pulsegen_reset_0_1": {
+        "ports": [
+          "pulsegen_reset_0",
+          "axi_pulsegen_0/pulsegen_reset"
         ]
       },
       "reset_1": {

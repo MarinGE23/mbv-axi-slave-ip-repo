@@ -48,12 +48,13 @@
 
 
 // IP VLNV: xilinx.com:user:axi_pulsegen:1.0
-// IP Revision: 3
+// IP Revision: 4
 
 `timescale 1ns/1ps
 
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_axi_pulsegen_0_0 (
+  pulsegen_reset,
   pulse_out,
   s00_axi_aclk,
   s00_axi_aresetn,
@@ -78,6 +79,10 @@ module design_1_axi_pulsegen_0_0 (
   s00_axi_rready
 );
 
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 pulsegen_reset RST" *)
+(* X_INTERFACE_MODE = "slave" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pulsegen_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+input wire pulsegen_reset;
 output wire pulse_out;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK" *)
 (* X_INTERFACE_MODE = "slave" *)
@@ -136,6 +141,7 @@ input wire s00_axi_rready;
     .PERIOD_DEF(100000000),
     .WIDTH_DEF(50000000)
   ) inst (
+    .pulsegen_reset(pulsegen_reset),
     .pulse_out(pulse_out),
     .s00_axi_aclk(s00_axi_aclk),
     .s00_axi_aresetn(s00_axi_aresetn),

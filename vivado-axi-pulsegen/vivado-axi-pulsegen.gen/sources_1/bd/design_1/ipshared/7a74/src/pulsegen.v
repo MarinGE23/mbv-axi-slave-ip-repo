@@ -5,6 +5,7 @@ module pulsegen #(
 )(
     input  wire clk,          // Clock
     input  wire aresetn,      // Asynchronous reset, active low
+    input  wire pulsegen_reset,   // Specific reset of the pulse generator
     input  wire start,        // Enable signal
     input  wire config_valid, // Signal to load new configuration
     input  wire [31:0] period_in, // New period (in clk cycles)
@@ -18,10 +19,14 @@ module pulsegen #(
 
     // Counter
     reg [31:0] counter;
+    
+    // Combined logical reset: global reset OR specific reset
+    wire combined_reset;
+    assign combined_reset = !aresetn || pulsegen_reset;
 
     // Reset and configuration logic
-    always @(posedge clk or negedge aresetn) begin
-        if (!aresetn) begin
+    always @(posedge clk or posedge combined_reset) begin
+        if (combined_reset) begin
             period_reg <= PERIOD_DEF;
             width_reg  <= WIDTH_DEF;
             counter    <= 32'd0;

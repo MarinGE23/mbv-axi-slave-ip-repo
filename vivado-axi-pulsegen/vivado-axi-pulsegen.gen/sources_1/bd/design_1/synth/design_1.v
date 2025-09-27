@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Sat Sep 27 03:48:18 2025
+//Date        : Sat Sep 27 08:31:00 2025
 //Host        : Emanuel running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -10,14 +10,16 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_board_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (pulse_out_0,
+    pulsegen_reset_0,
     reset,
     sys_clock,
     usb_uart_rxd,
     usb_uart_txd);
   output pulse_out_0;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.PULSEGEN_RESET_0 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.PULSEGEN_RESET_0, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input pulsegen_reset_0;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.SYS_CLOCK, CLK_DOMAIN design_1_sys_clock, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input sys_clock;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 usb_uart RxD" *) (* X_INTERFACE_MODE = "Master" *) input usb_uart_rxd;
@@ -110,6 +112,7 @@ module design_1
   wire microblaze_riscv_0_ilmb_1_UE;
   wire microblaze_riscv_0_ilmb_1_WAIT;
   wire pulse_out_0;
+  wire pulsegen_reset_0;
   wire reset;
   wire [0:0]rst_clk_wiz_0_100M_bus_struct_reset;
   wire rst_clk_wiz_0_100M_mb_reset;
@@ -120,6 +123,7 @@ module design_1
 
   design_1_axi_pulsegen_0_0 axi_pulsegen_0
        (.pulse_out(pulse_out_0),
+        .pulsegen_reset(pulsegen_reset_0),
         .s00_axi_aclk(microblaze_riscv_0_Clk),
         .s00_axi_araddr(axi_smc_M01_AXI_ARADDR),
         .s00_axi_aresetn(rst_clk_wiz_0_100M_peripheral_aresetn),

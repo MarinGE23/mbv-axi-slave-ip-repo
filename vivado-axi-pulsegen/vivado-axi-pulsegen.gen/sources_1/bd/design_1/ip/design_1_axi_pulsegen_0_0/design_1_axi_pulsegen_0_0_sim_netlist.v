@@ -2,7 +2,7 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-// Date        : Sat Sep 27 03:54:54 2025
+// Date        : Sat Sep 27 08:32:35 2025
 // Host        : Emanuel running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/ip/design_1_axi_pulsegen_0_0/design_1_axi_pulsegen_0_0_sim_netlist.v
@@ -16,7 +16,8 @@
 (* CHECK_LICENSE_TYPE = "design_1_axi_pulsegen_0_0,axi_pulsegen,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "axi_pulsegen,Vivado 2025.1" *) 
 (* NotValidForBitStream *)
 module design_1_axi_pulsegen_0_0
-   (pulse_out,
+   (pulsegen_reset,
+    pulse_out,
     s00_axi_aclk,
     s00_axi_aresetn,
     s00_axi_awaddr,
@@ -38,6 +39,7 @@ module design_1_axi_pulsegen_0_0
     s00_axi_rresp,
     s00_axi_rvalid,
     s00_axi_rready);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 pulsegen_reset RST" *) (* X_INTERFACE_MODE = "slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pulsegen_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input pulsegen_reset;
   output pulse_out;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK" *) (* X_INTERFACE_MODE = "slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI_CLK, ASSOCIATED_BUSIF S00_AXI, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input s00_axi_aclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S00_AXI_RST RST" *) (* X_INTERFACE_MODE = "slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI_RST, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input s00_axi_aresetn;
@@ -63,6 +65,7 @@ module design_1_axi_pulsegen_0_0
 
   wire \<const0> ;
   wire pulse_out;
+  wire pulsegen_reset;
   wire s00_axi_aclk;
   wire [3:0]s00_axi_araddr;
   wire s00_axi_aresetn;
@@ -92,6 +95,7 @@ module design_1_axi_pulsegen_0_0
         .axi_awready_reg(s00_axi_awready),
         .axi_rvalid_reg(s00_axi_rvalid),
         .pulse_out(pulse_out),
+        .pulsegen_reset(pulsegen_reset),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_araddr(s00_axi_araddr[3:2]),
         .s00_axi_aresetn(s00_axi_aresetn),
@@ -126,6 +130,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen
     s00_axi_awaddr,
     s00_axi_araddr,
     s00_axi_aresetn,
+    pulsegen_reset,
     s00_axi_wstrb,
     s00_axi_bready);
   output axi_awready_reg;
@@ -144,6 +149,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen
   input [1:0]s00_axi_awaddr;
   input [1:0]s00_axi_araddr;
   input s00_axi_aresetn;
+  input pulsegen_reset;
   input [3:0]s00_axi_wstrb;
   input s00_axi_bready;
 
@@ -151,6 +157,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen
   wire axi_awready_reg;
   wire axi_rvalid_reg;
   wire pulse_out;
+  wire pulsegen_reset;
   wire s00_axi_aclk;
   wire [1:0]s00_axi_araddr;
   wire s00_axi_aresetn;
@@ -171,6 +178,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen
         .axi_awready_reg_0(axi_awready_reg),
         .axi_rvalid_reg_0(axi_rvalid_reg),
         .pulse_out(pulse_out),
+        .pulsegen_reset(pulsegen_reset),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_araddr(s00_axi_araddr),
         .s00_axi_aresetn(s00_axi_aresetn),
@@ -205,6 +213,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
     s00_axi_awaddr,
     s00_axi_araddr,
     s00_axi_aresetn,
+    pulsegen_reset,
     s00_axi_wstrb,
     s00_axi_bready);
   output axi_awready_reg_0;
@@ -223,6 +232,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
   input [1:0]s00_axi_awaddr;
   input [1:0]s00_axi_araddr;
   input s00_axi_aresetn;
+  input pulsegen_reset;
   input [3:0]s00_axi_wstrb;
   input s00_axi_bready;
 
@@ -242,6 +252,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
   wire \axi_awaddr_reg_n_0_[3] ;
   wire axi_awready0__0;
   wire axi_awready_i_1_n_0;
+  wire axi_awready_i_2_n_0;
   wire axi_awready_reg_0;
   wire axi_bvalid_i_1_n_0;
   wire axi_rvalid_i_1_n_0;
@@ -249,7 +260,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
   wire axi_wready_i_1_n_0;
   wire [31:7]p_1_in;
   wire pulse_out;
-  wire pulsegen_inst_n_1;
+  wire pulsegen_reset;
   wire s00_axi_aclk;
   wire [1:0]s00_axi_araddr;
   wire s00_axi_aresetn;
@@ -372,14 +383,14 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(1'b1),
         .D(\FSM_sequential_state_read[0]_i_1_n_0 ),
         .Q(state_read[0]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   (* FSM_ENCODED_STATES = "Idle:00,Rdata:10,Raddr:01" *) 
   FDRE \FSM_sequential_state_read_reg[1] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
         .D(\FSM_sequential_state_read[1]_i_1_n_0 ),
         .Q(state_read[1]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
     .INIT(32'hFFF0F7FF)) 
@@ -406,14 +417,14 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(1'b1),
         .D(\FSM_sequential_state_write[0]_i_1_n_0 ),
         .Q(state_write[0]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   (* FSM_ENCODED_STATES = "Idle:00,Wdata:10,Waddr:01" *) 
   FDRE \FSM_sequential_state_write_reg[1] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
         .D(\FSM_sequential_state_write[1]_i_1_n_0 ),
         .Q(state_write[1]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   LUT6 #(
     .INIT(64'hFFFFBFFF00008000)) 
     \axi_araddr[2]_i_1 
@@ -467,7 +478,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(1'b1),
         .D(axi_arready_i_1_n_0),
         .Q(axi_arready_reg_0),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   LUT6 #(
     .INIT(64'hEFFFFFFF20000000)) 
     \axi_awaddr[2]_i_1 
@@ -493,29 +504,34 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(1'b1),
         .D(\axi_awaddr[2]_i_1_n_0 ),
         .Q(\axi_awaddr_reg_n_0_[2] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \axi_awaddr_reg[3] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
         .D(\axi_awaddr[3]_i_1_n_0 ),
         .Q(\axi_awaddr_reg_n_0_[3] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    axi_awready_i_1
+       (.I0(s00_axi_aresetn),
+        .O(axi_awready_i_1_n_0));
   (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT5 #(
     .INIT(32'hCCC4FFCF)) 
-    axi_awready_i_1
+    axi_awready_i_2
        (.I0(s00_axi_awvalid),
         .I1(axi_awready_reg_0),
         .I2(state_write[1]),
         .I3(s00_axi_wvalid),
         .I4(state_write[0]),
-        .O(axi_awready_i_1_n_0));
+        .O(axi_awready_i_2_n_0));
   FDRE axi_awready_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .D(axi_awready_i_1_n_0),
+        .D(axi_awready_i_2_n_0),
         .Q(axi_awready_reg_0),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   LUT6 #(
     .INIT(64'hFBFF3838C3FF0000)) 
     axi_bvalid_i_1
@@ -538,7 +554,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(1'b1),
         .D(axi_bvalid_i_1_n_0),
         .Q(s00_axi_bvalid),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   LUT6 #(
     .INIT(64'hF0FFFFFF00800080)) 
     axi_rvalid_i_1
@@ -554,7 +570,7 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(1'b1),
         .D(axi_rvalid_i_1_n_0),
         .Q(axi_rvalid_reg_0),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   LUT3 #(
     .INIT(8'hF1)) 
     axi_wready_i_1
@@ -567,12 +583,12 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(1'b1),
         .D(axi_wready_i_1_n_0),
         .Q(s00_axi_wready),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   design_1_axi_pulsegen_0_0_pulsegen pulsegen_inst
        (.Q(slv_reg0),
-        .SR(pulsegen_inst_n_1),
         .\period_reg_reg[31]_0 (slv_reg2),
         .pulse_out(pulse_out),
+        .pulsegen_reset(pulsegen_reset),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_aresetn(s00_axi_aresetn),
         .\width_reg_reg[0]_0 (slv_reg1),
@@ -942,193 +958,193 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[0]),
         .Q(slv_reg0),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[10] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[15]_i_1_n_0 ),
         .D(s00_axi_wdata[10]),
         .Q(\slv_reg0_reg_n_0_[10] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[11] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[15]_i_1_n_0 ),
         .D(s00_axi_wdata[11]),
         .Q(\slv_reg0_reg_n_0_[11] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[12] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[15]_i_1_n_0 ),
         .D(s00_axi_wdata[12]),
         .Q(\slv_reg0_reg_n_0_[12] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[13] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[15]_i_1_n_0 ),
         .D(s00_axi_wdata[13]),
         .Q(\slv_reg0_reg_n_0_[13] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[14] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[15]_i_1_n_0 ),
         .D(s00_axi_wdata[14]),
         .Q(\slv_reg0_reg_n_0_[14] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[15] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[15]_i_1_n_0 ),
         .D(s00_axi_wdata[15]),
         .Q(\slv_reg0_reg_n_0_[15] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[16] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[23]_i_1_n_0 ),
         .D(s00_axi_wdata[16]),
         .Q(\slv_reg0_reg_n_0_[16] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[17] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[23]_i_1_n_0 ),
         .D(s00_axi_wdata[17]),
         .Q(\slv_reg0_reg_n_0_[17] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[18] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[23]_i_1_n_0 ),
         .D(s00_axi_wdata[18]),
         .Q(\slv_reg0_reg_n_0_[18] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[19] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[23]_i_1_n_0 ),
         .D(s00_axi_wdata[19]),
         .Q(\slv_reg0_reg_n_0_[19] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[1] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[1]),
         .Q(\slv_reg0_reg_n_0_[1] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[20] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[23]_i_1_n_0 ),
         .D(s00_axi_wdata[20]),
         .Q(\slv_reg0_reg_n_0_[20] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[21] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[23]_i_1_n_0 ),
         .D(s00_axi_wdata[21]),
         .Q(\slv_reg0_reg_n_0_[21] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[22] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[23]_i_1_n_0 ),
         .D(s00_axi_wdata[22]),
         .Q(\slv_reg0_reg_n_0_[22] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[23] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[23]_i_1_n_0 ),
         .D(s00_axi_wdata[23]),
         .Q(\slv_reg0_reg_n_0_[23] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[24] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[31]_i_1_n_0 ),
         .D(s00_axi_wdata[24]),
         .Q(\slv_reg0_reg_n_0_[24] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[25] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[31]_i_1_n_0 ),
         .D(s00_axi_wdata[25]),
         .Q(\slv_reg0_reg_n_0_[25] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[26] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[31]_i_1_n_0 ),
         .D(s00_axi_wdata[26]),
         .Q(\slv_reg0_reg_n_0_[26] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[27] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[31]_i_1_n_0 ),
         .D(s00_axi_wdata[27]),
         .Q(\slv_reg0_reg_n_0_[27] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[28] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[31]_i_1_n_0 ),
         .D(s00_axi_wdata[28]),
         .Q(\slv_reg0_reg_n_0_[28] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[29] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[31]_i_1_n_0 ),
         .D(s00_axi_wdata[29]),
         .Q(\slv_reg0_reg_n_0_[29] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[2] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[2]),
         .Q(\slv_reg0_reg_n_0_[2] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[30] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[31]_i_1_n_0 ),
         .D(s00_axi_wdata[30]),
         .Q(\slv_reg0_reg_n_0_[30] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[31] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[31]_i_1_n_0 ),
         .D(s00_axi_wdata[31]),
         .Q(\slv_reg0_reg_n_0_[31] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[3] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[3]),
         .Q(\slv_reg0_reg_n_0_[3] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[4] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[4]),
         .Q(\slv_reg0_reg_n_0_[4] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[5] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[5]),
         .Q(\slv_reg0_reg_n_0_[5] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[6] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[6]),
         .Q(\slv_reg0_reg_n_0_[6] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[7] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[7]),
         .Q(\slv_reg0_reg_n_0_[7] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[8] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[15]_i_1_n_0 ),
         .D(s00_axi_wdata[8]),
         .Q(\slv_reg0_reg_n_0_[8] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg0_reg[9] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[15]_i_1_n_0 ),
         .D(s00_axi_wdata[9]),
         .Q(\slv_reg0_reg_n_0_[9] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   LUT6 #(
     .INIT(64'h2020200000002000)) 
     \slv_reg1[15]_i_1 
@@ -1174,193 +1190,193 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(\slv_reg1[7]_i_1_n_0 ),
         .D(s00_axi_wdata[0]),
         .Q(slv_reg1),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[10] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[15]_i_1_n_0 ),
         .D(s00_axi_wdata[10]),
         .Q(\slv_reg1_reg_n_0_[10] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[11] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[15]_i_1_n_0 ),
         .D(s00_axi_wdata[11]),
         .Q(\slv_reg1_reg_n_0_[11] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[12] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[15]_i_1_n_0 ),
         .D(s00_axi_wdata[12]),
         .Q(\slv_reg1_reg_n_0_[12] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[13] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[15]_i_1_n_0 ),
         .D(s00_axi_wdata[13]),
         .Q(\slv_reg1_reg_n_0_[13] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[14] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[15]_i_1_n_0 ),
         .D(s00_axi_wdata[14]),
         .Q(\slv_reg1_reg_n_0_[14] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[15] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[15]_i_1_n_0 ),
         .D(s00_axi_wdata[15]),
         .Q(\slv_reg1_reg_n_0_[15] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[16] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[23]_i_1_n_0 ),
         .D(s00_axi_wdata[16]),
         .Q(\slv_reg1_reg_n_0_[16] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[17] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[23]_i_1_n_0 ),
         .D(s00_axi_wdata[17]),
         .Q(\slv_reg1_reg_n_0_[17] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[18] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[23]_i_1_n_0 ),
         .D(s00_axi_wdata[18]),
         .Q(\slv_reg1_reg_n_0_[18] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[19] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[23]_i_1_n_0 ),
         .D(s00_axi_wdata[19]),
         .Q(\slv_reg1_reg_n_0_[19] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[1] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[7]_i_1_n_0 ),
         .D(s00_axi_wdata[1]),
         .Q(\slv_reg1_reg_n_0_[1] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[20] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[23]_i_1_n_0 ),
         .D(s00_axi_wdata[20]),
         .Q(\slv_reg1_reg_n_0_[20] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[21] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[23]_i_1_n_0 ),
         .D(s00_axi_wdata[21]),
         .Q(\slv_reg1_reg_n_0_[21] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[22] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[23]_i_1_n_0 ),
         .D(s00_axi_wdata[22]),
         .Q(\slv_reg1_reg_n_0_[22] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[23] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[23]_i_1_n_0 ),
         .D(s00_axi_wdata[23]),
         .Q(\slv_reg1_reg_n_0_[23] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[24] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[31]_i_1_n_0 ),
         .D(s00_axi_wdata[24]),
         .Q(\slv_reg1_reg_n_0_[24] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[25] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[31]_i_1_n_0 ),
         .D(s00_axi_wdata[25]),
         .Q(\slv_reg1_reg_n_0_[25] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[26] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[31]_i_1_n_0 ),
         .D(s00_axi_wdata[26]),
         .Q(\slv_reg1_reg_n_0_[26] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[27] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[31]_i_1_n_0 ),
         .D(s00_axi_wdata[27]),
         .Q(\slv_reg1_reg_n_0_[27] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[28] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[31]_i_1_n_0 ),
         .D(s00_axi_wdata[28]),
         .Q(\slv_reg1_reg_n_0_[28] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[29] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[31]_i_1_n_0 ),
         .D(s00_axi_wdata[29]),
         .Q(\slv_reg1_reg_n_0_[29] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[2] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[7]_i_1_n_0 ),
         .D(s00_axi_wdata[2]),
         .Q(\slv_reg1_reg_n_0_[2] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[30] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[31]_i_1_n_0 ),
         .D(s00_axi_wdata[30]),
         .Q(\slv_reg1_reg_n_0_[30] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[31] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[31]_i_1_n_0 ),
         .D(s00_axi_wdata[31]),
         .Q(\slv_reg1_reg_n_0_[31] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[3] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[7]_i_1_n_0 ),
         .D(s00_axi_wdata[3]),
         .Q(\slv_reg1_reg_n_0_[3] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[4] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[7]_i_1_n_0 ),
         .D(s00_axi_wdata[4]),
         .Q(\slv_reg1_reg_n_0_[4] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[5] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[7]_i_1_n_0 ),
         .D(s00_axi_wdata[5]),
         .Q(\slv_reg1_reg_n_0_[5] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[6] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[7]_i_1_n_0 ),
         .D(s00_axi_wdata[6]),
         .Q(\slv_reg1_reg_n_0_[6] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[7] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[7]_i_1_n_0 ),
         .D(s00_axi_wdata[7]),
         .Q(\slv_reg1_reg_n_0_[7] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[8] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[15]_i_1_n_0 ),
         .D(s00_axi_wdata[8]),
         .Q(\slv_reg1_reg_n_0_[8] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg1_reg[9] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg1[15]_i_1_n_0 ),
         .D(s00_axi_wdata[9]),
         .Q(\slv_reg1_reg_n_0_[9] ),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   LUT6 #(
     .INIT(64'h0080000000808080)) 
     \slv_reg2[15]_i_1 
@@ -1406,193 +1422,193 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[0]),
         .Q(slv_reg2[0]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[10] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[15]_i_1_n_0 ),
         .D(s00_axi_wdata[10]),
         .Q(slv_reg2[10]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[11] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[15]_i_1_n_0 ),
         .D(s00_axi_wdata[11]),
         .Q(slv_reg2[11]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[12] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[15]_i_1_n_0 ),
         .D(s00_axi_wdata[12]),
         .Q(slv_reg2[12]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[13] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[15]_i_1_n_0 ),
         .D(s00_axi_wdata[13]),
         .Q(slv_reg2[13]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[14] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[15]_i_1_n_0 ),
         .D(s00_axi_wdata[14]),
         .Q(slv_reg2[14]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[15] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[15]_i_1_n_0 ),
         .D(s00_axi_wdata[15]),
         .Q(slv_reg2[15]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[16] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[23]_i_1_n_0 ),
         .D(s00_axi_wdata[16]),
         .Q(slv_reg2[16]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[17] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[23]_i_1_n_0 ),
         .D(s00_axi_wdata[17]),
         .Q(slv_reg2[17]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[18] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[23]_i_1_n_0 ),
         .D(s00_axi_wdata[18]),
         .Q(slv_reg2[18]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[19] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[23]_i_1_n_0 ),
         .D(s00_axi_wdata[19]),
         .Q(slv_reg2[19]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[1] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[1]),
         .Q(slv_reg2[1]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[20] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[23]_i_1_n_0 ),
         .D(s00_axi_wdata[20]),
         .Q(slv_reg2[20]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[21] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[23]_i_1_n_0 ),
         .D(s00_axi_wdata[21]),
         .Q(slv_reg2[21]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[22] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[23]_i_1_n_0 ),
         .D(s00_axi_wdata[22]),
         .Q(slv_reg2[22]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[23] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[23]_i_1_n_0 ),
         .D(s00_axi_wdata[23]),
         .Q(slv_reg2[23]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[24] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[31]_i_1_n_0 ),
         .D(s00_axi_wdata[24]),
         .Q(slv_reg2[24]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[25] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[31]_i_1_n_0 ),
         .D(s00_axi_wdata[25]),
         .Q(slv_reg2[25]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[26] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[31]_i_1_n_0 ),
         .D(s00_axi_wdata[26]),
         .Q(slv_reg2[26]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[27] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[31]_i_1_n_0 ),
         .D(s00_axi_wdata[27]),
         .Q(slv_reg2[27]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[28] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[31]_i_1_n_0 ),
         .D(s00_axi_wdata[28]),
         .Q(slv_reg2[28]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[29] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[31]_i_1_n_0 ),
         .D(s00_axi_wdata[29]),
         .Q(slv_reg2[29]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[2] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[2]),
         .Q(slv_reg2[2]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[30] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[31]_i_1_n_0 ),
         .D(s00_axi_wdata[30]),
         .Q(slv_reg2[30]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[31] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[31]_i_1_n_0 ),
         .D(s00_axi_wdata[31]),
         .Q(slv_reg2[31]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[3] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[3]),
         .Q(slv_reg2[3]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[4] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[4]),
         .Q(slv_reg2[4]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[5] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[5]),
         .Q(slv_reg2[5]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[6] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[6]),
         .Q(slv_reg2[6]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[7] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[7]),
         .Q(slv_reg2[7]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[8] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[15]_i_1_n_0 ),
         .D(s00_axi_wdata[8]),
         .Q(slv_reg2[8]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg2_reg[9] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[15]_i_1_n_0 ),
         .D(s00_axi_wdata[9]),
         .Q(slv_reg2[9]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   LUT6 #(
     .INIT(64'h8880008000000000)) 
     \slv_reg3[15]_i_1 
@@ -1645,216 +1661,216 @@ module design_1_axi_pulsegen_0_0_axi_pulsegen_slave_lite_v1_0_S00_AXI
         .CE(p_1_in[7]),
         .D(s00_axi_wdata[0]),
         .Q(slv_reg3[0]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[10] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[15]),
         .D(s00_axi_wdata[10]),
         .Q(slv_reg3[10]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[11] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[15]),
         .D(s00_axi_wdata[11]),
         .Q(slv_reg3[11]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[12] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[15]),
         .D(s00_axi_wdata[12]),
         .Q(slv_reg3[12]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[13] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[15]),
         .D(s00_axi_wdata[13]),
         .Q(slv_reg3[13]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[14] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[15]),
         .D(s00_axi_wdata[14]),
         .Q(slv_reg3[14]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[15] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[15]),
         .D(s00_axi_wdata[15]),
         .Q(slv_reg3[15]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[16] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[23]),
         .D(s00_axi_wdata[16]),
         .Q(slv_reg3[16]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[17] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[23]),
         .D(s00_axi_wdata[17]),
         .Q(slv_reg3[17]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[18] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[23]),
         .D(s00_axi_wdata[18]),
         .Q(slv_reg3[18]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[19] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[23]),
         .D(s00_axi_wdata[19]),
         .Q(slv_reg3[19]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[1] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[7]),
         .D(s00_axi_wdata[1]),
         .Q(slv_reg3[1]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[20] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[23]),
         .D(s00_axi_wdata[20]),
         .Q(slv_reg3[20]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[21] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[23]),
         .D(s00_axi_wdata[21]),
         .Q(slv_reg3[21]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[22] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[23]),
         .D(s00_axi_wdata[22]),
         .Q(slv_reg3[22]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[23] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[23]),
         .D(s00_axi_wdata[23]),
         .Q(slv_reg3[23]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[24] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[31]),
         .D(s00_axi_wdata[24]),
         .Q(slv_reg3[24]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[25] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[31]),
         .D(s00_axi_wdata[25]),
         .Q(slv_reg3[25]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[26] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[31]),
         .D(s00_axi_wdata[26]),
         .Q(slv_reg3[26]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[27] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[31]),
         .D(s00_axi_wdata[27]),
         .Q(slv_reg3[27]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[28] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[31]),
         .D(s00_axi_wdata[28]),
         .Q(slv_reg3[28]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[29] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[31]),
         .D(s00_axi_wdata[29]),
         .Q(slv_reg3[29]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[2] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[7]),
         .D(s00_axi_wdata[2]),
         .Q(slv_reg3[2]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[30] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[31]),
         .D(s00_axi_wdata[30]),
         .Q(slv_reg3[30]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[31] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[31]),
         .D(s00_axi_wdata[31]),
         .Q(slv_reg3[31]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[3] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[7]),
         .D(s00_axi_wdata[3]),
         .Q(slv_reg3[3]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[4] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[7]),
         .D(s00_axi_wdata[4]),
         .Q(slv_reg3[4]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[5] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[7]),
         .D(s00_axi_wdata[5]),
         .Q(slv_reg3[5]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[6] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[7]),
         .D(s00_axi_wdata[6]),
         .Q(slv_reg3[6]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[7] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[7]),
         .D(s00_axi_wdata[7]),
         .Q(slv_reg3[7]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[8] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[15]),
         .D(s00_axi_wdata[8]),
         .Q(slv_reg3[8]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
   FDRE \slv_reg3_reg[9] 
        (.C(s00_axi_aclk),
         .CE(p_1_in[15]),
         .D(s00_axi_wdata[9]),
         .Q(slv_reg3[9]),
-        .R(pulsegen_inst_n_1));
+        .R(axi_awready_i_1_n_0));
 endmodule
 
 (* ORIG_REF_NAME = "pulsegen" *) 
 module design_1_axi_pulsegen_0_0_pulsegen
    (pulse_out,
-    SR,
     s00_axi_aclk,
+    pulsegen_reset,
+    s00_axi_aresetn,
     Q,
     \width_reg_reg[31]_0 ,
     \width_reg_reg[0]_0 ,
-    \period_reg_reg[31]_0 ,
-    s00_axi_aresetn);
+    \period_reg_reg[31]_0 );
   output pulse_out;
-  output [0:0]SR;
   input s00_axi_aclk;
+  input pulsegen_reset;
+  input s00_axi_aresetn;
   input [0:0]Q;
   input [31:0]\width_reg_reg[31]_0 ;
   input [0:0]\width_reg_reg[0]_0 ;
   input [31:0]\period_reg_reg[31]_0 ;
-  input s00_axi_aresetn;
 
   wire [0:0]Q;
-  wire [0:0]SR;
+  wire combined_reset;
   wire [31:0]counter;
   wire [31:1]counter0;
   wire counter1;
@@ -2058,6 +2074,7 @@ module design_1_axi_pulsegen_0_0_pulsegen
   wire pulse_out0_carry_n_2;
   wire pulse_out0_carry_n_3;
   wire pulse_out_i_1_n_0;
+  wire pulsegen_reset;
   wire s00_axi_aclk;
   wire s00_axi_aresetn;
   wire [31:0]width_reg;
@@ -2850,25 +2867,25 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \counter_reg[0] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[0]),
         .Q(counter[0]));
   FDCE \counter_reg[10] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[10]),
         .Q(counter[10]));
   FDCE \counter_reg[11] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[11]),
         .Q(counter[11]));
   FDCE \counter_reg[12] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[12]),
         .Q(counter[12]));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2882,25 +2899,25 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \counter_reg[13] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[13]),
         .Q(counter[13]));
   FDCE \counter_reg[14] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[14]),
         .Q(counter[14]));
   FDCE \counter_reg[15] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[15]),
         .Q(counter[15]));
   FDCE \counter_reg[16] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[16]),
         .Q(counter[16]));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2914,31 +2931,31 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \counter_reg[17] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[17]),
         .Q(counter[17]));
   FDCE \counter_reg[18] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[18]),
         .Q(counter[18]));
   FDCE \counter_reg[19] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[19]),
         .Q(counter[19]));
   FDCE \counter_reg[1] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[1]),
         .Q(counter[1]));
   FDCE \counter_reg[20] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[20]),
         .Q(counter[20]));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2952,25 +2969,25 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \counter_reg[21] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[21]),
         .Q(counter[21]));
   FDCE \counter_reg[22] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[22]),
         .Q(counter[22]));
   FDCE \counter_reg[23] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[23]),
         .Q(counter[23]));
   FDCE \counter_reg[24] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[24]),
         .Q(counter[24]));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2984,25 +3001,25 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \counter_reg[25] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[25]),
         .Q(counter[25]));
   FDCE \counter_reg[26] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[26]),
         .Q(counter[26]));
   FDCE \counter_reg[27] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[27]),
         .Q(counter[27]));
   FDCE \counter_reg[28] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[28]),
         .Q(counter[28]));
   (* ADDER_THRESHOLD = "35" *) 
@@ -3016,25 +3033,25 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \counter_reg[29] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[29]),
         .Q(counter[29]));
   FDCE \counter_reg[2] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[2]),
         .Q(counter[2]));
   FDCE \counter_reg[30] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[30]),
         .Q(counter[30]));
   FDCE \counter_reg[31] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[31]),
         .Q(counter[31]));
   (* ADDER_THRESHOLD = "35" *) 
@@ -3048,13 +3065,13 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \counter_reg[3] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[3]),
         .Q(counter[3]));
   FDCE \counter_reg[4] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[4]),
         .Q(counter[4]));
   (* ADDER_THRESHOLD = "35" *) 
@@ -3068,25 +3085,25 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \counter_reg[5] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[5]),
         .Q(counter[5]));
   FDCE \counter_reg[6] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[6]),
         .Q(counter[6]));
   FDCE \counter_reg[7] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[7]),
         .Q(counter[7]));
   FDCE \counter_reg[8] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[8]),
         .Q(counter[8]));
   (* ADDER_THRESHOLD = "35" *) 
@@ -3100,7 +3117,7 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \counter_reg[9] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(p_0_in[9]),
         .Q(counter[9]));
   LUT4 #(
@@ -3184,193 +3201,193 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \period_reg_reg[0] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [0]),
         .Q(period_reg[0]));
   FDCE \period_reg_reg[10] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [10]),
         .Q(period_reg[10]));
   FDCE \period_reg_reg[11] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [11]),
         .Q(period_reg[11]));
   FDCE \period_reg_reg[12] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [12]),
         .Q(period_reg[12]));
   FDPE \period_reg_reg[13] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [13]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[13]));
   FDPE \period_reg_reg[14] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [14]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[14]));
   FDPE \period_reg_reg[15] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [15]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[15]));
   FDPE \period_reg_reg[16] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [16]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[16]));
   FDCE \period_reg_reg[17] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [17]),
         .Q(period_reg[17]));
   FDPE \period_reg_reg[18] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [18]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[18]));
   FDCE \period_reg_reg[19] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [19]),
         .Q(period_reg[19]));
   FDCE \period_reg_reg[1] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [1]),
         .Q(period_reg[1]));
   FDPE \period_reg_reg[20] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [20]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[20]));
   FDPE \period_reg_reg[21] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [21]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[21]));
   FDPE \period_reg_reg[22] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [22]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[22]));
   FDPE \period_reg_reg[23] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [23]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[23]));
   FDPE \period_reg_reg[24] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [24]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[24]));
   FDCE \period_reg_reg[25] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [25]),
         .Q(period_reg[25]));
   FDPE \period_reg_reg[26] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [26]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[26]));
   FDCE \period_reg_reg[27] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [27]),
         .Q(period_reg[27]));
   FDCE \period_reg_reg[28] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [28]),
         .Q(period_reg[28]));
   FDCE \period_reg_reg[29] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [29]),
         .Q(period_reg[29]));
   FDCE \period_reg_reg[2] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [2]),
         .Q(period_reg[2]));
   FDCE \period_reg_reg[30] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [30]),
         .Q(period_reg[30]));
   FDCE \period_reg_reg[31] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [31]),
         .Q(period_reg[31]));
   FDCE \period_reg_reg[3] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [3]),
         .Q(period_reg[3]));
   FDCE \period_reg_reg[4] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [4]),
         .Q(period_reg[4]));
   FDCE \period_reg_reg[5] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [5]),
         .Q(period_reg[5]));
   FDCE \period_reg_reg[6] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [6]),
         .Q(period_reg[6]));
   FDCE \period_reg_reg[7] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [7]),
         .Q(period_reg[7]));
   FDPE \period_reg_reg[8] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
         .D(\period_reg_reg[31]_0 [8]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(period_reg[8]));
   FDCE \period_reg_reg[9] 
        (.C(s00_axi_aclk),
         .CE(period_reg_1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\period_reg_reg[31]_0 [9]),
         .Q(period_reg[9]));
   (* COMPARATOR_THRESHOLD = "11" *) 
@@ -3667,15 +3684,16 @@ module design_1_axi_pulsegen_0_0_pulsegen
        (.I0(Q),
         .I1(pulse_out0_carry__2_n_0),
         .O(pulse_out_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
+  LUT2 #(
+    .INIT(4'hB)) 
     pulse_out_i_2
-       (.I0(s00_axi_aresetn),
-        .O(SR));
+       (.I0(pulsegen_reset),
+        .I1(s00_axi_aresetn),
+        .O(combined_reset));
   FDCE pulse_out_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(pulse_out_i_1_n_0),
         .Q(pulse_out));
   LUT4 #(
@@ -3759,193 +3777,193 @@ module design_1_axi_pulsegen_0_0_pulsegen
   FDCE \width_reg_reg[0] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [0]),
         .Q(width_reg[0]));
   FDCE \width_reg_reg[10] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [10]),
         .Q(width_reg[10]));
   FDCE \width_reg_reg[11] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [11]),
         .Q(width_reg[11]));
   FDPE \width_reg_reg[12] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [12]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[12]));
   FDPE \width_reg_reg[13] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [13]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[13]));
   FDPE \width_reg_reg[14] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [14]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[14]));
   FDPE \width_reg_reg[15] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [15]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[15]));
   FDCE \width_reg_reg[16] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [16]),
         .Q(width_reg[16]));
   FDPE \width_reg_reg[17] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [17]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[17]));
   FDCE \width_reg_reg[18] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [18]),
         .Q(width_reg[18]));
   FDPE \width_reg_reg[19] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [19]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[19]));
   FDCE \width_reg_reg[1] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [1]),
         .Q(width_reg[1]));
   FDPE \width_reg_reg[20] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [20]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[20]));
   FDPE \width_reg_reg[21] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [21]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[21]));
   FDPE \width_reg_reg[22] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [22]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[22]));
   FDPE \width_reg_reg[23] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [23]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[23]));
   FDCE \width_reg_reg[24] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [24]),
         .Q(width_reg[24]));
   FDPE \width_reg_reg[25] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [25]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[25]));
   FDCE \width_reg_reg[26] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [26]),
         .Q(width_reg[26]));
   FDCE \width_reg_reg[27] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [27]),
         .Q(width_reg[27]));
   FDCE \width_reg_reg[28] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [28]),
         .Q(width_reg[28]));
   FDCE \width_reg_reg[29] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [29]),
         .Q(width_reg[29]));
   FDCE \width_reg_reg[2] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [2]),
         .Q(width_reg[2]));
   FDCE \width_reg_reg[30] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [30]),
         .Q(width_reg[30]));
   FDCE \width_reg_reg[31] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [31]),
         .Q(width_reg[31]));
   FDCE \width_reg_reg[3] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [3]),
         .Q(width_reg[3]));
   FDCE \width_reg_reg[4] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [4]),
         .Q(width_reg[4]));
   FDCE \width_reg_reg[5] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [5]),
         .Q(width_reg[5]));
   FDCE \width_reg_reg[6] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [6]),
         .Q(width_reg[6]));
   FDPE \width_reg_reg[7] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
         .D(\width_reg_reg[31]_0 [7]),
-        .PRE(SR),
+        .PRE(combined_reset),
         .Q(width_reg[7]));
   FDCE \width_reg_reg[8] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [8]),
         .Q(width_reg[8]));
   FDCE \width_reg_reg[9] 
        (.C(s00_axi_aclk),
         .CE(width_reg_0),
-        .CLR(SR),
+        .CLR(combined_reset),
         .D(\width_reg_reg[31]_0 [9]),
         .Q(width_reg[9]));
 endmodule

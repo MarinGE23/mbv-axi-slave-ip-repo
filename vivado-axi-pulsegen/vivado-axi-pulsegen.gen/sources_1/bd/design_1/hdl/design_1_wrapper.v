@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Sat Sep 27 03:48:18 2025
+//Date        : Sat Sep 27 08:31:00 2025
 //Host        : Emanuel running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -12,17 +12,20 @@
 
 module design_1_wrapper
    (pulse_out_0,
+    pulsegen_reset_0,
     reset,
     sys_clock,
     usb_uart_rxd,
     usb_uart_txd);
   output pulse_out_0;
+  input pulsegen_reset_0;
   input reset;
   input sys_clock;
   input usb_uart_rxd;
   output usb_uart_txd;
 
   wire pulse_out_0;
+  wire pulsegen_reset_0;
   wire reset;
   wire sys_clock;
   wire usb_uart_rxd;
@@ -30,6 +33,7 @@ module design_1_wrapper
 
   design_1 design_1_i
        (.pulse_out_0(pulse_out_0),
+        .pulsegen_reset_0(pulsegen_reset_0),
         .reset(reset),
         .sys_clock(sys_clock),
         .usb_uart_rxd(usb_uart_rxd),

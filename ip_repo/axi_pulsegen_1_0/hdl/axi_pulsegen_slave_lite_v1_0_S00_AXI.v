@@ -16,6 +16,7 @@ module axi_pulsegen_slave_lite_v1_0_S00_AXI #
     )
     (
         // Users to add ports here
+        input  wire pulsegen_reset,
         output wire pulse_out,  // Pulse output
         // User ports ends
         // Do not modify the ports beyond this line
@@ -327,6 +328,7 @@ module axi_pulsegen_slave_lite_v1_0_S00_AXI #
     ) pulsegen_inst (
         .clk(S_AXI_ACLK),
         .aresetn(S_AXI_ARESETN),
+        .pulsegen_reset(pulsegen_reset),
         .start(slv_reg0[0]),           // bit 0 of register 0
         .config_valid(slv_reg1[0]),    // bit 0 of register 1
         .period_in(slv_reg2),          // full 32-bit register 2

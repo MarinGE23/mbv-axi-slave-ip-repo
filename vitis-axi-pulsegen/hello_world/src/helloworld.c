@@ -23,23 +23,27 @@
 #include "xil_types.h"
 #include "xil_io.h"
 #include "xparameters.h"
-
+#include "sleep.h"
 
 int main()
 {
     init_platform();
-
-    print("Hello World\n\r");
-    print("Successfully ran Hello World application!!!");
-
-    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR + 4, 1); // config_valid = 1
-    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR + 8, 400000000); // period_in = 4s
-    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR + 12, 100000000); // width_in = 1s
-    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR + 4, 0); // config_valid = 0
-    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR, 1); // start = 1
-
-    while(1){}
-
+    print("AXI Pulse Gen Test\n\r");
+    
+    // Configure custom values
+    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR + 8, 400000000);  // 4s
+    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR + 12, 100000000); // 1s
+    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR + 4, 1);          // config_valid
+    usleep(1000);
+    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR + 4, 0);
+    Xil_Out32(XPAR_AXI_PULSEGEN_0_BASEADDR, 1);              // start
+    
+    print("Pulse gen configured: Period=4s, Width=1s\n\r");
+    
+    while(1) {
+        // Empty while loop
+    }
+    
     cleanup_platform();
     return 0;
 }

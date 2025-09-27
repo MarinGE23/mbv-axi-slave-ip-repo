@@ -2,7 +2,7 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
--- Date        : Sat Sep 27 03:54:54 2025
+-- Date        : Sat Sep 27 08:32:35 2025
 -- Host        : Emanuel running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/ip/design_1_axi_pulsegen_0_0/design_1_axi_pulsegen_0_0_stub.vhdl
@@ -15,6 +15,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity design_1_axi_pulsegen_0_0 is
   Port ( 
+    pulsegen_reset : in STD_LOGIC;
     pulse_out : out STD_LOGIC;
     s00_axi_aclk : in STD_LOGIC;
     s00_axi_aresetn : in STD_LOGIC;
@@ -42,7 +43,7 @@ entity design_1_axi_pulsegen_0_0 is
   attribute CHECK_LICENSE_TYPE : string;
   attribute CHECK_LICENSE_TYPE of design_1_axi_pulsegen_0_0 : entity is "design_1_axi_pulsegen_0_0,axi_pulsegen,{}";
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1_axi_pulsegen_0_0 : entity is "design_1_axi_pulsegen_0_0,axi_pulsegen,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_pulsegen,x_ipVersion=1.0,x_ipCoreRevision=3,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4,CLK_FREQ_HZ=100000000,PERIOD_DEF=100000000,WIDTH_DEF=50000000}";
+  attribute CORE_GENERATION_INFO of design_1_axi_pulsegen_0_0 : entity is "design_1_axi_pulsegen_0_0,axi_pulsegen,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_pulsegen,x_ipVersion=1.0,x_ipCoreRevision=4,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4,CLK_FREQ_HZ=100000000,PERIOD_DEF=100000000,WIDTH_DEF=50000000}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of design_1_axi_pulsegen_0_0 : entity is "yes";
 end design_1_axi_pulsegen_0_0;
@@ -51,12 +52,15 @@ architecture stub of design_1_axi_pulsegen_0_0 is
   attribute syn_black_box : boolean;
   attribute black_box_pad_pin : string;
   attribute syn_black_box of stub : architecture is true;
-  attribute black_box_pad_pin of stub : architecture is "pulse_out,s00_axi_aclk,s00_axi_aresetn,s00_axi_awaddr[3:0],s00_axi_awprot[2:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_araddr[3:0],s00_axi_arprot[2:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready";
+  attribute black_box_pad_pin of stub : architecture is "pulsegen_reset,pulse_out,s00_axi_aclk,s00_axi_aresetn,s00_axi_awaddr[3:0],s00_axi_awprot[2:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_araddr[3:0],s00_axi_arprot[2:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready";
   attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of s00_axi_aclk : signal is "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK";
+  attribute X_INTERFACE_INFO of pulsegen_reset : signal is "xilinx.com:signal:reset:1.0 pulsegen_reset RST";
   attribute X_INTERFACE_MODE : string;
-  attribute X_INTERFACE_MODE of s00_axi_aclk : signal is "slave";
+  attribute X_INTERFACE_MODE of pulsegen_reset : signal is "slave";
   attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of pulsegen_reset : signal is "XIL_INTERFACENAME pulsegen_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of s00_axi_aclk : signal is "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK";
+  attribute X_INTERFACE_MODE of s00_axi_aclk : signal is "slave";
   attribute X_INTERFACE_PARAMETER of s00_axi_aclk : signal is "XIL_INTERFACENAME S00_AXI_CLK, ASSOCIATED_BUSIF S00_AXI, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s00_axi_aresetn : signal is "xilinx.com:signal:reset:1.0 S00_AXI_RST RST";
   attribute X_INTERFACE_MODE of s00_axi_aresetn : signal is "slave";
