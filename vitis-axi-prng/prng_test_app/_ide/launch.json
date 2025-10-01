@@ -4,7 +4,7 @@
     {
       "type": "tcf-debug",
       "request": "launch",
-      "name": "hello_world_app_hw_1",
+      "name": "prng_test_app_app_hw_1",
       "debugType": "baremetal-fpga",
       "attachToRunningTargetOptions": {
         "targetSetupMode": "standalone",
@@ -27,12 +27,12 @@
           "plDevice": "Auto Detect",
           "psDevice": "Auto Detect"
         },
-        "bitstreamFile": "${workspaceFolder}\\hello_world\\_ide\\bitstream\\design_1_wrapper.bit",
+        "bitstreamFile": "${workspaceFolder}\\prng_test_app\\_ide\\bitstream\\design_1_wrapper.bit",
         "downloadElf": [
           {
             "core": "microblaze_riscv_0",
             "resetProcessor": true,
-            "elfFile": "${workspaceFolder}\\hello_world\\build\\hello_world.elf",
+            "elfFile": "${workspaceFolder}\\prng_test_app\\build\\prng_test_app.elf",
             "stopAtEntry": false,
             "isSelfRelocatingApp": false,
             "relativeAddress": ""

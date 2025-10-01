@@ -1,83 +1,84 @@
+/**
+ * @file axi_prng.h
+ * @brief Driver for AXI PRNG (Pseudo-Random Number Generator) IP Core
+ * 
+ * This driver provides an interface to control and read from the AXI PRNG
+ * IP core that implements a 32-bit XorShift random number generator.
+ */
 
 #ifndef AXI_PRNG_H
 #define AXI_PRNG_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-/****************** Include Files ********************/
+/***************************** Include Files *********************************/
 #include "xil_types.h"
+#include "xil_assert.h"
 #include "xstatus.h"
+#include "xil_io.h"
 
-#define AXI_PRNG_S00_AXI_SLV_REG0_OFFSET 0
-#define AXI_PRNG_S00_AXI_SLV_REG1_OFFSET 4
-#define AXI_PRNG_S00_AXI_SLV_REG2_OFFSET 8
-#define AXI_PRNG_S00_AXI_SLV_REG3_OFFSET 12
-#define AXI_PRNG_S00_AXI_SLV_REG4_OFFSET 16
-#define AXI_PRNG_S00_AXI_SLV_REG5_OFFSET 20
-#define AXI_PRNG_S00_AXI_SLV_REG6_OFFSET 24
-#define AXI_PRNG_S00_AXI_SLV_REG7_OFFSET 28
+/************************** Constant Definitions *****************************/
 
-
-/**************************** Type Definitions *****************************/
-/**
- *
- * Write a value to a AXI_PRNG register. A 32 bit write is performed.
- * If the component is implemented in a smaller width, only the least
- * significant data is written.
- *
- * @param   BaseAddress is the base address of the AXI_PRNGdevice.
- * @param   RegOffset is the register offset from the base to write to.
- * @param   Data is the data written to the register.
- *
- * @return  None.
- *
- * @note
- * C-style signature:
- * 	void AXI_PRNG_mWriteReg(u32 BaseAddress, unsigned RegOffset, u32 Data)
- *
- */
-#define AXI_PRNG_mWriteReg(BaseAddress, RegOffset, Data) \
-  	Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+/**************************** Type Definitions *******************************/
 
 /**
- *
- * Read a value from a AXI_PRNG register. A 32 bit read is performed.
- * If the component is implemented in a smaller width, only the least
- * significant data is read from the register. The most significant data
- * will be read as 0.
- *
- * @param   BaseAddress is the base address of the AXI_PRNG device.
- * @param   RegOffset is the register offset from the base to write to.
- *
- * @return  Data is the data from the register.
- *
- * @note
- * C-style signature:
- * 	u32 AXI_PRNG_mReadReg(u32 BaseAddress, unsigned RegOffset)
- *
+ * AXI PRNG driver instance data
  */
-#define AXI_PRNG_mReadReg(BaseAddress, RegOffset) \
+typedef struct {
+    u32 BaseAddress;    /**< Base address of the device */
+    u32 IsReady;        /**< Device is initialized and ready */
+} axi_prng_t;
+
+/**
+ * Register map (offsets)
+ */
+enum {
+    PRNG_REG_ENABLE          = 0x00u,
+    PRNG_REG_UPDATE_SEED     = 0x04u,
+    PRNG_REG_NEW_SEED        = 0x08u,
+    PRNG_REG_UPDATE_RANGE    = 0x0Cu,
+    PRNG_REG_NEW_LOW         = 0x10u,
+    PRNG_REG_NEW_HIGH        = 0x14u,
+    PRNG_REG_RANDOM_RAW      = 0x18u,
+    PRNG_REG_RANDOM_IN_RANGE = 0x1Cu
+};
+
+/***************** Macros (Inline Functions) Definitions *********************/
+
+/**
+ * Read from a PRNG register
+ */
+#define AXI_PRNG_READ_REG(BaseAddress, RegOffset) \
     Xil_In32((BaseAddress) + (RegOffset))
 
-/************************** Function Prototypes ****************************/
 /**
- *
- * Run a self-test on the driver/device. Note this may be a destructive test if
- * resets of the device are performed.
- *
- * If the hardware system is not built correctly, this function may never
- * return to the caller.
- *
- * @param   baseaddr_p is the base address of the AXI_PRNG instance to be worked on.
- *
- * @return
- *
- *    - XST_SUCCESS   if all self-test code passed
- *    - XST_FAILURE   if any self-test code failed
- *
- * @note    Caching must be turned off for this function to work.
- * @note    Self test may fail if data memory and device are not on the same bus.
- *
+ * Write to a PRNG register
  */
-XStatus AXI_PRNG_Reg_SelfTest(void * baseaddr_p);
+#define AXI_PRNG_WRITE_REG(BaseAddress, RegOffset, Data) \
+    Xil_Out32((BaseAddress) + (RegOffset), (Data))
 
-#endif // AXI_PRNG_H
+/************************** Function Prototypes ******************************/
+
+/* Initialization and control functions */
+void Prng_Initialize(axi_prng_t *InstancePtr, u32 BaseAddress);
+void Prng_Enable(axi_prng_t *InstancePtr);
+void Prng_Disable(axi_prng_t *InstancePtr);
+void Prng_Reset(axi_prng_t *InstancePtr);
+
+/* Seed configuration function */
+void Prng_ChangeSeed(axi_prng_t *InstancePtr, u32 Seed);
+
+/* Range configuration function */
+void Prng_ChanceRange(axi_prng_t *InstancePtr, u32 Low, u32 High);
+
+/* Data read functions */
+u32 Prng_Random(axi_prng_t *InstancePtr);
+u32 Prng_RawRandom(axi_prng_t *InstancePtr);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* AXI_PRNG_H */

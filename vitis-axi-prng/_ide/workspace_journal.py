@@ -1,4 +1,4 @@
-# 2025-09-27T18:59:08.951666400
+# 2025-10-01T09:43:36.891008700
 import vitis
 
 client = vitis.create_client()
@@ -11,11 +11,11 @@ platform = client.create_platform_component(name = "platform",hw_design = "$COMP
 platform = client.get_component(name="platform")
 status = platform.build()
 
-comp = client.create_app_component(name="hello_world",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
+comp = client.create_app_component(name="prng_test_app",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
 
 status = platform.build()
 
-comp = client.get_component(name="hello_world")
+comp = client.get_component(name="prng_test_app")
 comp.build()
 
 status = platform.build()
@@ -32,8 +32,6 @@ comp.build()
 
 status = platform.build()
 
-comp.build()
-
 status = platform.build()
 
 comp.build()
@@ -42,52 +40,14 @@ status = platform.build()
 
 comp.build()
 
-status = platform.build()
+comp = client.get_component(name="prng_test_app")
+status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_prng_v1_0/src", files=["axi_prng.c"], dest_dir_in_cmp = "src")
 
-comp.build()
-
-status = platform.build()
-
-comp.build()
+status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_prng_v1_0/src", files=["axi_prng.h"], dest_dir_in_cmp = "src")
 
 status = platform.build()
 
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
+comp = client.get_component(name="prng_test_app")
 comp.build()
 
 vitis.dispose()
