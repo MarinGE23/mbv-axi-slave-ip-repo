@@ -3,10 +3,10 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Tue Sep 30 19:58:14 2025
-# Process ID         : 27500
+# Start of session at: Wed Oct  1 09:03:31 2025
+# Process ID         : 25396
 # Current directory  : C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo
-# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent26972 C:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\edit_axi_prng_v1_0.xpr
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent12116 C:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\edit_axi_prng_v1_0.xpr
 # Log file           : C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/vivado.log
 # Journal file       : C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo\vivado.jou
 # Running On         : Emanuel
@@ -19,7 +19,7 @@
 # Host memory        : 14968 MB
 # Swap memory        : 9126 MB
 # Total Virtual      : 24094 MB
-# Available Virtual  : 4233 MB
+# Available Virtual  : 7182 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/edit_axi_prng_v1_0.xpr
@@ -130,8 +130,35 @@ INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instanc
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_prng_1_0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/2025.1/Vivado/data/ip'.
-open_project: Time (s): cpu = 00:00:31 ; elapsed = 00:00:14 . Memory (MB): peak = 1592.098 ; gain = 149.918
+open_project: Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1605.816 ; gain = 259.746
 update_compile_order -fileset sources_1
 ipx::open_ipxact_file {C:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\component.xml}
+set_property description {AXI4-Lite slave peripheral for a Pseudo-Random Number Generator (PRNG) using XorShift32.} [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+set_property core_revision 6 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+WARNING: [IP_Flow 19-11889] HDL Parameter 'C_S00_AXI_DATA_WIDTH (C S00 AXI DATA WIDTH)': Order is obsolete with XGUI version >= 2.0
+WARNING: [IP_Flow 19-11889] HDL Parameter 'C_S00_AXI_ADDR_WIDTH (C S00 AXI ADDR WIDTH)': Order is obsolete with XGUI version >= 2.0
+WARNING: [IP_Flow 19-11770] Clock interface 'S00_AXI_CLK' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-2181] Payment is not required for this core.
+INFO: [Ipptcl 7-1486] check_integrity: Integrity check passed.
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_prng_1_0
+INFO: [IP_Flow 19-725] Reloaded user IP repository 'c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_prng_1_0'
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\src\xorshift32_rng_tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\drivers\axi_prng_v1_0\src\axi_prng.h:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\drivers\axi_prng_v1_0\src\axi_prng.c:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\src\xorshift32_rng.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\drivers\axi_prng_v1_0\src\axi_prng.c:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\drivers\axi_prng_v1_0\src\axi_prng.c:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\src\xorshift32_rng_tb.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\drivers\axi_prng_v1_0\src\axi_prng.h:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\drivers\axi_prng_v1_0\src\axi_prng.c:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\src\xorshift32_rng.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\drivers\axi_prng_v1_0\src\axi_prng.h:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Users\emari\Desktop\mbv-axi-slave-ip-repo\ip_repo\axi_prng_1_0\drivers\axi_prng_v1_0\src\axi_prng.h:]
 exit
-INFO: [Common 17-206] Exiting Vivado at Tue Sep 30 19:59:11 2025...
+INFO: [Common 17-206] Exiting Vivado at Wed Oct  1 09:16:28 2025...

@@ -2,10 +2,10 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-// Date        : Sat Sep 27 18:43:33 2025
+// Date        : Sat Sep 27 18:43:27 2025
 // Host        : Emanuel running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-prng/vivado-axi-prng.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/design_1_axi_smc_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top design_1_axi_smc_0 -prefix
+//               design_1_axi_smc_0_ design_1_axi_smc_0_stub.v
 // Design      : design_1_axi_smc_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1

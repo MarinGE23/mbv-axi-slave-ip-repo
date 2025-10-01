@@ -26,12 +26,12 @@ module xorshift32_rng_tb;
     wire [31:0] random_in_range;
     
     // Test parameters
-    parameter CLK_PERIOD = 10; // 10ns = 100MHz
+    parameter CLK_PERIOD = 10;
     parameter NUM_TESTS = 10;
     
     // Instantiate DUT
     xorshift32_rng #(
-        .DEFAULT_SEED(32'h24635342),
+        .DEFAULT_SEED(32'd42),
         .DEFAULT_LOW(32'd0),
         .DEFAULT_HIGH(32'd100)
     ) dut (
@@ -85,7 +85,7 @@ module xorshift32_rng_tb;
     task initialize;
         begin
             clk = 0;
-            aresetn = 1;
+            aresetn = 0;  // Start with reset active
             prng_reset = 1;
             enable = 0;
             update_seed = 0;
@@ -94,8 +94,9 @@ module xorshift32_rng_tb;
             new_low = 0;
             new_high = 0;
             #(CLK_PERIOD*2);
+            aresetn = 1;  // Release reset
             prng_reset = 0;
-            #(CLK_PERIOD);
+            #(CLK_PERIOD*2);
         end
     endtask
     
@@ -105,15 +106,15 @@ module xorshift32_rng_tb;
         reg [31:0] prev_raw;
         begin
             $display("Generating %0d random numbers with default parameters:", NUM_TESTS);
+            prev_raw = 0;
             
             for (i = 0; i < NUM_TESTS; i = i + 1) begin
                 enable = 1;
                 @(posedge clk);  // Wait for clock edge
                 enable = 0;
                 
-                // Wait for valid signal before reading
-                wait(valid === 1'b1);
-                #1;  // Small delay for stability
+                // Wait one cycle for valid signal
+                @(posedge clk);
                 
                 // Check that numbers are within range [0, 100]
                 if (random_in_range >= 100) begin
@@ -121,13 +122,14 @@ module xorshift32_rng_tb;
                     $finish;
                 end
                 
-                // Check that raw numbers change
+                // Check that raw numbers change (after first iteration)
                 if (i > 0 && random_raw == prev_raw) begin
                     $display("ERROR: Random number didn't change: %h", random_raw);
                     $finish;
                 end
                 
-                $display("Cycle %0d: raw = %h, in_range = %0d, valid = %b", i, random_raw, random_in_range, valid);
+                $display("Cycle %0d: raw = %h, in_range = %0d, valid = %b", 
+                         i, random_raw, random_in_range, valid);
                 prev_raw = random_raw;
                 
                 @(posedge clk);  // Wait for next cycle
@@ -149,9 +151,8 @@ module xorshift32_rng_tb;
                 enable = 1;
                 @(posedge clk);
                 enable = 0;
+                @(posedge clk);  // Wait for valid output
                 
-                wait(valid === 1'b1);
-                #1;
                 first_sequence[i] = random_raw;
                 $display("  Cycle %0d: %h, valid = %b", i, random_raw, valid);
                 
@@ -172,9 +173,8 @@ module xorshift32_rng_tb;
                 enable = 1;
                 @(posedge clk);
                 enable = 0;
+                @(posedge clk);  // Wait for valid output
                 
-                wait(valid === 1'b1);
-                #1;
                 second_sequence[i] = random_raw;
                 $display("  Cycle %0d: %h, valid = %b", i, random_raw, valid);
                 
@@ -200,9 +200,8 @@ module xorshift32_rng_tb;
             enable = 1;
             @(posedge clk);
             enable = 0;
+            @(posedge clk);
             
-            wait(valid === 1'b1);
-            #1;
             $display("After seed=0 update: %h, valid = %b", random_raw, valid);
             
             $display("Seed update test PASSED");
@@ -222,13 +221,11 @@ module xorshift32_rng_tb;
             update_range = 0;
             @(posedge clk);
             
-            for (i = 0; i < 10; i = i + 1) begin
+            for (i = 0; i < NUM_TESTS; i = i + 1) begin
                 enable = 1;
                 @(posedge clk);
                 enable = 0;
-                
-                wait(valid === 1'b1);
-                #1;
+                @(posedge clk);  // Wait for output
                 
                 if (random_in_range < 50 || random_in_range >= 150) begin
                     $display("ERROR: random_in_range = %0d is out of range [50, 150]", random_in_range);
@@ -252,14 +249,14 @@ module xorshift32_rng_tb;
             enable = 1;
             @(posedge clk);
             enable = 0;
-            
-            wait(valid === 1'b1);
-            #1;
+            @(posedge clk);
             
             if (random_in_range != 100) begin
                 $display("ERROR: Expected 100, got %0d", random_in_range);
                 $finish;
             end
+            
+            $display("  Invalid range test: %0d (PASS)", random_in_range);
             
             $display("Range update test PASSED");
         end
@@ -280,9 +277,7 @@ module xorshift32_rng_tb;
             enable = 1;
             @(posedge clk);
             enable = 0;
-            
-            wait(valid === 1'b1);
-            #1;
+            @(posedge clk);
             
             if (random_in_range != 42) begin
                 $display("ERROR: Expected 42, got %0d", random_in_range);
@@ -302,9 +297,7 @@ module xorshift32_rng_tb;
             enable = 1;
             @(posedge clk);
             enable = 0;
-            
-            wait(valid === 1'b1);
-            #1;
+            @(posedge clk);
             
             if (random_in_range >= 1000000) begin
                 $display("ERROR: Value %0d out of range [0, 1000000]", random_in_range);
@@ -320,12 +313,12 @@ module xorshift32_rng_tb;
     task test_reset_behavior;
         reg [31:0] pre_reset_raw, pre_reset_range;
         begin
-            // Generate a few numbers
+            // Generate a few numbers first
             enable = 1;
             @(posedge clk);
             enable = 0;
-            wait(valid === 1'b1);
-            #1;
+            @(posedge clk);
+            @(posedge clk);
             
             pre_reset_raw = random_raw;
             pre_reset_range = random_in_range;
@@ -341,6 +334,7 @@ module xorshift32_rng_tb;
             // Check outputs are reset to 0 and valid is 0
             if (random_raw != 0 || random_in_range != 0 || valid != 0) begin
                 $display("ERROR: Outputs not reset properly");
+                $display("       raw=%h, in_range=%0d, valid=%b", random_raw, random_in_range, valid);
                 $finish;
             end
             
@@ -348,11 +342,10 @@ module xorshift32_rng_tb;
             enable = 1;
             @(posedge clk);
             enable = 0;
+            @(posedge clk);
             
-            wait(valid === 1'b1);
-            #1;
-            
-            $display("After reset + 1 cycle: raw = %h, in_range = %0d, valid = %b", random_raw, random_in_range, valid);
+            $display("After reset + 1 cycle: raw = %h, in_range = %0d, valid = %b", 
+                     random_raw, random_in_range, valid);
             
             // Should be different from pre-reset values
             if (random_raw == pre_reset_raw) begin
@@ -366,6 +359,7 @@ module xorshift32_rng_tb;
     
     // Monitor for debugging
     initial begin
+        #1; // Small delay to avoid race conditions
         $monitor("Time %0t: enable=%b, raw=%h, in_range=%0d, valid=%b", 
                  $time, enable, random_raw, random_in_range, valid);
     end

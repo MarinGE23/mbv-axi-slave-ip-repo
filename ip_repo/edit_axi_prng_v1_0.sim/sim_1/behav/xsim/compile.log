@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_prng_1_0/src/xorshift32_rng.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module xorshift32_rng
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_prng_1_0/src/xorshift32_rng_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module xorshift32_rng_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/edit_axi_prng_v1_0.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

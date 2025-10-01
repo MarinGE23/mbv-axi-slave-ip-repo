@@ -589,9 +589,9 @@
       },
       "axi_prng_0": {
         "vlnv": "xilinx.com:user:axi_prng:1.0",
-        "ip_revision": "4",
-        "xci_name": "design_1_axi_prng_0_1",
-        "xci_path": "ip\\design_1_axi_prng_0_1\\design_1_axi_prng_0_1.xci",
+        "ip_revision": "6",
+        "xci_name": "design_1_axi_prng_0_0",
+        "xci_path": "ip\\design_1_axi_prng_0_0\\design_1_axi_prng_0_0.xci",
         "inst_hier_path": "axi_prng_0",
         "has_run_ip_tcl": "true"
       }

@@ -1,0 +1,244 @@
+Time resolution is 1 ps
+Time 1000: enable=0, raw=00000000, in_range=0, valid=0
+=== Test 1: Basic functionality ===
+Generating 10 random numbers with default parameters:
+Time 40000: enable=1, raw=00000000, in_range=0, valid=0
+Time 45000: enable=0, raw=00000000, in_range=0, valid=0
+Cycle 0: raw = 00000000, in_range = 0, valid = 0
+Time 65000: enable=1, raw=00ad4528, in_range=0, valid=1
+Time 75000: enable=0, raw=00ad4528, in_range=0, valid=0
+Cycle 1: raw = 00ad4528, in_range = 0, valid = 0
+Time 95000: enable=1, raw=a90a34ac, in_range=66, valid=1
+Time 105000: enable=0, raw=a90a34ac, in_range=66, valid=0
+Cycle 2: raw = a90a34ac, in_range = 66, valid = 0
+Time 125000: enable=1, raw=1c67af03, in_range=11, valid=1
+Time 135000: enable=0, raw=1c67af03, in_range=11, valid=0
+Cycle 3: raw = 1c67af03, in_range = 11, valid = 0
+Time 155000: enable=1, raw=d970c3c0, in_range=84, valid=1
+Time 165000: enable=0, raw=d970c3c0, in_range=84, valid=0
+Cycle 4: raw = d970c3c0, in_range = 84, valid = 0
+Time 185000: enable=1, raw=e01ccbc4, in_range=87, valid=1
+Time 195000: enable=0, raw=e01ccbc4, in_range=87, valid=0
+Cycle 5: raw = e01ccbc4, in_range = 87, valid = 0
+Time 215000: enable=1, raw=55ea99b6, in_range=33, valid=1
+Time 225000: enable=0, raw=55ea99b6, in_range=33, valid=0
+Cycle 6: raw = 55ea99b6, in_range = 33, valid = 0
+Time 245000: enable=1, raw=dd5701d8, in_range=86, valid=1
+Time 255000: enable=0, raw=dd5701d8, in_range=86, valid=0
+Cycle 7: raw = dd5701d8, in_range = 86, valid = 0
+Time 275000: enable=1, raw=90eff2ae, in_range=56, valid=1
+Time 285000: enable=0, raw=90eff2ae, in_range=56, valid=0
+Cycle 8: raw = 90eff2ae, in_range = 56, valid = 0
+Time 305000: enable=1, raw=b9fabb93, in_range=72, valid=1
+Time 315000: enable=0, raw=b9fabb93, in_range=72, valid=0
+Cycle 9: raw = b9fabb93, in_range = 72, valid = 0
+Basic functionality test PASSED
+
+=== Test 2: Seed update ===
+First sequence with default seed:
+Time 335000: enable=1, raw=3f9d3637, in_range=24, valid=1
+Time 345000: enable=0, raw=3f9d3637, in_range=24, valid=0
+  Cycle 0: 3f9d3637, valid = 0
+Time 365000: enable=1, raw=b228c9da, in_range=69, valid=1
+Time 375000: enable=0, raw=b228c9da, in_range=69, valid=0
+  Cycle 1: b228c9da, valid = 0
+Time 395000: enable=1, raw=c9685633, in_range=78, valid=1
+Time 405000: enable=0, raw=c9685633, in_range=78, valid=0
+  Cycle 2: c9685633, valid = 0
+Time 425000: enable=1, raw=b664ab64, in_range=71, valid=1
+Time 435000: enable=0, raw=b664ab64, in_range=71, valid=0
+  Cycle 3: b664ab64, valid = 0
+Time 455000: enable=1, raw=420f66e0, in_range=25, valid=1
+Time 465000: enable=0, raw=420f66e0, in_range=25, valid=0
+  Cycle 4: 420f66e0, valid = 0
+Updating seed to 32'hDEADBEEF
+Second sequence with new seed:
+Time 505000: enable=1, raw=477d20b7, in_range=27, valid=1
+Time 515000: enable=0, raw=477d20b7, in_range=27, valid=0
+  Cycle 0: 477d20b7, valid = 0
+Time 535000: enable=1, raw=8e1d9142, in_range=55, valid=1
+Time 545000: enable=0, raw=8e1d9142, in_range=55, valid=0
+  Cycle 1: 8e1d9142, valid = 0
+Time 565000: enable=1, raw=ba8c2458, in_range=72, valid=1
+Time 575000: enable=0, raw=ba8c2458, in_range=72, valid=0
+  Cycle 2: ba8c2458, valid = 0
+Time 595000: enable=1, raw=fee0503b, in_range=99, valid=1
+Time 605000: enable=0, raw=fee0503b, in_range=99, valid=0
+  Cycle 3: fee0503b, valid = 0
+Time 625000: enable=1, raw=680e0348, in_range=40, valid=1
+Time 635000: enable=0, raw=680e0348, in_range=40, valid=0
+  Cycle 4: 680e0348, valid = 0
+Testing seed = 0 (should use DEFAULT_SEED)
+Time 675000: enable=1, raw=00ad4528, in_range=0, valid=1
+Time 685000: enable=0, raw=00ad4528, in_range=0, valid=0
+After seed=0 update: 00ad4528, valid = 0
+Seed update test PASSED
+
+=== Test 3: Range update ===
+Testing range update to [50, 150]:
+Time 715000: enable=1, raw=a90a34ac, in_range=116, valid=1
+Time 725000: enable=0, raw=a90a34ac, in_range=116, valid=0
+  Cycle 0: in_range = 116, valid = 0
+Time 745000: enable=1, raw=1c67af03, in_range=61, valid=1
+Time 755000: enable=0, raw=1c67af03, in_range=61, valid=0
+  Cycle 1: in_range = 61, valid = 0
+Time 775000: enable=1, raw=d970c3c0, in_range=134, valid=1
+Time 785000: enable=0, raw=d970c3c0, in_range=134, valid=0
+  Cycle 2: in_range = 134, valid = 0
+Time 805000: enable=1, raw=e01ccbc4, in_range=137, valid=1
+Time 815000: enable=0, raw=e01ccbc4, in_range=137, valid=0
+  Cycle 3: in_range = 137, valid = 0
+Time 835000: enable=1, raw=55ea99b6, in_range=83, valid=1
+Time 845000: enable=0, raw=55ea99b6, in_range=83, valid=0
+  Cycle 4: in_range = 83, valid = 0
+Time 865000: enable=1, raw=dd5701d8, in_range=136, valid=1
+Time 875000: enable=0, raw=dd5701d8, in_range=136, valid=0
+  Cycle 5: in_range = 136, valid = 0
+Time 895000: enable=1, raw=90eff2ae, in_range=106, valid=1
+Time 905000: enable=0, raw=90eff2ae, in_range=106, valid=0
+  Cycle 6: in_range = 106, valid = 0
+Time 925000: enable=1, raw=b9fabb93, in_range=122, valid=1
+Time 935000: enable=0, raw=b9fabb93, in_range=122, valid=0
+  Cycle 7: in_range = 122, valid = 0
+Time 955000: enable=1, raw=3f9d3637, in_range=74, valid=1
+Time 965000: enable=0, raw=3f9d3637, in_range=74, valid=0
+  Cycle 8: in_range = 74, valid = 0
+Time 985000: enable=1, raw=b228c9da, in_range=119, valid=1
+Time 995000: enable=0, raw=b228c9da, in_range=119, valid=0
+Time 1000: enable=0, raw=00000000, in_range=0, valid=0
+=== Test 1: Basic functionality ===
+Generating 10 random numbers with default parameters:
+Time 40000: enable=1, raw=00000000, in_range=0, valid=0
+Time 45000: enable=0, raw=00000000, in_range=0, valid=0
+Cycle 0: raw = 00000000, in_range = 0, valid = 0
+Time 65000: enable=1, raw=00ad4528, in_range=0, valid=1
+Time 75000: enable=0, raw=00ad4528, in_range=0, valid=0
+Cycle 1: raw = 00ad4528, in_range = 0, valid = 0
+Time 95000: enable=1, raw=a90a34ac, in_range=66, valid=1
+Time 105000: enable=0, raw=a90a34ac, in_range=66, valid=0
+Cycle 2: raw = a90a34ac, in_range = 66, valid = 0
+Time 125000: enable=1, raw=1c67af03, in_range=11, valid=1
+Time 135000: enable=0, raw=1c67af03, in_range=11, valid=0
+Cycle 3: raw = 1c67af03, in_range = 11, valid = 0
+Time 155000: enable=1, raw=d970c3c0, in_range=84, valid=1
+Time 165000: enable=0, raw=d970c3c0, in_range=84, valid=0
+Cycle 4: raw = d970c3c0, in_range = 84, valid = 0
+Time 185000: enable=1, raw=e01ccbc4, in_range=87, valid=1
+Time 195000: enable=0, raw=e01ccbc4, in_range=87, valid=0
+Cycle 5: raw = e01ccbc4, in_range = 87, valid = 0
+Time 215000: enable=1, raw=55ea99b6, in_range=33, valid=1
+Time 225000: enable=0, raw=55ea99b6, in_range=33, valid=0
+Cycle 6: raw = 55ea99b6, in_range = 33, valid = 0
+Time 245000: enable=1, raw=dd5701d8, in_range=86, valid=1
+Time 255000: enable=0, raw=dd5701d8, in_range=86, valid=0
+Cycle 7: raw = dd5701d8, in_range = 86, valid = 0
+Time 275000: enable=1, raw=90eff2ae, in_range=56, valid=1
+Time 285000: enable=0, raw=90eff2ae, in_range=56, valid=0
+Cycle 8: raw = 90eff2ae, in_range = 56, valid = 0
+Time 305000: enable=1, raw=b9fabb93, in_range=72, valid=1
+Time 315000: enable=0, raw=b9fabb93, in_range=72, valid=0
+Cycle 9: raw = b9fabb93, in_range = 72, valid = 0
+Basic functionality test PASSED
+
+=== Test 2: Seed update ===
+First sequence with default seed:
+Time 335000: enable=1, raw=3f9d3637, in_range=24, valid=1
+Time 345000: enable=0, raw=3f9d3637, in_range=24, valid=0
+  Cycle 0: 3f9d3637, valid = 0
+Time 365000: enable=1, raw=b228c9da, in_range=69, valid=1
+Time 375000: enable=0, raw=b228c9da, in_range=69, valid=0
+  Cycle 1: b228c9da, valid = 0
+Time 395000: enable=1, raw=c9685633, in_range=78, valid=1
+Time 405000: enable=0, raw=c9685633, in_range=78, valid=0
+  Cycle 2: c9685633, valid = 0
+Time 425000: enable=1, raw=b664ab64, in_range=71, valid=1
+Time 435000: enable=0, raw=b664ab64, in_range=71, valid=0
+  Cycle 3: b664ab64, valid = 0
+Time 455000: enable=1, raw=420f66e0, in_range=25, valid=1
+Time 465000: enable=0, raw=420f66e0, in_range=25, valid=0
+  Cycle 4: 420f66e0, valid = 0
+Updating seed to 32'hDEADBEEF
+Second sequence with new seed:
+Time 505000: enable=1, raw=477d20b7, in_range=27, valid=1
+Time 515000: enable=0, raw=477d20b7, in_range=27, valid=0
+  Cycle 0: 477d20b7, valid = 0
+Time 535000: enable=1, raw=8e1d9142, in_range=55, valid=1
+Time 545000: enable=0, raw=8e1d9142, in_range=55, valid=0
+  Cycle 1: 8e1d9142, valid = 0
+Time 565000: enable=1, raw=ba8c2458, in_range=72, valid=1
+Time 575000: enable=0, raw=ba8c2458, in_range=72, valid=0
+  Cycle 2: ba8c2458, valid = 0
+Time 595000: enable=1, raw=fee0503b, in_range=99, valid=1
+Time 605000: enable=0, raw=fee0503b, in_range=99, valid=0
+  Cycle 3: fee0503b, valid = 0
+Time 625000: enable=1, raw=680e0348, in_range=40, valid=1
+Time 635000: enable=0, raw=680e0348, in_range=40, valid=0
+  Cycle 4: 680e0348, valid = 0
+Testing seed = 0 (should use DEFAULT_SEED)
+Time 675000: enable=1, raw=00ad4528, in_range=0, valid=1
+Time 685000: enable=0, raw=00ad4528, in_range=0, valid=0
+After seed=0 update: 00ad4528, valid = 0
+Seed update test PASSED
+
+=== Test 3: Range update ===
+Testing range update to [50, 150]:
+Time 715000: enable=1, raw=a90a34ac, in_range=116, valid=1
+Time 725000: enable=0, raw=a90a34ac, in_range=116, valid=0
+  Cycle 0: in_range = 116, valid = 0
+Time 745000: enable=1, raw=1c67af03, in_range=61, valid=1
+Time 755000: enable=0, raw=1c67af03, in_range=61, valid=0
+  Cycle 1: in_range = 61, valid = 0
+Time 775000: enable=1, raw=d970c3c0, in_range=134, valid=1
+Time 785000: enable=0, raw=d970c3c0, in_range=134, valid=0
+  Cycle 2: in_range = 134, valid = 0
+Time 805000: enable=1, raw=e01ccbc4, in_range=137, valid=1
+Time 815000: enable=0, raw=e01ccbc4, in_range=137, valid=0
+  Cycle 3: in_range = 137, valid = 0
+Time 835000: enable=1, raw=55ea99b6, in_range=83, valid=1
+Time 845000: enable=0, raw=55ea99b6, in_range=83, valid=0
+  Cycle 4: in_range = 83, valid = 0
+Time 865000: enable=1, raw=dd5701d8, in_range=136, valid=1
+Time 875000: enable=0, raw=dd5701d8, in_range=136, valid=0
+  Cycle 5: in_range = 136, valid = 0
+Time 895000: enable=1, raw=90eff2ae, in_range=106, valid=1
+Time 905000: enable=0, raw=90eff2ae, in_range=106, valid=0
+  Cycle 6: in_range = 106, valid = 0
+Time 925000: enable=1, raw=b9fabb93, in_range=122, valid=1
+Time 935000: enable=0, raw=b9fabb93, in_range=122, valid=0
+  Cycle 7: in_range = 122, valid = 0
+Time 955000: enable=1, raw=3f9d3637, in_range=74, valid=1
+Time 965000: enable=0, raw=3f9d3637, in_range=74, valid=0
+  Cycle 8: in_range = 74, valid = 0
+Time 985000: enable=1, raw=b228c9da, in_range=119, valid=1
+Time 995000: enable=0, raw=b228c9da, in_range=119, valid=0
+  Cycle 9: in_range = 119, valid = 0
+Testing invalid range [100, 50] (should become [100, 101]):
+Time 1035000: enable=1, raw=c9685633, in_range=100, valid=1
+Time 1045000: enable=0, raw=c9685633, in_range=100, valid=0
+  Invalid range test: 100 (PASS)
+Range update test PASSED
+
+=== Test 4: Edge cases ===
+Testing single value range [42, 43]:
+Time 1075000: enable=1, raw=b664ab64, in_range=42, valid=1
+Time 1085000: enable=0, raw=b664ab64, in_range=42, valid=0
+  Single value test: 42, valid = 0 (PASS)
+Testing large range [0, 1000000]:
+Time 1115000: enable=1, raw=420f66e0, in_range=258047, valid=1
+Time 1125000: enable=0, raw=420f66e0, in_range=258047, valid=0
+  Large range test: 258047, valid = 0 (PASS)
+Edge cases test PASSED
+
+=== Test 5: Reset behavior ===
+Time 1135000: enable=1, raw=74b500a9, in_range=455886, valid=1
+Time 1145000: enable=0, raw=74b500a9, in_range=455886, valid=0
+Before reset: raw = 74b500a9, in_range = 455886
+Applying reset...
+Time 1165000: enable=0, raw=00000000, in_range=0, valid=0
+Time 1185000: enable=1, raw=00ad4528, in_range=0, valid=1
+Time 1195000: enable=0, raw=00ad4528, in_range=0, valid=0
+After reset + 1 cycle: raw = 00ad4528, in_range = 0, valid = 0
+Reset behavior test PASSED
+
+=== All tests completed successfully! ===
+$finish called at time : 1305 ns : File "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_prng_1_0/src/xorshift32_rng_tb.v" Line 81

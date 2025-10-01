@@ -3,8 +3,8 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Sat Sep 27 18:45:31 2025
-# Process ID         : 21872
+# Start of session at: Wed Oct  1 09:21:05 2025
+# Process ID         : 25820
 # Current directory  : C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-prng/vivado-axi-prng.runs/synth_1
 # Command line       : vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file           : C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-prng/vivado-axi-prng.runs/synth_1/design_1_wrapper.vds
@@ -17,8 +17,8 @@
 # CPU Physical cores : 4
 # CPU Logical cores  : 8
 # Host memory        : 14968 MB
-# Swap memory        : 9392 MB
-# Total Virtual      : 24360 MB
-# Available Virtual  : 4990 MB
+# Swap memory        : 9126 MB
+# Total Virtual      : 24094 MB
+# Available Virtual  : 5329 MB
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace
