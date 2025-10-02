@@ -1,4 +1,4 @@
-# 2025-09-28T16:43:54.698571
+# 2025-10-02T09:11:30.817897300
 import vitis
 
 client = vitis.create_client()
@@ -11,48 +11,33 @@ platform = client.create_platform_component(name = "platform",hw_design = "$COMP
 platform = client.get_component(name="platform")
 status = platform.build()
 
-comp = client.create_app_component(name="hello_world",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
+comp = client.create_app_component(name="7seg_test_app",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
 
 status = platform.build()
 
-comp = client.get_component(name="hello_world")
+comp = client.get_component(name="7seg_test_app")
+comp.build()
+
+comp = client.get_component(name="7seg_test_app")
+status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_7seg_v1_0/src", files=["axi_7seg.c", "axi_7seg.h"], dest_dir_in_cmp = "src")
+
+status = platform.build()
+
+comp = client.get_component(name="7seg_test_app")
 comp.build()
 
 status = platform.build()
 
 comp.build()
 
-comp = client.create_app_component(name="hello_world2",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
+comp = client.create_app_component(name="7seg_test_app2",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
+
+comp = client.get_component(name="7seg_test_app2")
+status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_7seg_v1_0/src", files=["axi_7seg.c", "axi_7seg.h"], dest_dir_in_cmp = "src")
 
 status = platform.build()
 
-comp = client.get_component(name="hello_world2")
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp = client.get_component(name="hello_world")
-comp.build()
-
-status = platform.build()
-
-comp = client.get_component(name="hello_world2")
+comp = client.get_component(name="7seg_test_app2")
 comp.build()
 
 status = platform.build()
@@ -61,6 +46,44 @@ comp.build()
 
 status = platform.build()
 
+comp.build()
+
+status = platform.build()
+
+comp.build()
+
+status = platform.build()
+
+comp = client.get_component(name="7seg_test_app")
+comp.build()
+
+status = platform.build()
+
+comp = client.get_component(name="7seg_test_app2")
+comp.build()
+
+status = platform.build()
+
+comp.build()
+
+status = comp.clean()
+
+status = platform.build()
+
+comp.build()
+
+status = platform.build()
+
+comp.build()
+
+status = comp.clean()
+
+comp = client.get_component(name="7seg_test_app")
+status = comp.clean()
+
+status = platform.build()
+
+comp = client.get_component(name="7seg_test_app2")
 comp.build()
 
 status = platform.build()
