@@ -271,7 +271,7 @@
                         xlnx,ip-name = "axi_trng";
                         reg = <0x44a00000 0x10000>;
                         xlnx,apt-win-size = <0x200>;
-                        xlnx,default-high = <0x64>;
+                        xlnx,default-high = <0x40>;
                         xlnx,edk-iptype = "PERIPHERAL";
                         xlnx,default-low = <0x0>;
                         xlnx,ro-stages = <0x5>;

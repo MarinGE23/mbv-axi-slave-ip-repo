@@ -248,9 +248,9 @@
    xlnx,ip-name = "axi_trng";
    reg = <0x44a00000 0x10000>;
    xlnx,apt-win-size = <512>;
-   xlnx,default-high = <100>;
+   xlnx,default-high = <00000000000000000000000000000100>;
    xlnx,edk-iptype = "PERIPHERAL";
-   xlnx,default-low = <0>;
+   xlnx,default-low = <00000000000000000000000000000000>;
    xlnx,ro-stages = <5>;
    xlnx,apt-high-thresh = <320>;
    xlnx,rct-max-run = <64>;

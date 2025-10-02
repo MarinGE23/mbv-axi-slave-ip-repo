@@ -1,4 +1,4 @@
-# 2025-09-30T21:12:59.572664400
+# 2025-10-02T02:24:27.596760900
 import vitis
 
 client = vitis.create_client()
@@ -11,11 +11,37 @@ platform = client.create_platform_component(name = "platform",hw_design = "$COMP
 platform = client.get_component(name="platform")
 status = platform.build()
 
-comp = client.create_app_component(name="hello_world",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
+comp = client.create_app_component(name="trng_test_app",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
 
 status = platform.build()
 
-comp = client.get_component(name="hello_world")
+comp = client.get_component(name="trng_test_app")
+comp.build()
+
+comp = client.get_component(name="trng_test_app")
+status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_trng_v1_0/src", files=["axi_trng.c"], dest_dir_in_cmp = "src")
+
+status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_trng_v1_0/src", files=["axi_trng.h"], dest_dir_in_cmp = "src")
+
+status = platform.build()
+
+comp = client.get_component(name="trng_test_app")
+comp.build()
+
+status = platform.build()
+
+comp.build()
+
+status = platform.build()
+
+comp.build()
+
+status = platform.build()
+
+comp.build()
+
+status = platform.build()
+
 comp.build()
 
 status = platform.build()
