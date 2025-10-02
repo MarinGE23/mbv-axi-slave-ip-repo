@@ -11,24 +11,26 @@
 // and validate per NIST SP 800-90B / AIS-31. No guarantees provided.
 // -----------------------------------------------------------------------------
 module trng_core #(
-    parameter integer NUM_RO           = 8,      // number of ring oscillators
-    parameter integer RO_STAGES        = 5,      // odd
-    parameter integer SAMPLE_DIV_WIDTH = 16,     // sampler divider width
+    parameter integer NUM_RO           = 8,      // Number of ring oscillators
+    parameter integer RO_STAGES        = 5,      // Odd
+    parameter integer SAMPLE_DIV_WIDTH = 16,     // Sampler divider width
+    
     // Health tests (defaults are conservative and easy to meet)
-    parameter integer RCT_MAX_RUN      = 64,     // max allowed run length
-    parameter integer APT_WIN_SIZE     = 512,    // window size
-    parameter integer APT_LOW_THRESH   = 192,    // lower bound of ones in window
-    parameter integer APT_HIGH_THRESH  = 320,    // upper bound of ones in window
+    parameter integer RCT_MAX_RUN      = 64,     // Max allowed run length
+    parameter integer APT_WIN_SIZE     = 512,    // Window size
+    parameter integer APT_LOW_THRESH   = 192,    // Lower bound of ones in window
+    parameter integer APT_HIGH_THRESH  = 320,    // Upper bound of ones in window
+    
     // Range parameters
     parameter [31:0] DEFAULT_LOW       = 32'd0,
     parameter [31:0] DEFAULT_HIGH      = 32'd100
 )(
     input  wire clk,          
-    input  wire aresetn,      // active-low reset
-    input  wire enable,       // gate the TRNG
-    input  wire clr_alarms,   // clear health alarms
-    input  wire vn_enable,    // enable Von Neumann (1) or bypass (0)
-    input  wire [SAMPLE_DIV_WIDTH-1:0] sample_div, // sampling divider
+    input  wire aresetn,      // Active-low reset
+    input  wire enable,       // Gate the TRNG
+    input  wire clr_alarms,   // Clear health alarms
+    input  wire vn_enable,    // Enable Von Neumann (1) or bypass (0)
+    input  wire [SAMPLE_DIV_WIDTH-1:0] sample_div, // Sampling divider
 
     // Range control
     input  wire        update_range,  // Flag to update range
@@ -39,10 +41,10 @@ module trng_core #(
     output reg  [31:0] random_raw,        // Raw random number
     output reg  [31:0] random_in_range,   // Random number mapped to [low_reg, high_reg]
     
-    output wire        busy,        // internal pipeline active
+    output wire        busy,        // Internal pipeline active
     output reg         health_ok,   // 1 when no alarms active
-    output reg         rct_fail,    // repetition count test alarm
-    output reg         apt_fail     // adaptive proportion test alarm
+    output reg         rct_fail,    // Repetition count test alarm
+    output reg         apt_fail     // Adaptive proportion test alarm
 );
     // -------------------------------
     // Ring oscillator bank + XOR mix
@@ -125,8 +127,8 @@ module trng_core #(
     reg last_bit;
     reg [15:0] run_len;
 
-    reg [15:0] apt_count;  // number of samples consumed in current window
-    reg [15:0] apt_ones;   // ones counted in current window
+    reg [15:0] apt_count;  // Number of samples consumed in current window
+    reg [15:0] apt_ones;   // Ones counted in current window
 
     always @(posedge clk or negedge aresetn) begin
         if (!aresetn) begin

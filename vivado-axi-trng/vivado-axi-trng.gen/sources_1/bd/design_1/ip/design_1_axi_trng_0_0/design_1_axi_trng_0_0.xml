@@ -594,7 +594,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:855b6161</spirit:value>
+            <spirit:value>9:87fdf28b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -608,11 +608,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Oct 01 02:38:35 UTC 2025</spirit:value>
+            <spirit:value>Thu Oct 02 08:13:52 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:855b6161</spirit:value>
+            <spirit:value>9:87fdf28b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -626,11 +626,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Oct 01 02:35:42 UTC 2025</spirit:value>
+            <spirit:value>Thu Oct 02 08:12:20 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:855b6161</spirit:value>
+            <spirit:value>9:87fdf28b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -641,7 +641,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:855b6161</spirit:value>
+            <spirit:value>9:87fdf28b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -657,11 +657,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Oct 01 02:35:42 UTC 2025</spirit:value>
+            <spirit:value>Thu Oct 02 08:12:20 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:aac19b25</spirit:value>
+            <spirit:value>9:85587b24</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -677,11 +677,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Oct 01 02:35:42 UTC 2025</spirit:value>
+            <spirit:value>Thu Oct 02 08:12:20 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:aac19b25</spirit:value>
+            <spirit:value>9:85587b24</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -697,11 +697,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Oct 01 02:35:42 UTC 2025</spirit:value>
+            <spirit:value>Thu Oct 02 08:12:20 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:855b6161</spirit:value>
+            <spirit:value>9:87fdf28b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -717,11 +717,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Oct 01 02:35:42 UTC 2025</spirit:value>
+            <spirit:value>Thu Oct 02 08:12:20 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:855b6161</spirit:value>
+            <spirit:value>9:87fdf28b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1088,12 +1088,12 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>DEFAULT_LOW</spirit:name>
         <spirit:displayName>Default Low</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_LOW">0</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_LOW" spirit:bitStringLength="32">00000000000000000000000000000000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>DEFAULT_HIGH</spirit:name>
         <spirit:displayName>Default High</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_HIGH">100</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEFAULT_HIGH" spirit:bitStringLength="32">00000000000000000000000000000100</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1180,23 +1180,23 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/hdl/axi_trng_slave_lite_v1_0_S00_AXI.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/hdl/axi_trng_slave_lite_v1_0_S00_AXI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/src/ring_oscillator.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/src/ring_oscillator.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/src/trng_core.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/src/trng_core.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/src/von_neumann.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/src/von_neumann.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/hdl/axi_trng.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/hdl/axi_trng.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1211,23 +1211,23 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogsynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/hdl/axi_trng_slave_lite_v1_0_S00_AXI.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/hdl/axi_trng_slave_lite_v1_0_S00_AXI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/src/ring_oscillator.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/src/ring_oscillator.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/src/trng_core.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/src/trng_core.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/src/von_neumann.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/src/von_neumann.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/d735/hdl/axi_trng.v</spirit:name>
+        <spirit:name>../../ipshared/0fd6/hdl/axi_trng.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1240,7 +1240,7 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>AXI4-Lite slave peripheral for a True Random Number Generator (TRNG). Integrates ring oscillators as entropy source, a Von Neumann corrector, and a TRNG core.</spirit:description>
+  <spirit:description>AXI4-Lite slave peripheral for a True Random Number Generator (TRNG). Integrates ring oscillators as entropy source and a Von Neumann corrector.</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>C_S00_AXI_DATA_WIDTH</spirit:name>
@@ -1334,18 +1334,18 @@
     <spirit:parameter>
       <spirit:name>DEFAULT_LOW</spirit:name>
       <spirit:displayName>Default Low</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_LOW">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_LOW" spirit:bitStringLength="32">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DEFAULT_HIGH</spirit:name>
       <spirit:displayName>Default High</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_HIGH">100</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DEFAULT_HIGH" spirit:bitStringLength="32">100</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
       <xilinx:displayName>axi_trng_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>3</xilinx:coreRevision>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ADDR_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ARUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
@@ -1364,7 +1364,7 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_RRESP" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_WSTRB" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ID_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.MAX_BURST_LENGTH" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.MAX_BURST_LENGTH" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.NUM_READ_OUTSTANDING" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.NUM_READ_THREADS" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.NUM_WRITE_OUTSTANDING" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
@@ -1391,12 +1391,12 @@
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2025.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="20621278"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="206b0a70"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="519eb106"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f4e55ad5"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="97b0e71a"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="049a66a3"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="412f0830"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="f87d924b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="ebe0dd91"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

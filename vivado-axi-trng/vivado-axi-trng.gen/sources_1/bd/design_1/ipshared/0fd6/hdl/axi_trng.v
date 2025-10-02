@@ -3,19 +3,17 @@
 module axi_trng #
     (
         // Users to add parameters here
-        parameter integer NUM_RO           = 8,      // number of ring oscillators
-        parameter integer RO_STAGES        = 5,      // odd
-        parameter integer SAMPLE_DIV_WIDTH = 16,     // sampler divider width
-        parameter integer RCT_MAX_RUN      = 64,     // max allowed run length
-        parameter integer APT_WIN_SIZE     = 512,    // window size
-        parameter integer APT_LOW_THRESH   = 192,    // lower bound of ones in window
-        parameter integer APT_HIGH_THRESH  = 320,    // upper bound of ones in window
+        parameter integer NUM_RO           = 8,      // Number of ring oscillators
+        parameter integer RO_STAGES        = 5,      // Odd
+        parameter integer SAMPLE_DIV_WIDTH = 16,     // Sampler divider width
+        parameter integer RCT_MAX_RUN      = 64,     // Max allowed run length
+        parameter integer APT_WIN_SIZE     = 512,    // Window size
+        parameter integer APT_LOW_THRESH   = 192,    // Lower bound of ones in window
+        parameter integer APT_HIGH_THRESH  = 320,    // Upper bound of ones in window
         parameter [31:0] DEFAULT_LOW       = 32'd0,
         parameter [31:0] DEFAULT_HIGH      = 32'd100,
-
         // User parameters ends
         // Do not modify the parameters beyond this line
-
 
         // Parameters of Axi Slave Bus Interface S00_AXI
         parameter integer C_S00_AXI_DATA_WIDTH	= 32,
@@ -26,7 +24,6 @@ module axi_trng #
 
         // User ports ends
         // Do not modify the ports beyond this line
-
 
         // Ports of Axi Slave Bus Interface S00_AXI
         input wire  s00_axi_aclk,

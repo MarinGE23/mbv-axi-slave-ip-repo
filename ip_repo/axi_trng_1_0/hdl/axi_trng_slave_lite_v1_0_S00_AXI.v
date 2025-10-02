@@ -3,16 +3,15 @@
 module axi_trng_slave_lite_v1_0_S00_AXI #
     (
         // Users to add parameters here
-        parameter integer NUM_RO           = 8,      // number of ring oscillators
-        parameter integer RO_STAGES        = 5,      // odd
-        parameter integer SAMPLE_DIV_WIDTH = 16,     // sampler divider width
-        parameter integer RCT_MAX_RUN      = 64,     // max allowed run length
-        parameter integer APT_WIN_SIZE     = 512,    // window size
-        parameter integer APT_LOW_THRESH   = 192,    // lower bound of ones in window
-        parameter integer APT_HIGH_THRESH  = 320,    // upper bound of ones in window
+        parameter integer NUM_RO           = 8,      // Number of ring oscillators
+        parameter integer RO_STAGES        = 5,      // Odd
+        parameter integer SAMPLE_DIV_WIDTH = 16,     // Sampler divider width
+        parameter integer RCT_MAX_RUN      = 64,     // Max allowed run length
+        parameter integer APT_WIN_SIZE     = 512,    // Window size
+        parameter integer APT_LOW_THRESH   = 192,    // Lower bound of ones in window
+        parameter integer APT_HIGH_THRESH  = 320,    // Upper bound of ones in window
         parameter [31:0] DEFAULT_LOW       = 32'd0,
         parameter [31:0] DEFAULT_HIGH      = 32'd100,
-
         // User parameters ends
         // Do not modify the parameters beyond this line
 
@@ -141,7 +140,6 @@ module axi_trng_slave_lite_v1_0_S00_AXI #
     // slv_reg7: Reserved
 
     // I/O Connections assignments
-
     assign S_AXI_AWREADY	= axi_awready;
     assign S_AXI_WREADY	= axi_wready;
     assign S_AXI_BRESP	= axi_bresp;
@@ -149,6 +147,7 @@ module axi_trng_slave_lite_v1_0_S00_AXI #
     assign S_AXI_ARREADY	= axi_arready;
     assign S_AXI_RRESP	= axi_rresp;
     assign S_AXI_RVALID	= axi_rvalid;
+    
     //state machine varibles
     reg [1:0] state_write;
     reg [1:0] state_read;
@@ -373,10 +372,7 @@ module axi_trng_slave_lite_v1_0_S00_AXI #
         end
     end
     
-    // Implement memory mapped register select and read logic generation
-    wire [C_S_AXI_DATA_WIDTH-1:0] reg_read_data;
-    
-    assign reg_read_data = (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 3'h0) ? slv_reg0 : 
+    assign S_AXI_RDATA =  (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 3'h0) ? slv_reg0 : 
                           (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 3'h1) ? slv_reg1 :
                           (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 3'h2) ? slv_reg2 :
                           (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 3'h3) ? slv_reg3 :
@@ -384,9 +380,8 @@ module axi_trng_slave_lite_v1_0_S00_AXI #
                           (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 3'h5) ? slv_reg5 :
                           (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 3'h6) ? slv_reg6 :
                           (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 3'h7) ? slv_reg7 : 0;
-    
-    assign S_AXI_RDATA = reg_read_data;
 
+    // Add user logic here
     // Instantiate TRNG Core
     trng_core #(
         .NUM_RO(NUM_RO),
@@ -416,9 +411,6 @@ module axi_trng_slave_lite_v1_0_S00_AXI #
         .rct_fail(trng_rct_fail),
         .apt_fail(trng_apt_fail)
     );
-
-    // Add user logic here
-
     // User logic ends
 
 endmodule
