@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:axi_trng:1.0
-// IP Revision: 3
+// IP Revision: 4
 
 (* X_CORE_INFO = "axi_trng,Vivado 2025.1" *)
 (* CHECK_LICENSE_TYPE = "design_1_axi_trng_0_0,axi_trng,{}" *)
-(* CORE_GENERATION_INFO = "design_1_axi_trng_0_0,axi_trng,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_trng,x_ipVersion=1.0,x_ipCoreRevision=3,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=5,NUM_RO=8,RO_STAGES=5,SAMPLE_DIV_WIDTH=16,RCT_MAX_RUN=64,APT_WIN_SIZE=512,APT_LOW_THRESH=192,APT_HIGH_THRESH=320,DEFAULT_LOW=00000000000000000000000000000000,DEFAULT_HIGH=00000000000000000000000000000100}" *)
+(* CORE_GENERATION_INFO = "design_1_axi_trng_0_0,axi_trng,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_trng,x_ipVersion=1.0,x_ipCoreRevision=4,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=5,NUM_RO=8,RO_STAGES=5,SAMPLE_DIV_WIDTH=16,RCT_MAX_RUN=64,APT_WIN_SIZE=512,APT_LOW_THRESH=192,APT_HIGH_THRESH=320,DEFAULT_LOW=00000000000000000000000000000000,DEFAULT_HIGH=00000000000000000000000000000100}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_axi_trng_0_0 (
   s00_axi_aclk,

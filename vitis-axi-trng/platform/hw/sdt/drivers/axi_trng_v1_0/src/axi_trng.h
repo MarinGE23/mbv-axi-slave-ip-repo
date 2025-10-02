@@ -50,7 +50,6 @@ enum {
  */
 #define TRNG_CTRL_ENABLE_BIT      0x01  /**< Enable TRNG generation */
 #define TRNG_CTRL_CLR_ALARMS_BIT  0x02  /**< Clear health test alarms */
-#define TRNG_CTRL_VN_ENABLE_BIT   0x04  /**< Enable Von Neumann debiasing */
 
 /**
  * Status register bits
@@ -59,6 +58,13 @@ enum {
 #define TRNG_STATUS_BUSY_BIT      0x02  /**< TRNG is busy generating */
 #define TRNG_STATUS_RCT_FAIL_BIT  0x04  /**< Repetition Count Test failed */
 #define TRNG_STATUS_APT_FAIL_BIT  0x08  /**< Adaptive Proportion Test failed */
+
+/**
+ * Default values
+ */
+#define DEFAULT_RANGE_LOW  0
+#define DEFAULT_RANGE_HIGH 100
+#define DEFAULT_SAMPLE_DIV 1000
 
 /***************** Macros (Inline Functions) Definitions *********************/
 
@@ -84,8 +90,6 @@ void Trng_Reset(axi_trng_t *InstancePtr);
 
 /* Configuration functions */
 void Trng_SetSampleDivider(axi_trng_t *InstancePtr, u32 Divider);
-void Trng_EnableVonNeumann(axi_trng_t *InstancePtr);
-void Trng_DisableVonNeumann(axi_trng_t *InstancePtr);
 void Trng_ClearAlarms(axi_trng_t *InstancePtr);
 
 /* Range configuration function */

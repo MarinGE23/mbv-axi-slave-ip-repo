@@ -21,6 +21,13 @@ void Trng_Initialize(axi_trng_t *InstancePtr, u32 BaseAddress)
     /* Setup the instance */
     InstancePtr->BaseAddress = BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
+
+    /* Set default values */
+    Trng_SetSampleDivider(InstancePtr, DEFAULT_SAMPLE_DIV);
+    Trng_SetRange(InstancePtr, DEFAULT_RANGE_LOW, DEFAULT_RANGE_HIGH); 
+    
+    /* Clear any existing alarms and start disabled (clear control register) */
+    AXI_TRNG_WRITE_REG(InstancePtr->BaseAddress, TRNG_REG_CONTROL, 0);
 }
 
 /**
@@ -79,15 +86,13 @@ void Trng_Reset(axi_trng_t *InstancePtr)
     /* Verify arguments */
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-    
-    /* Disable TRNG */
-    Trng_Disable(InstancePtr);
-    
-    /* Clear control register */
+
+    /* Set default values */
+    Trng_SetSampleDivider(InstancePtr, DEFAULT_SAMPLE_DIV);
+    Trng_SetRange(InstancePtr, DEFAULT_RANGE_LOW, DEFAULT_RANGE_HIGH); 
+
+    /* Clear any existing alarms and start disabled (clear control register) */
     AXI_TRNG_WRITE_REG(InstancePtr->BaseAddress, TRNG_REG_CONTROL, 0);
-    
-    /* Set default sample divider */
-    AXI_TRNG_WRITE_REG(InstancePtr->BaseAddress, TRNG_REG_SAMPLE_DIV, 1000);
 }
 
 /**
@@ -95,62 +100,21 @@ void Trng_Reset(axi_trng_t *InstancePtr)
  * Higher values = slower sampling = potentially better entropy
  *
  * @param InstancePtr is a pointer to the axi_trng_t instance
- * @param Divider is the sample divider value
+ * @param Divider is the sample divider value (minimum 1)
  */
 void Trng_SetSampleDivider(axi_trng_t *InstancePtr, u32 Divider)
 {
     /* Verify arguments */
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    /* Ensure minimum divider value */
+    if (Divider == 0) {
+        Divider = 1;
+    }
     
     /* Write sample divider register */
     AXI_TRNG_WRITE_REG(InstancePtr->BaseAddress, TRNG_REG_SAMPLE_DIV, Divider);
-}
-
-/**
- * Enable Von Neumann debiasing
- *
- * @param InstancePtr is a pointer to the axi_trng_t instance
- */
-void Trng_EnableVonNeumann(axi_trng_t *InstancePtr)
-{
-    u32 control_reg;
-    
-    /* Verify arguments */
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-    
-    /* Read current control register */
-    control_reg = AXI_TRNG_READ_REG(InstancePtr->BaseAddress, TRNG_REG_CONTROL);
-    
-    /* Set Von Neumann enable bit */
-    control_reg |= TRNG_CTRL_VN_ENABLE_BIT;
-    
-    /* Write back to control register */
-    AXI_TRNG_WRITE_REG(InstancePtr->BaseAddress, TRNG_REG_CONTROL, control_reg);
-}
-
-/**
- * Disable Von Neumann debiasing
- *
- * @param InstancePtr is a pointer to the axi_trng_t instance
- */
-void Trng_DisableVonNeumann(axi_trng_t *InstancePtr)
-{
-    u32 control_reg;
-    
-    /* Verify arguments */
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-    
-    /* Read current control register */
-    control_reg = AXI_TRNG_READ_REG(InstancePtr->BaseAddress, TRNG_REG_CONTROL);
-    
-    /* Clear Von Neumann enable bit */
-    control_reg &= ~TRNG_CTRL_VN_ENABLE_BIT;
-    
-    /* Write back to control register */
-    AXI_TRNG_WRITE_REG(InstancePtr->BaseAddress, TRNG_REG_CONTROL, control_reg);
 }
 
 /**
@@ -246,9 +210,13 @@ u32 Trng_GetStatus(axi_trng_t *InstancePtr)
 
 /**
  * Check if TRNG health tests are passing
+ * 
+ * Combined status of both RCT and APT tests.
+ * Use this for general health monitoring in applications.
  *
- * @param InstancePtr is a pointer to the axi_trng_t instance
- * @return 1 if healthy, 0 if health tests failed
+ * @param InstancePtr is a pointer to the axi_trng_t instance  
+ * @return 1 if both RCT and APT are passing (TRNG is healthy),
+ *         0 if either test has failed
  */
 int Trng_IsHealthy(axi_trng_t *InstancePtr)
 {
@@ -281,10 +249,18 @@ int Trng_IsBusy(axi_trng_t *InstancePtr)
 }
 
 /**
- * Check if Repetition Count Test has failed
+ * Check if Repetition Count Test (RCT) has failed
+ * 
+ * RCT detects stuck-at faults by monitoring consecutive identical bits.
+ * It fails when a sequence of identical bits exceeds the maximum allowed run length.
+ * 
+ * This indicates potential hardware issues or insufficient entropy.
+ * Typical causes: oscillator synchronization problems, timing violations,
+ * or insufficient sampling interval.
  *
  * @param InstancePtr is a pointer to the axi_trng_t instance
- * @return 1 if RCT failed, 0 if passing
+ * @return 1 if RCT detected excessive repetition (hardware issue suspected),
+ *         0 if test is passing (normal operation)
  */
 int Trng_IsRctFailed(axi_trng_t *InstancePtr)
 {
@@ -299,10 +275,21 @@ int Trng_IsRctFailed(axi_trng_t *InstancePtr)
 }
 
 /**
- * Check if Adaptive Proportion Test has failed
+ * Check if Adaptive Proportion Test (APT) has failed
+ * 
+ * APT monitors the ratio of ones in a fixed-size window of bits.
+ * It fails if the count of ones falls outside the acceptable range,
+ * indicating bias in the random stream.
+ * 
+ * This detects statistical anomalies in entropy quality:
+ * - Too few ones: suggests bias toward zeros
+ * - Too many ones: suggests bias toward ones
+ * 
+ * Example normal expectation: ~256 ones in 512 bits (50% distribution).
  *
  * @param InstancePtr is a pointer to the axi_trng_t instance
- * @return 1 if APT failed, 0 if passing
+ * @return 1 if APT detected significant bias (entropy quality issue),
+ *         0 if bit distribution is within acceptable limits
  */
 int Trng_IsAptFailed(axi_trng_t *InstancePtr)
 {

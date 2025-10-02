@@ -2,7 +2,7 @@
 // TRNG Core
 // - Bank of ring oscillators (ROs)
 // - XOR mix + synchronized sampling (with programmable divider)
-// - Optional Von Neumann debias
+// - Von Neumann debiasing
 // - Health tests: Repetition Count Test (RCT) and Adaptive Proportion Test (APT)
 // - Bit accumulator to 32-bit word + data_valid strobe
 //
@@ -29,7 +29,6 @@ module trng_core #(
     input  wire aresetn,      // Active-low reset
     input  wire enable,       // Gate the TRNG
     input  wire clr_alarms,   // Clear health alarms
-    input  wire vn_enable,    // Enable Von Neumann (1) or bypass (0)
     input  wire [SAMPLE_DIV_WIDTH-1:0] sample_div, // Sampling divider
 
     // Range control
@@ -69,6 +68,9 @@ module trng_core #(
     // ----------------------------------------
     reg [SAMPLE_DIV_WIDTH-1:0] divcnt;
     reg                        sample_stb;
+    
+    // Effective divider value (minimum 1 for safe operation)
+    wire [SAMPLE_DIV_WIDTH-1:0] actual_div = (sample_div == 0) ? 1 : sample_div;
 
     always @(posedge clk or negedge aresetn) begin
         if (!aresetn) begin
@@ -78,7 +80,7 @@ module trng_core #(
             divcnt     <= {SAMPLE_DIV_WIDTH{1'b0}};
             sample_stb <= 1'b0;
         end else begin
-            if (divcnt == sample_div) begin
+            if (divcnt == actual_div) begin
                 divcnt     <= {SAMPLE_DIV_WIDTH{1'b0}};
                 sample_stb <= 1'b1;
             end else begin
@@ -106,7 +108,7 @@ module trng_core #(
     wire raw_valid = sample_stb;
 
     // -----------------------
-    // Optional Von Neumann
+    // Von Neumann Debiasing
     // -----------------------
     wire vn_bit, vn_valid;
     von_neumann u_vn (
@@ -118,8 +120,8 @@ module trng_core #(
         .out_valid(vn_valid)
     );
 
-    wire stream_bit   = vn_enable ? vn_bit   : raw_bit;
-    wire stream_valid = vn_enable ? vn_valid : raw_valid;
+    wire stream_bit   = vn_bit;
+    wire stream_valid = vn_valid;
 
     // ---------------------------
     // Health tests: RCT and APT

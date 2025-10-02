@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date         : Thu Oct  2 02:17:10 2025
+| Date         : Thu Oct  2 04:58:33 2025
 | Host         : Emanuel running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_wrapper_utilization_placed.rpt -pb design_1_wrapper_utilization_placed.pb
 | Design       : design_1_wrapper
@@ -71,13 +71,13 @@ Table of Contents
 +--------------------------------------------+------+-------+------------+-----------+-------+
 |                  Site Type                 | Used | Fixed | Prohibited | Available | Util% |
 +--------------------------------------------+------+-------+------------+-----------+-------+
-| Slice                                      |  948 |     0 |          0 |      8150 | 11.63 |
-|   SLICEL                                   |  670 |     0 |            |           |       |
-|   SLICEM                                   |  278 |     0 |            |           |       |
+| Slice                                      | 1003 |     0 |          0 |      8150 | 12.31 |
+|   SLICEL                                   |  680 |     0 |            |           |       |
+|   SLICEM                                   |  323 |     0 |            |           |       |
 | LUT as Logic                               | 2432 |     0 |          0 |     20800 | 11.69 |
 |   using O5 output only                     |    0 |       |            |           |       |
-|   using O6 output only                     | 1794 |       |            |           |       |
-|   using O5 and O6                          |  638 |       |            |           |       |
+|   using O6 output only                     | 1789 |       |            |           |       |
+|   using O5 and O6                          |  643 |       |            |           |       |
 | LUT as Memory                              |  107 |     0 |          0 |      9600 |  1.11 |
 |   LUT as Distributed RAM                   |   64 |     0 |            |           |       |
 |     using O5 output only                   |    0 |       |            |           |       |
@@ -88,10 +88,10 @@ Table of Contents
 |     using O6 output only                   |    5 |       |            |           |       |
 |     using O5 and O6                        |   30 |       |            |           |       |
 | Slice Registers                            | 2446 |     0 |          0 |     41600 |  5.88 |
-|   Register driven from within the Slice    | 1336 |       |            |           |       |
-|   Register driven from outside the Slice   | 1110 |       |            |           |       |
-|     LUT in front of the register is unused |  612 |       |            |           |       |
-|     LUT in front of the register is used   |  498 |       |            |           |       |
+|   Register driven from within the Slice    | 1331 |       |            |           |       |
+|   Register driven from outside the Slice   | 1115 |       |            |           |       |
+|     LUT in front of the register is unused |  605 |       |            |           |       |
+|     LUT in front of the register is used   |  510 |       |            |           |       |
 | Unique Control Sets                        |  159 |       |          0 |      8150 |  1.95 |
 +--------------------------------------------+------+-------+------------+-----------+-------+
 * * Note: Available Control Sets calculated as Slice * 1, Review the Control Sets Report for more information regarding control sets.
@@ -190,11 +190,11 @@ Table of Contents
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
 | FDRE       | 2023 |        Flop & Latch |
-| LUT6       |  853 |                 LUT |
-| LUT4       |  590 |                 LUT |
-| LUT5       |  520 |                 LUT |
-| LUT2       |  515 |                 LUT |
-| LUT3       |  443 |                 LUT |
+| LUT6       |  852 |                 LUT |
+| LUT4       |  612 |                 LUT |
+| LUT5       |  517 |                 LUT |
+| LUT2       |  501 |                 LUT |
+| LUT3       |  444 |                 LUT |
 | FDCE       |  324 |        Flop & Latch |
 | LUT1       |  149 |                 LUT |
 | CARRY4     |  131 |          CarryLogic |

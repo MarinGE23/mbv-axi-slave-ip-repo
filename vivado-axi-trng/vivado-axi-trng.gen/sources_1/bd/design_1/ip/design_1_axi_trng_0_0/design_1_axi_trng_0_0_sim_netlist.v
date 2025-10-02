@@ -2,7 +2,7 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-// Date        : Thu Oct  2 02:13:52 2025
+// Date        : Thu Oct  2 04:55:21 2025
 // Host        : Emanuel running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-trng/vivado-axi-trng.gen/sources_1/bd/design_1/ip/design_1_axi_trng_0_0/design_1_axi_trng_0_0_sim_netlist.v
@@ -150,9 +150,8 @@ module design_1_axi_trng_0_0_axi_trng
   wire axi_rvalid_i_1_n_0;
   wire axi_rvalid_reg;
   wire axi_trng_slave_lite_v1_0_S00_AXI_inst_n_0;
-  wire axi_trng_slave_lite_v1_0_S00_AXI_inst_n_13;
-  wire axi_trng_slave_lite_v1_0_S00_AXI_inst_n_14;
-  wire axi_trng_slave_lite_v1_0_S00_AXI_inst_n_17;
+  wire axi_trng_slave_lite_v1_0_S00_AXI_inst_n_20;
+  wire axi_trng_slave_lite_v1_0_S00_AXI_inst_n_21;
   wire axi_trng_slave_lite_v1_0_S00_AXI_inst_n_22;
   wire axi_trng_slave_lite_v1_0_S00_AXI_inst_n_23;
   wire axi_wready_i_1_n_0;
@@ -176,25 +175,27 @@ module design_1_axi_trng_0_0_axi_trng
   wire s00_axi_wready;
   wire [3:0]s00_axi_wstrb;
   wire s00_axi_wvalid;
-  wire [2:1]slv_reg0;
+  wire [1:0]slv_reg0;
   wire [1:0]state_read;
   wire [1:0]state_write;
   wire trng_apt_fail;
   wire \trng_core_inst/first_bit ;
   wire \trng_core_inst/last_bit ;
-  wire \trng_core_inst/out_bit ;
+  wire [0:0]\trng_core_inst/p_0_in__0 ;
   wire \trng_core_inst/ro_sync_1 ;
   wire \trng_core_inst/u_vn/have_first ;
+  wire \trng_core_inst/vn_valid ;
   wire trng_rct_fail;
 
-  LUT5 #(
-    .INIT(32'h57550300)) 
+  LUT6 #(
+    .INIT(64'h7555555530000000)) 
     apt_fail_i_1
        (.I0(slv_reg0[1]),
-        .I1(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_14),
-        .I2(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_17),
-        .I3(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_22),
-        .I4(trng_apt_fail),
+        .I1(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_20),
+        .I2(slv_reg0[0]),
+        .I3(\trng_core_inst/vn_valid ),
+        .I4(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_22),
+        .I5(trng_apt_fail),
         .O(apt_fail_i_1_n_0));
   LUT6 #(
     .INIT(64'hA2A2A2A2FFAFAFAF)) 
@@ -236,9 +237,9 @@ module design_1_axi_trng_0_0_axi_trng
         .I5(state_read[1]),
         .O(axi_rvalid_i_1_n_0));
   design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI axi_trng_slave_lite_v1_0_S00_AXI_inst
-       (.D({trng_apt_fail,trng_rct_fail}),
-        .Q(slv_reg0),
-        .\apt_count_reg[9] (axi_trng_slave_lite_v1_0_S00_AXI_inst_n_17),
+       (.D({trng_apt_fail,trng_rct_fail,slv_reg0[0]}),
+        .Q(slv_reg0[1]),
+        .\apt_count_reg[9] (axi_trng_slave_lite_v1_0_S00_AXI_inst_n_20),
         .apt_fail_reg(apt_fail_i_1_n_0),
         .\apt_ones_reg[7] (axi_trng_slave_lite_v1_0_S00_AXI_inst_n_22),
         .axi_arready_reg_0(axi_arready_reg),
@@ -257,11 +258,11 @@ module design_1_axi_trng_0_0_axi_trng
         .health_ok_reg(health_ok_i_1_n_0),
         .last_bit(\trng_core_inst/last_bit ),
         .last_bit_reg(last_bit_i_1_n_0),
-        .out_bit(\trng_core_inst/out_bit ),
-        .out_bit_reg(out_bit_i_1_n_0),
+        .out_bit_reg(\trng_core_inst/p_0_in__0 ),
+        .out_bit_reg_0(out_bit_i_1_n_0),
         .rct_fail_reg(rct_fail_i_1_n_0),
         .ro_sync_1(\trng_core_inst/ro_sync_1 ),
-        .\run_len_reg[6] (axi_trng_slave_lite_v1_0_S00_AXI_inst_n_13),
+        .\run_len_reg[6] (axi_trng_slave_lite_v1_0_S00_AXI_inst_n_21),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_araddr(s00_axi_araddr),
         .s00_axi_aresetn(s00_axi_aresetn),
@@ -276,9 +277,9 @@ module design_1_axi_trng_0_0_axi_trng
         .s00_axi_wstrb(s00_axi_wstrb),
         .s00_axi_wvalid(s00_axi_wvalid),
         .sample_stb_reg(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_0),
-        .\slv_reg0_reg[0]_0 (axi_trng_slave_lite_v1_0_S00_AXI_inst_n_14),
         .state_read(state_read),
-        .state_write(state_write));
+        .state_write(state_write),
+        .vn_valid(\trng_core_inst/vn_valid ));
   LUT3 #(
     .INIT(8'hF1)) 
     axi_wready_i_1
@@ -286,7 +287,7 @@ module design_1_axi_trng_0_0_axi_trng
         .I1(state_write[1]),
         .I2(s00_axi_wready),
         .O(axi_wready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT4 #(
     .INIT(16'hFB08)) 
     first_bit_i_1
@@ -301,38 +302,37 @@ module design_1_axi_trng_0_0_axi_trng
        (.I0(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_0),
         .I1(\trng_core_inst/u_vn/have_first ),
         .O(have_first_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT2 #(
     .INIT(4'h1)) 
     health_ok_i_1
        (.I0(trng_rct_fail),
         .I1(trng_apt_fail),
         .O(health_ok_i_1_n_0));
-  LUT5 #(
-    .INIT(32'hFF00B8B8)) 
+  LUT4 #(
+    .INIT(16'hF870)) 
     last_bit_i_1
-       (.I0(\trng_core_inst/out_bit ),
-        .I1(slv_reg0[2]),
-        .I2(\trng_core_inst/ro_sync_1 ),
-        .I3(\trng_core_inst/last_bit ),
-        .I4(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_14),
+       (.I0(slv_reg0[0]),
+        .I1(\trng_core_inst/vn_valid ),
+        .I2(\trng_core_inst/last_bit ),
+        .I3(\trng_core_inst/p_0_in__0 ),
         .O(last_bit_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT5 #(
-    .INIT(32'hDFFF0800)) 
+    .INIT(32'hF7FF2000)) 
     out_bit_i_1
        (.I0(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_0),
-        .I1(\trng_core_inst/first_bit ),
-        .I2(\trng_core_inst/ro_sync_1 ),
+        .I1(\trng_core_inst/ro_sync_1 ),
+        .I2(\trng_core_inst/first_bit ),
         .I3(\trng_core_inst/u_vn/have_first ),
-        .I4(\trng_core_inst/out_bit ),
+        .I4(\trng_core_inst/p_0_in__0 ),
         .O(out_bit_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT3 #(
     .INIT(8'hDC)) 
     rct_fail_i_1
        (.I0(slv_reg0[1]),
-        .I1(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_13),
+        .I1(axi_trng_slave_lite_v1_0_S00_AXI_inst_n_21),
         .I2(trng_rct_fail),
         .O(rct_fail_i_1_n_0));
 endmodule
@@ -341,9 +341,10 @@ endmodule
 module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
    (sample_stb_reg,
     ro_sync_1,
-    have_first,
+    vn_valid,
+    out_bit_reg,
     first_bit,
-    out_bit,
+    have_first,
     D,
     last_bit,
     s00_axi_bvalid,
@@ -351,12 +352,11 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
     s00_axi_wready,
     axi_rvalid_reg_0,
     axi_arready_reg_0,
-    \run_len_reg[6] ,
-    \slv_reg0_reg[0]_0 ,
-    Q,
-    \apt_count_reg[9] ,
     state_write,
     state_read,
+    Q,
+    \apt_count_reg[9] ,
+    \run_len_reg[6] ,
     \apt_ones_reg[7] ,
     axi_awready_reg_1,
     s00_axi_rdata,
@@ -364,7 +364,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
     health_ok_reg,
     have_first_reg,
     first_bit_reg,
-    out_bit_reg,
+    out_bit_reg_0,
     apt_fail_reg,
     last_bit_reg,
     rct_fail_reg,
@@ -384,22 +384,22 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
     s00_axi_wstrb);
   output sample_stb_reg;
   output ro_sync_1;
-  output have_first;
+  output vn_valid;
+  output [0:0]out_bit_reg;
   output first_bit;
-  output out_bit;
-  output [1:0]D;
+  output have_first;
+  output [2:0]D;
   output last_bit;
   output s00_axi_bvalid;
   output axi_awready_reg_0;
   output s00_axi_wready;
   output axi_rvalid_reg_0;
   output axi_arready_reg_0;
-  output \run_len_reg[6] ;
-  output \slv_reg0_reg[0]_0 ;
-  output [1:0]Q;
-  output \apt_count_reg[9] ;
   output [1:0]state_write;
   output [1:0]state_read;
+  output [0:0]Q;
+  output \apt_count_reg[9] ;
+  output \run_len_reg[6] ;
   output \apt_ones_reg[7] ;
   output axi_awready_reg_1;
   output [31:0]s00_axi_rdata;
@@ -407,7 +407,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
   input health_ok_reg;
   input have_first_reg;
   input first_bit_reg;
-  input out_bit_reg;
+  input out_bit_reg_0;
   input apt_fail_reg;
   input last_bit_reg;
   input rct_fail_reg;
@@ -426,12 +426,12 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
   input [2:0]s00_axi_araddr;
   input [3:0]s00_axi_wstrb;
 
-  wire [1:0]D;
+  wire [2:0]D;
   wire \FSM_sequential_state_read[0]_i_1_n_0 ;
   wire \FSM_sequential_state_read[1]_i_1_n_0 ;
   wire \FSM_sequential_state_write[0]_i_1_n_0 ;
   wire \FSM_sequential_state_write[1]_i_1_n_0 ;
-  wire [1:0]Q;
+  wire [0:0]Q;
   wire \apt_count_reg[9] ;
   wire apt_fail_reg;
   wire \apt_ones_reg[7] ;
@@ -461,8 +461,8 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
   wire health_ok_reg;
   wire last_bit;
   wire last_bit_reg;
-  wire out_bit;
-  wire out_bit_reg;
+  wire [0:0]out_bit_reg;
+  wire out_bit_reg_0;
   wire rct_fail_reg;
   wire ro_sync_1;
   wire \run_len_reg[6] ;
@@ -517,14 +517,12 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
   wire s00_axi_wvalid;
   wire sample_stb_reg;
   wire [2:0]sel0;
-  wire [0:0]slv_reg0;
   wire \slv_reg0[15]_i_1_n_0 ;
   wire \slv_reg0[23]_i_1_n_0 ;
   wire \slv_reg0[31]_i_1_n_0 ;
   wire \slv_reg0[31]_i_2_n_0 ;
   wire \slv_reg0[7]_i_1_n_0 ;
-  wire [31:3]slv_reg0__0;
-  wire \slv_reg0_reg[0]_0 ;
+  wire [31:2]slv_reg0__0;
   wire [15:0]slv_reg1;
   wire \slv_reg1[15]_i_1_n_0 ;
   wire \slv_reg1[23]_i_1_n_0 ;
@@ -558,6 +556,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
   wire update_range_reg;
   wire update_range_reg_i_1_n_0;
   wire update_range_reg_i_2_n_0;
+  wire vn_valid;
 
   LUT6 #(
     .INIT(64'hFFFF0FFF8888FFFF)) 
@@ -593,7 +592,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
         .D(\FSM_sequential_state_read[1]_i_1_n_0 ),
         .Q(state_read[1]),
         .R(trng_core_inst_n_1));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT5 #(
     .INIT(32'hFFF7F0FF)) 
     \FSM_sequential_state_write[0]_i_1 
@@ -603,7 +602,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
         .I3(state_write[1]),
         .I4(state_write[0]),
         .O(\FSM_sequential_state_write[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT5 #(
     .INIT(32'hFF080F00)) 
     \FSM_sequential_state_write[1]_i_1 
@@ -776,7 +775,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
         .I2(sel0[1]),
         .I3(slv_reg1[0]),
         .I4(sel0[0]),
-        .I5(slv_reg0),
+        .I5(D[0]),
         .O(\s00_axi_rdata[0]_INST_0_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
@@ -1000,7 +999,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
         .I2(sel0[1]),
         .I3(slv_reg1[1]),
         .I4(sel0[0]),
-        .I5(Q[0]),
+        .I5(Q),
         .O(\s00_axi_rdata[1]_INST_0_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
@@ -1224,7 +1223,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
         .I2(sel0[1]),
         .I3(slv_reg1[2]),
         .I4(sel0[0]),
-        .I5(Q[1]),
+        .I5(slv_reg0__0[2]),
         .O(\s00_axi_rdata[2]_INST_0_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
@@ -1449,7 +1448,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
         .I4(s00_axi_awvalid),
         .I5(\axi_awaddr_reg_n_0_[2] ),
         .O(\slv_reg0[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT5 #(
     .INIT(32'h00053305)) 
     \slv_reg0[31]_i_2 
@@ -1473,7 +1472,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[0]),
-        .Q(slv_reg0),
+        .Q(D[0]),
         .R(trng_core_inst_n_1));
   FDRE \slv_reg0_reg[10] 
        (.C(s00_axi_aclk),
@@ -1539,7 +1538,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[1]),
-        .Q(Q[0]),
+        .Q(Q),
         .R(trng_core_inst_n_1));
   FDRE \slv_reg0_reg[20] 
        (.C(s00_axi_aclk),
@@ -1605,7 +1604,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
        (.C(s00_axi_aclk),
         .CE(\slv_reg0[7]_i_1_n_0 ),
         .D(s00_axi_wdata[2]),
-        .Q(Q[1]),
+        .Q(slv_reg0__0[2]),
         .R(trng_core_inst_n_1));
   FDRE \slv_reg0_reg[30] 
        (.C(s00_axi_aclk),
@@ -1923,7 +1922,7 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
         .I4(s00_axi_awvalid),
         .I5(\axi_awaddr_reg_n_0_[2] ),
         .O(\slv_reg2[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT5 #(
     .INIT(32'h000ACC0A)) 
     \slv_reg2[31]_i_2 
@@ -2760,29 +2759,29 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
   FDRE \slv_reg6_reg[1] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .D(slv_reg0),
+        .D(D[0]),
         .Q(\slv_reg6_reg_n_0_[1] ),
         .R(trng_core_inst_n_1));
   FDRE \slv_reg6_reg[2] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .D(D[0]),
+        .D(D[1]),
         .Q(\slv_reg6_reg_n_0_[2] ),
         .R(trng_core_inst_n_1));
   FDRE \slv_reg6_reg[3] 
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .D(D[1]),
+        .D(D[2]),
         .Q(\slv_reg6_reg_n_0_[3] ),
         .R(trng_core_inst_n_1));
   design_1_axi_trng_0_0_trng_core trng_core_inst
-       (.D({D,trng_health_ok}),
+       (.D({D[2:1],trng_health_ok}),
         .E(trng_valid),
         .Q(slv_reg2),
         .SR(trng_core_inst_n_1),
         .\apt_count_reg[9]_0 (\apt_count_reg[9] ),
         .apt_fail_reg_0(apt_fail_reg),
-        .\apt_ones_reg[15]_0 ({Q[1],slv_reg0}),
+        .\apt_ones_reg[0]_0 (D[0]),
         .\apt_ones_reg[7]_0 (\apt_ones_reg[7] ),
         .divcnt1_carry__0_0(slv_reg1),
         .first_bit(first_bit),
@@ -2791,20 +2790,20 @@ module design_1_axi_trng_0_0_axi_trng_slave_lite_v1_0_S00_AXI
         .have_first_reg(have_first_reg),
         .health_ok_reg_0(health_ok_reg),
         .\high_reg_reg[31]_0 (slv_reg3),
-        .last_bit(last_bit),
-        .last_bit_reg_0(last_bit_reg),
+        .last_bit_reg_0(last_bit),
+        .last_bit_reg_1(last_bit_reg),
         .\low_reg_reg[31]_0 (update_range_reg),
-        .out_bit(out_bit),
         .out_bit_reg(out_bit_reg),
+        .out_bit_reg_0(out_bit_reg_0),
+        .out_valid_reg(vn_valid),
         .\random_in_range_reg[31]_0 (trng_random_in_range),
         .\random_raw_reg[31]_0 (trng_random_raw),
         .rct_fail_reg_0(rct_fail_reg),
-        .ro_sync_1_reg_0(ro_sync_1),
+        .ro_sync_1(ro_sync_1),
         .\run_len_reg[6]_0 (\run_len_reg[6] ),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_aresetn(s00_axi_aresetn),
-        .sample_stb_reg_0(sample_stb_reg),
-        .\slv_reg0_reg[0] (\slv_reg0_reg[0]_0 ));
+        .sample_stb_reg_0(sample_stb_reg));
   LUT6 #(
     .INIT(64'h0000000047034400)) 
     update_range_reg_i_1
@@ -3175,16 +3174,16 @@ endmodule
 module design_1_axi_trng_0_0_trng_core
    (sample_stb_reg_0,
     SR,
-    ro_sync_1_reg_0,
+    ro_sync_1,
+    out_valid_reg,
     D,
     E,
-    have_first,
     first_bit,
-    out_bit,
-    last_bit,
-    \run_len_reg[6]_0 ,
-    \slv_reg0_reg[0] ,
+    have_first,
+    out_bit_reg,
+    last_bit_reg_0,
     \apt_count_reg[9]_0 ,
+    \run_len_reg[6]_0 ,
     \apt_ones_reg[7]_0 ,
     \random_raw_reg[31]_0 ,
     \random_in_range_reg[31]_0 ,
@@ -3192,28 +3191,28 @@ module design_1_axi_trng_0_0_trng_core
     health_ok_reg_0,
     have_first_reg,
     first_bit_reg,
-    out_bit_reg,
+    out_bit_reg_0,
     apt_fail_reg_0,
-    last_bit_reg_0,
+    last_bit_reg_1,
     rct_fail_reg_0,
     Q,
-    \apt_ones_reg[15]_0 ,
+    \apt_ones_reg[0]_0 ,
     s00_axi_aresetn,
     divcnt1_carry__0_0,
     \high_reg_reg[31]_0 ,
     \low_reg_reg[31]_0 );
   output sample_stb_reg_0;
   output [0:0]SR;
-  output ro_sync_1_reg_0;
+  output ro_sync_1;
+  output out_valid_reg;
   output [2:0]D;
   output [0:0]E;
-  output have_first;
   output first_bit;
-  output out_bit;
-  output last_bit;
-  output \run_len_reg[6]_0 ;
-  output \slv_reg0_reg[0] ;
+  output have_first;
+  output [0:0]out_bit_reg;
+  output last_bit_reg_0;
   output \apt_count_reg[9]_0 ;
+  output \run_len_reg[6]_0 ;
   output \apt_ones_reg[7]_0 ;
   output [31:0]\random_raw_reg[31]_0 ;
   output [31:0]\random_in_range_reg[31]_0 ;
@@ -3221,12 +3220,12 @@ module design_1_axi_trng_0_0_trng_core
   input health_ok_reg_0;
   input have_first_reg;
   input first_bit_reg;
-  input out_bit_reg;
+  input out_bit_reg_0;
   input apt_fail_reg_0;
-  input last_bit_reg_0;
+  input last_bit_reg_1;
   input rct_fail_reg_0;
   input [31:0]Q;
-  input [1:0]\apt_ones_reg[15]_0 ;
+  input [0:0]\apt_ones_reg[0]_0 ;
   input s00_axi_aresetn;
   input [15:0]divcnt1_carry__0_0;
   input [31:0]\high_reg_reg[31]_0 ;
@@ -3331,10 +3330,10 @@ module design_1_axi_trng_0_0_trng_core
   wire \apt_ones[13]_i_1_n_0 ;
   wire \apt_ones[14]_i_1_n_0 ;
   wire \apt_ones[15]_i_2_n_0 ;
+  wire \apt_ones[15]_i_4_n_0 ;
   wire \apt_ones[15]_i_5_n_0 ;
   wire \apt_ones[15]_i_6_n_0 ;
   wire \apt_ones[15]_i_7_n_0 ;
-  wire \apt_ones[15]_i_8_n_0 ;
   wire \apt_ones[1]_i_1_n_0 ;
   wire \apt_ones[2]_i_1_n_0 ;
   wire \apt_ones[3]_i_1_n_0 ;
@@ -3344,7 +3343,7 @@ module design_1_axi_trng_0_0_trng_core
   wire \apt_ones[7]_i_1_n_0 ;
   wire \apt_ones[8]_i_1_n_0 ;
   wire \apt_ones[9]_i_1_n_0 ;
-  wire [1:0]\apt_ones_reg[15]_0 ;
+  wire [0:0]\apt_ones_reg[0]_0 ;
   wire \apt_ones_reg[7]_0 ;
   wire \apt_ones_reg_n_0_[0] ;
   wire \apt_ones_reg_n_0_[10] ;
@@ -3383,10 +3382,16 @@ module design_1_axi_trng_0_0_trng_core
   wire divcnt1_carry__0_i_1_n_0;
   wire divcnt1_carry__0_i_2_n_0;
   wire divcnt1_carry__0_n_3;
+  wire divcnt1_carry_i_10_n_0;
   wire divcnt1_carry_i_1_n_0;
   wire divcnt1_carry_i_2_n_0;
   wire divcnt1_carry_i_3_n_0;
   wire divcnt1_carry_i_4_n_0;
+  wire divcnt1_carry_i_5_n_0;
+  wire divcnt1_carry_i_6_n_0;
+  wire divcnt1_carry_i_7_n_0;
+  wire divcnt1_carry_i_8_n_0;
+  wire divcnt1_carry_i_9_n_0;
   wire divcnt1_carry_n_0;
   wire divcnt1_carry_n_1;
   wire divcnt1_carry_n_2;
@@ -3525,15 +3530,16 @@ module design_1_axi_trng_0_0_trng_core
   wire \high_reg[8]_i_1_n_0 ;
   wire \high_reg[9]_i_1_n_0 ;
   wire [31:0]\high_reg_reg[31]_0 ;
-  wire last_bit;
   wire last_bit1;
   wire last_bit_reg_0;
+  wire last_bit_reg_1;
   wire [31:0]low_reg;
   wire [0:0]\low_reg_reg[31]_0 ;
-  wire out_bit;
-  wire out_bit_reg;
+  wire [0:0]out_bit_reg;
+  wire out_bit_reg_0;
+  wire out_valid_reg;
   wire [31:0]p_0_in;
-  wire [31:0]p_0_in__0;
+  wire [31:1]p_0_in__0;
   wire [4:0]p_1_in;
   wire prod__0_n_100;
   wire prod__0_n_101;
@@ -3998,11 +4004,12 @@ module design_1_axi_trng_0_0_trng_core
   wire rct_fail_i_3_n_0;
   wire rct_fail_i_4_n_0;
   wire rct_fail_i_5_n_0;
+  wire rct_fail_i_6_n_0;
   wire rct_fail_reg_0;
   wire [7:0]ro_bits;
   wire ro_mix;
   wire ro_sync_0;
-  wire ro_sync_1_reg_0;
+  wire ro_sync_1;
   wire \ros[1].u_ro_n_0 ;
   wire [15:0]run_len;
   wire [15:1]run_len0;
@@ -4020,6 +4027,7 @@ module design_1_axi_trng_0_0_trng_core
   wire run_len0_carry_n_1;
   wire run_len0_carry_n_2;
   wire run_len0_carry_n_3;
+  wire \run_len[15]_i_2_n_0 ;
   wire \run_len[15]_i_3_n_0 ;
   wire \run_len[15]_i_4_n_0 ;
   wire \run_len[15]_i_5_n_0 ;
@@ -4051,7 +4059,6 @@ module design_1_axi_trng_0_0_trng_core
   wire scaled1_carry_n_1;
   wire scaled1_carry_n_2;
   wire scaled1_carry_n_3;
-  wire \slv_reg0_reg[0] ;
   wire [31:0]span0_out;
   wire span_carry__0_i_1_n_0;
   wire span_carry__0_i_2_n_0;
@@ -4132,9 +4139,9 @@ module design_1_axi_trng_0_0_trng_core
   wire u_vn_n_23;
   wire u_vn_n_24;
   wire u_vn_n_25;
-  wire u_vn_n_5;
+  wire u_vn_n_4;
   wire u_vn_n_6;
-  wire u_vn_n_8;
+  wire u_vn_n_7;
   wire [3:2]NLW_apt_count0_carry__2_CO_UNCONNECTED;
   wire [3:3]NLW_apt_count0_carry__2_O_UNCONNECTED;
   wire [3:2]\NLW_apt_ones0_inferred__0/i__carry__2_CO_UNCONNECTED ;
@@ -4204,35 +4211,35 @@ module design_1_axi_trng_0_0_trng_core
   wire [3:0]NLW_scaled1_carry__1_O_UNCONNECTED;
   wire [3:3]NLW_span_carry__6_CO_UNCONNECTED;
 
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \acc_cnt[0]_i_1 
-       (.I0(\apt_ones_reg[15]_0 [0]),
+       (.I0(\apt_ones_reg[0]_0 ),
         .I1(acc_cnt[0]),
         .O(p_1_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'h60)) 
     \acc_cnt[1]_i_1 
        (.I0(acc_cnt[1]),
         .I1(acc_cnt[0]),
-        .I2(\apt_ones_reg[15]_0 [0]),
+        .I2(\apt_ones_reg[0]_0 ),
         .O(\acc_cnt[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT4 #(
     .INIT(16'h2A80)) 
     \acc_cnt[2]_i_1 
-       (.I0(\apt_ones_reg[15]_0 [0]),
+       (.I0(\apt_ones_reg[0]_0 ),
         .I1(acc_cnt[0]),
         .I2(acc_cnt[1]),
         .I3(acc_cnt[2]),
         .O(p_1_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT5 #(
     .INIT(32'h2AAA8000)) 
     \acc_cnt[3]_i_1 
-       (.I0(\apt_ones_reg[15]_0 [0]),
+       (.I0(\apt_ones_reg[0]_0 ),
         .I1(acc_cnt[1]),
         .I2(acc_cnt[0]),
         .I3(acc_cnt[2]),
@@ -4241,7 +4248,7 @@ module design_1_axi_trng_0_0_trng_core
   LUT6 #(
     .INIT(64'h2AAAAAAA80000000)) 
     \acc_cnt[4]_i_2 
-       (.I0(\apt_ones_reg[15]_0 [0]),
+       (.I0(\apt_ones_reg[0]_0 ),
         .I1(acc_cnt[2]),
         .I2(acc_cnt[0]),
         .I3(acc_cnt[1]),
@@ -4250,31 +4257,31 @@ module design_1_axi_trng_0_0_trng_core
         .O(p_1_in[4]));
   FDCE \acc_cnt_reg[0] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_8),
+        .CE(u_vn_n_6),
         .CLR(SR),
         .D(p_1_in[0]),
         .Q(acc_cnt[0]));
   FDCE \acc_cnt_reg[1] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_8),
+        .CE(u_vn_n_6),
         .CLR(SR),
         .D(\acc_cnt[1]_i_1_n_0 ),
         .Q(acc_cnt[1]));
   FDCE \acc_cnt_reg[2] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_8),
+        .CE(u_vn_n_6),
         .CLR(SR),
         .D(p_1_in[2]),
         .Q(acc_cnt[2]));
   FDCE \acc_cnt_reg[3] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_8),
+        .CE(u_vn_n_6),
         .CLR(SR),
         .D(p_1_in[3]),
         .Q(acc_cnt[3]));
   FDCE \acc_cnt_reg[4] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_8),
+        .CE(u_vn_n_6),
         .CLR(SR),
         .D(p_1_in[4]),
         .Q(acc_cnt[4]));
@@ -4282,7 +4289,7 @@ module design_1_axi_trng_0_0_trng_core
        (.C(s00_axi_aclk),
         .CE(acc_cnt0),
         .CLR(SR),
-        .D(p_0_in__0[0]),
+        .D(out_bit_reg),
         .Q(p_0_in__0[1]));
   FDCE \acc_reg_reg[10] 
        (.C(s00_axi_aclk),
@@ -4502,7 +4509,7 @@ module design_1_axi_trng_0_0_trng_core
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({NLW_apt_count0_carry__2_O_UNCONNECTED[3],apt_count0_carry__2_n_5,apt_count0_carry__2_n_6,apt_count0_carry__2_n_7}),
         .S({1'b0,\apt_count_reg_n_0_[15] ,\apt_count_reg_n_0_[14] ,\apt_count_reg_n_0_[13] }));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \apt_count[0]_i_1 
@@ -4589,9 +4596,9 @@ module design_1_axi_trng_0_0_trng_core
   LUT4 #(
     .INIT(16'h7FFF)) 
     \apt_count[15]_i_6 
-       (.I0(\apt_count_reg_n_0_[3] ),
+       (.I0(\apt_count_reg_n_0_[5] ),
         .I1(\apt_count_reg_n_0_[4] ),
-        .I2(\apt_count_reg_n_0_[5] ),
+        .I2(\apt_count_reg_n_0_[3] ),
         .I3(\apt_count_reg_n_0_[8] ),
         .O(\apt_count[15]_i_6_n_0 ));
   LUT5 #(
@@ -4794,17 +4801,17 @@ module design_1_axi_trng_0_0_trng_core
   LUT3 #(
     .INIT(8'hFE)) 
     apt_fail_i_4
-       (.I0(\apt_ones_reg_n_0_[11] ),
-        .I1(\apt_ones_reg_n_0_[9] ),
-        .I2(\apt_ones_reg_n_0_[12] ),
+       (.I0(\apt_ones_reg_n_0_[13] ),
+        .I1(\apt_ones_reg_n_0_[10] ),
+        .I2(\apt_ones_reg_n_0_[11] ),
         .O(apt_fail_i_4_n_0));
   LUT4 #(
     .INIT(16'hFFFE)) 
     apt_fail_i_5
-       (.I0(\apt_ones_reg_n_0_[14] ),
-        .I1(\apt_ones_reg_n_0_[15] ),
-        .I2(\apt_ones_reg_n_0_[10] ),
-        .I3(\apt_ones_reg_n_0_[13] ),
+       (.I0(\apt_ones_reg_n_0_[12] ),
+        .I1(\apt_ones_reg_n_0_[14] ),
+        .I2(\apt_ones_reg_n_0_[9] ),
+        .I3(\apt_ones_reg_n_0_[15] ),
         .O(apt_fail_i_5_n_0));
   FDCE apt_fail_reg
        (.C(s00_axi_aclk),
@@ -4905,46 +4912,46 @@ module design_1_axi_trng_0_0_trng_core
         .I4(\apt_ones0_inferred__0/i__carry__2_n_5 ),
         .O(\apt_ones[15]_i_2_n_0 ));
   LUT4 #(
-    .INIT(16'hFFFE)) 
-    \apt_ones[15]_i_4 
-       (.I0(\apt_ones[15]_i_5_n_0 ),
-        .I1(\apt_ones[15]_i_6_n_0 ),
-        .I2(\apt_ones[15]_i_7_n_0 ),
-        .I3(\apt_ones[15]_i_8_n_0 ),
+    .INIT(16'hFEFF)) 
+    \apt_ones[15]_i_3 
+       (.I0(\apt_ones[15]_i_4_n_0 ),
+        .I1(\apt_ones[15]_i_5_n_0 ),
+        .I2(\apt_ones[15]_i_6_n_0 ),
+        .I3(\apt_ones[15]_i_7_n_0 ),
         .O(\apt_count_reg[9]_0 ));
   LUT4 #(
     .INIT(16'hEFFF)) 
-    \apt_ones[15]_i_5 
+    \apt_ones[15]_i_4 
        (.I0(\apt_count_reg_n_0_[9] ),
         .I1(\apt_count_reg_n_0_[11] ),
-        .I2(\apt_count_reg_n_0_[6] ),
-        .I3(\apt_count_reg_n_0_[5] ),
-        .O(\apt_ones[15]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+        .I2(\apt_count_reg_n_0_[2] ),
+        .I3(\apt_count_reg_n_0_[4] ),
+        .O(\apt_ones[15]_i_4_n_0 ));
   LUT4 #(
-    .INIT(16'hFF7F)) 
-    \apt_ones[15]_i_6 
+    .INIT(16'hFFF7)) 
+    \apt_ones[15]_i_5 
        (.I0(\apt_count_reg_n_0_[1] ),
-        .I1(\apt_count_reg_n_0_[4] ),
-        .I2(\apt_count_reg_n_0_[0] ),
+        .I1(\apt_count_reg_n_0_[8] ),
+        .I2(\apt_count_reg_n_0_[12] ),
         .I3(\apt_count_reg_n_0_[15] ),
+        .O(\apt_ones[15]_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT4 #(
+    .INIT(16'hDFFF)) 
+    \apt_ones[15]_i_6 
+       (.I0(\apt_count_reg_n_0_[0] ),
+        .I1(\apt_count_reg_n_0_[10] ),
+        .I2(\apt_count_reg_n_0_[5] ),
+        .I3(\apt_count_reg_n_0_[3] ),
         .O(\apt_ones[15]_i_6_n_0 ));
   LUT4 #(
-    .INIT(16'hFFEF)) 
+    .INIT(16'h0040)) 
     \apt_ones[15]_i_7 
-       (.I0(\apt_count_reg_n_0_[12] ),
-        .I1(\apt_count_reg_n_0_[14] ),
-        .I2(\apt_count_reg_n_0_[7] ),
-        .I3(\apt_count_reg_n_0_[13] ),
+       (.I0(\apt_count_reg_n_0_[13] ),
+        .I1(\apt_count_reg_n_0_[7] ),
+        .I2(\apt_count_reg_n_0_[6] ),
+        .I3(\apt_count_reg_n_0_[14] ),
         .O(\apt_ones[15]_i_7_n_0 ));
-  LUT4 #(
-    .INIT(16'hFF7F)) 
-    \apt_ones[15]_i_8 
-       (.I0(\apt_count_reg_n_0_[3] ),
-        .I1(\apt_count_reg_n_0_[8] ),
-        .I2(\apt_count_reg_n_0_[2] ),
-        .I3(\apt_count_reg_n_0_[10] ),
-        .O(\apt_ones[15]_i_8_n_0 ));
   LUT5 #(
     .INIT(32'hFFFB0000)) 
     \apt_ones[1]_i_1 
@@ -5028,97 +5035,97 @@ module design_1_axi_trng_0_0_trng_core
         .O(\apt_ones[9]_i_1_n_0 ));
   FDCE \apt_ones_reg[0] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[0]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[0] ));
   FDCE \apt_ones_reg[10] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[10]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[10] ));
   FDCE \apt_ones_reg[11] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[11]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[11] ));
   FDCE \apt_ones_reg[12] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[12]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[12] ));
   FDCE \apt_ones_reg[13] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[13]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[13] ));
   FDCE \apt_ones_reg[14] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[14]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[14] ));
   FDCE \apt_ones_reg[15] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[15]_i_2_n_0 ),
         .Q(\apt_ones_reg_n_0_[15] ));
   FDCE \apt_ones_reg[1] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[1]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[1] ));
   FDCE \apt_ones_reg[2] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[2]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[2] ));
   FDCE \apt_ones_reg[3] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[3]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[3] ));
   FDCE \apt_ones_reg[4] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[4]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[4] ));
   FDCE \apt_ones_reg[5] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[5]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[5] ));
   FDCE \apt_ones_reg[6] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[6]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[6] ));
   FDCE \apt_ones_reg[7] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[7]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[7] ));
   FDCE \apt_ones_reg[8] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[8]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[8] ));
   FDCE \apt_ones_reg[9] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_5),
+        .CE(u_vn_n_7),
         .CLR(SR),
         .D(\apt_ones[9]_i_1_n_0 ),
         .Q(\apt_ones_reg_n_0_[9] ));
@@ -5182,178 +5189,227 @@ module design_1_axi_trng_0_0_trng_core
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     divcnt1_carry__0_i_2
-       (.I0(divcnt[13]),
-        .I1(divcnt1_carry__0_0[13]),
-        .I2(divcnt[12]),
-        .I3(divcnt1_carry__0_0[12]),
-        .I4(divcnt1_carry__0_0[14]),
-        .I5(divcnt[14]),
+       (.I0(divcnt[14]),
+        .I1(divcnt1_carry__0_0[14]),
+        .I2(divcnt[13]),
+        .I3(divcnt1_carry__0_0[13]),
+        .I4(divcnt1_carry__0_0[12]),
+        .I5(divcnt[12]),
         .O(divcnt1_carry__0_i_2_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     divcnt1_carry_i_1
-       (.I0(divcnt[9]),
-        .I1(divcnt1_carry__0_0[9]),
+       (.I0(divcnt[11]),
+        .I1(divcnt1_carry__0_0[11]),
         .I2(divcnt[10]),
         .I3(divcnt1_carry__0_0[10]),
-        .I4(divcnt1_carry__0_0[11]),
-        .I5(divcnt[11]),
+        .I4(divcnt1_carry__0_0[9]),
+        .I5(divcnt[9]),
         .O(divcnt1_carry_i_1_n_0));
+  LUT5 #(
+    .INIT(32'hFFFFFFF4)) 
+    divcnt1_carry_i_10
+       (.I0(divcnt1_carry__0_0[4]),
+        .I1(divcnt1_carry__0_0[3]),
+        .I2(divcnt1_carry__0_0[5]),
+        .I3(divcnt1_carry__0_0[10]),
+        .I4(divcnt1_carry__0_0[9]),
+        .O(divcnt1_carry_i_10_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     divcnt1_carry_i_2
-       (.I0(divcnt[6]),
-        .I1(divcnt1_carry__0_0[6]),
+       (.I0(divcnt[8]),
+        .I1(divcnt1_carry__0_0[8]),
         .I2(divcnt[7]),
         .I3(divcnt1_carry__0_0[7]),
-        .I4(divcnt1_carry__0_0[8]),
-        .I5(divcnt[8]),
+        .I4(divcnt1_carry__0_0[6]),
+        .I5(divcnt[6]),
         .O(divcnt1_carry_i_2_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     divcnt1_carry_i_3
-       (.I0(divcnt[3]),
-        .I1(divcnt1_carry__0_0[3]),
+       (.I0(divcnt[5]),
+        .I1(divcnt1_carry__0_0[5]),
         .I2(divcnt[4]),
         .I3(divcnt1_carry__0_0[4]),
-        .I4(divcnt1_carry__0_0[5]),
-        .I5(divcnt[5]),
+        .I4(divcnt1_carry__0_0[3]),
+        .I5(divcnt[3]),
         .O(divcnt1_carry_i_3_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
+  LUT5 #(
+    .INIT(32'h0000BA45)) 
     divcnt1_carry_i_4
-       (.I0(divcnt[0]),
-        .I1(divcnt1_carry__0_0[0]),
-        .I2(divcnt[1]),
-        .I3(divcnt1_carry__0_0[1]),
-        .I4(divcnt1_carry__0_0[2]),
-        .I5(divcnt[2]),
+       (.I0(divcnt1_carry__0_0[0]),
+        .I1(divcnt1_carry_i_5_n_0),
+        .I2(divcnt1_carry_i_6_n_0),
+        .I3(divcnt[0]),
+        .I4(divcnt1_carry_i_7_n_0),
         .O(divcnt1_carry_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT5 #(
+    .INIT(32'hFFFEFFFF)) 
+    divcnt1_carry_i_5
+       (.I0(divcnt1_carry_i_8_n_0),
+        .I1(divcnt1_carry__0_0[14]),
+        .I2(divcnt1_carry__0_0[2]),
+        .I3(divcnt1_carry__0_0[4]),
+        .I4(divcnt1_carry_i_9_n_0),
+        .O(divcnt1_carry_i_5_n_0));
+  LUT4 #(
+    .INIT(16'h0001)) 
+    divcnt1_carry_i_6
+       (.I0(divcnt1_carry__0_0[7]),
+        .I1(divcnt1_carry__0_0[8]),
+        .I2(divcnt1_carry__0_0[11]),
+        .I3(divcnt1_carry_i_10_n_0),
+        .O(divcnt1_carry_i_6_n_0));
+  LUT4 #(
+    .INIT(16'h6FF6)) 
+    divcnt1_carry_i_7
+       (.I0(divcnt1_carry__0_0[1]),
+        .I1(divcnt[1]),
+        .I2(divcnt1_carry__0_0[2]),
+        .I3(divcnt[2]),
+        .O(divcnt1_carry_i_7_n_0));
+  LUT4 #(
+    .INIT(16'hFFF4)) 
+    divcnt1_carry_i_8
+       (.I0(divcnt1_carry__0_0[13]),
+        .I1(divcnt1_carry__0_0[12]),
+        .I2(divcnt1_carry__0_0[5]),
+        .I3(divcnt1_carry__0_0[1]),
+        .O(divcnt1_carry_i_8_n_0));
+  LUT4 #(
+    .INIT(16'h0001)) 
+    divcnt1_carry_i_9
+       (.I0(divcnt1_carry__0_0[6]),
+        .I1(divcnt1_carry__0_0[15]),
+        .I2(divcnt1_carry__0_0[13]),
+        .I3(divcnt1_carry__0_0[14]),
+        .O(divcnt1_carry_i_9_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'h04)) 
     \divcnt[0]_i_1 
        (.I0(divcnt[0]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[10]_i_1 
        (.I0(divcnt0[10]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[11]_i_1 
        (.I0(divcnt0[11]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[12]_i_1 
        (.I0(divcnt0[12]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[13]_i_1 
        (.I0(divcnt0[13]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[14]_i_1 
        (.I0(divcnt0[14]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[14]_i_1_n_0 ));
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[15]_i_1 
        (.I0(divcnt0[15]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[1]_i_1 
        (.I0(divcnt0[1]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[2]_i_1 
        (.I0(divcnt0[2]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[3]_i_1 
        (.I0(divcnt0[3]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[4]_i_1 
        (.I0(divcnt0[4]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[5]_i_1 
        (.I0(divcnt0[5]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[6]_i_1 
        (.I0(divcnt0[6]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[7]_i_1 
        (.I0(divcnt0[7]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[8]_i_1 
        (.I0(divcnt0[8]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \divcnt[9]_i_1 
        (.I0(divcnt0[9]),
-        .I1(\apt_ones_reg[15]_0 [0]),
+        .I1(\apt_ones_reg[0]_0 ),
         .I2(divcnt1),
         .O(\divcnt[9]_i_1_n_0 ));
   FDCE \divcnt_reg[0] 
@@ -5817,7 +5873,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(Q[0]),
         .I2(high_reg1),
         .O(\high_reg[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[10]_i_1 
@@ -5825,7 +5881,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [10]),
         .O(\high_reg[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[11]_i_1 
@@ -5833,7 +5889,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [11]),
         .O(\high_reg[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[12]_i_1 
@@ -5841,7 +5897,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [12]),
         .O(\high_reg[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[13]_i_1 
@@ -5849,7 +5905,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [13]),
         .O(\high_reg[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[14]_i_1 
@@ -5857,7 +5913,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [14]),
         .O(\high_reg[14]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[15]_i_1 
@@ -5865,7 +5921,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [15]),
         .O(\high_reg[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[16]_i_1 
@@ -5873,7 +5929,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [16]),
         .O(\high_reg[16]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[17]_i_1 
@@ -5881,7 +5937,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [17]),
         .O(\high_reg[17]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[18]_i_1 
@@ -5889,7 +5945,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [18]),
         .O(\high_reg[18]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[19]_i_1 
@@ -5897,7 +5953,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [19]),
         .O(\high_reg[19]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[1]_i_1 
@@ -5905,7 +5961,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [1]),
         .O(\high_reg[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[20]_i_1 
@@ -5913,7 +5969,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [20]),
         .O(\high_reg[20]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[21]_i_1 
@@ -5921,7 +5977,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [21]),
         .O(\high_reg[21]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[22]_i_1 
@@ -5929,7 +5985,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [22]),
         .O(\high_reg[22]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[23]_i_1 
@@ -5937,7 +5993,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [23]),
         .O(\high_reg[23]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[24]_i_1 
@@ -5945,7 +6001,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [24]),
         .O(\high_reg[24]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[25]_i_1 
@@ -5953,7 +6009,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [25]),
         .O(\high_reg[25]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[26]_i_1 
@@ -5961,7 +6017,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [26]),
         .O(\high_reg[26]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[27]_i_1 
@@ -5969,7 +6025,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [27]),
         .O(\high_reg[27]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[28]_i_1 
@@ -5977,7 +6033,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [28]),
         .O(\high_reg[28]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[29]_i_1 
@@ -5992,7 +6048,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [2]),
         .O(\high_reg[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[30]_i_1 
@@ -6000,7 +6056,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [30]),
         .O(\high_reg[30]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[31]_i_1 
@@ -6008,7 +6064,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [31]),
         .O(\high_reg[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[3]_i_1 
@@ -6016,7 +6072,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [3]),
         .O(\high_reg[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[4]_i_1 
@@ -6024,7 +6080,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [4]),
         .O(\high_reg[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[5]_i_1 
@@ -6032,7 +6088,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [5]),
         .O(\high_reg[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[6]_i_1 
@@ -6040,7 +6096,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [6]),
         .O(\high_reg[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[7]_i_1 
@@ -6048,7 +6104,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [7]),
         .O(\high_reg[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[8]_i_1 
@@ -6056,7 +6112,7 @@ module design_1_axi_trng_0_0_trng_core
         .I1(high_reg1),
         .I2(\high_reg_reg[31]_0 [8]),
         .O(\high_reg[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \high_reg[9]_i_1 
@@ -6260,8 +6316,8 @@ module design_1_axi_trng_0_0_trng_core
        (.C(s00_axi_aclk),
         .CE(1'b1),
         .CLR(SR),
-        .D(last_bit_reg_0),
-        .Q(last_bit));
+        .D(last_bit_reg_1),
+        .Q(last_bit_reg_0));
   FDCE \low_reg_reg[0] 
        (.C(s00_axi_aclk),
         .CE(\low_reg_reg[31]_0 ),
@@ -7270,19 +7326,19 @@ module design_1_axi_trng_0_0_trng_core
         .O(\random_in_range[7]_i_9_n_0 ));
   FDCE \random_in_range_reg[0] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[3]_i_1_n_7 ),
         .Q(\random_in_range_reg[31]_0 [0]));
   FDCE \random_in_range_reg[10] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[11]_i_1_n_5 ),
         .Q(\random_in_range_reg[31]_0 [10]));
   FDCE \random_in_range_reg[11] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[11]_i_1_n_4 ),
         .Q(\random_in_range_reg[31]_0 [11]));
@@ -7303,25 +7359,25 @@ module design_1_axi_trng_0_0_trng_core
         .S({\random_in_range[11]_i_7_n_0 ,\random_in_range[11]_i_8_n_0 ,\random_in_range[11]_i_9_n_0 ,\random_in_range[11]_i_10_n_0 }));
   FDCE \random_in_range_reg[12] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[15]_i_1_n_7 ),
         .Q(\random_in_range_reg[31]_0 [12]));
   FDCE \random_in_range_reg[13] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[15]_i_1_n_6 ),
         .Q(\random_in_range_reg[31]_0 [13]));
   FDCE \random_in_range_reg[14] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[15]_i_1_n_5 ),
         .Q(\random_in_range_reg[31]_0 [14]));
   FDCE \random_in_range_reg[15] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[15]_i_1_n_4 ),
         .Q(\random_in_range_reg[31]_0 [15]));
@@ -7342,25 +7398,25 @@ module design_1_axi_trng_0_0_trng_core
         .S({\random_in_range[15]_i_7_n_0 ,\random_in_range[15]_i_8_n_0 ,\random_in_range[15]_i_9_n_0 ,\random_in_range[15]_i_10_n_0 }));
   FDCE \random_in_range_reg[16] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[19]_i_1_n_7 ),
         .Q(\random_in_range_reg[31]_0 [16]));
   FDCE \random_in_range_reg[17] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[19]_i_1_n_6 ),
         .Q(\random_in_range_reg[31]_0 [17]));
   FDCE \random_in_range_reg[18] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[19]_i_1_n_5 ),
         .Q(\random_in_range_reg[31]_0 [18]));
   FDCE \random_in_range_reg[19] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[19]_i_1_n_4 ),
         .Q(\random_in_range_reg[31]_0 [19]));
@@ -7381,31 +7437,31 @@ module design_1_axi_trng_0_0_trng_core
         .S({\random_in_range[19]_i_7_n_0 ,\random_in_range[19]_i_8_n_0 ,\random_in_range[19]_i_9_n_0 ,\random_in_range[19]_i_10_n_0 }));
   FDCE \random_in_range_reg[1] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[3]_i_1_n_6 ),
         .Q(\random_in_range_reg[31]_0 [1]));
   FDCE \random_in_range_reg[20] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[23]_i_1_n_7 ),
         .Q(\random_in_range_reg[31]_0 [20]));
   FDCE \random_in_range_reg[21] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[23]_i_1_n_6 ),
         .Q(\random_in_range_reg[31]_0 [21]));
   FDCE \random_in_range_reg[22] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[23]_i_1_n_5 ),
         .Q(\random_in_range_reg[31]_0 [22]));
   FDCE \random_in_range_reg[23] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[23]_i_1_n_4 ),
         .Q(\random_in_range_reg[31]_0 [23]));
@@ -7426,25 +7482,25 @@ module design_1_axi_trng_0_0_trng_core
         .S({\random_in_range[23]_i_7_n_0 ,\random_in_range[23]_i_8_n_0 ,\random_in_range[23]_i_9_n_0 ,\random_in_range[23]_i_10_n_0 }));
   FDCE \random_in_range_reg[24] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[27]_i_1_n_7 ),
         .Q(\random_in_range_reg[31]_0 [24]));
   FDCE \random_in_range_reg[25] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[27]_i_1_n_6 ),
         .Q(\random_in_range_reg[31]_0 [25]));
   FDCE \random_in_range_reg[26] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[27]_i_1_n_5 ),
         .Q(\random_in_range_reg[31]_0 [26]));
   FDCE \random_in_range_reg[27] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[27]_i_1_n_4 ),
         .Q(\random_in_range_reg[31]_0 [27]));
@@ -7465,31 +7521,31 @@ module design_1_axi_trng_0_0_trng_core
         .S({\random_in_range[27]_i_7_n_0 ,\random_in_range[27]_i_8_n_0 ,\random_in_range[27]_i_9_n_0 ,\random_in_range[27]_i_10_n_0 }));
   FDCE \random_in_range_reg[28] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[31]_i_1_n_7 ),
         .Q(\random_in_range_reg[31]_0 [28]));
   FDCE \random_in_range_reg[29] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[31]_i_1_n_6 ),
         .Q(\random_in_range_reg[31]_0 [29]));
   FDCE \random_in_range_reg[2] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[3]_i_1_n_5 ),
         .Q(\random_in_range_reg[31]_0 [2]));
   FDCE \random_in_range_reg[30] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[31]_i_1_n_5 ),
         .Q(\random_in_range_reg[31]_0 [30]));
   FDCE \random_in_range_reg[31] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[31]_i_1_n_4 ),
         .Q(\random_in_range_reg[31]_0 [31]));
@@ -7510,7 +7566,7 @@ module design_1_axi_trng_0_0_trng_core
         .S({\random_in_range[31]_i_7_n_0 ,\random_in_range[31]_i_8_n_0 ,\random_in_range[31]_i_9_n_0 ,\random_in_range[31]_i_10_n_0 }));
   FDCE \random_in_range_reg[3] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[3]_i_1_n_4 ),
         .Q(\random_in_range_reg[31]_0 [3]));
@@ -7563,25 +7619,25 @@ module design_1_axi_trng_0_0_trng_core
         .S({\random_in_range[3]_i_13_n_0 ,\random_in_range[3]_i_14_n_0 ,\random_in_range[3]_i_15_n_0 ,\random_in_range[3]_i_16_n_0 }));
   FDCE \random_in_range_reg[4] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[7]_i_1_n_7 ),
         .Q(\random_in_range_reg[31]_0 [4]));
   FDCE \random_in_range_reg[5] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[7]_i_1_n_6 ),
         .Q(\random_in_range_reg[31]_0 [5]));
   FDCE \random_in_range_reg[6] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[7]_i_1_n_5 ),
         .Q(\random_in_range_reg[31]_0 [6]));
   FDCE \random_in_range_reg[7] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[7]_i_1_n_4 ),
         .Q(\random_in_range_reg[31]_0 [7]));
@@ -7602,235 +7658,241 @@ module design_1_axi_trng_0_0_trng_core
         .S({\random_in_range[7]_i_7_n_0 ,\random_in_range[7]_i_8_n_0 ,\random_in_range[7]_i_9_n_0 ,\random_in_range[7]_i_10_n_0 }));
   FDCE \random_in_range_reg[8] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[11]_i_1_n_7 ),
         .Q(\random_in_range_reg[31]_0 [8]));
   FDCE \random_in_range_reg[9] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(\random_in_range_reg[11]_i_1_n_6 ),
         .Q(\random_in_range_reg[31]_0 [9]));
   FDCE \random_raw_reg[0] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
-        .D(p_0_in__0[0]),
+        .D(out_bit_reg),
         .Q(\random_raw_reg[31]_0 [0]));
   FDCE \random_raw_reg[10] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[10]),
         .Q(\random_raw_reg[31]_0 [10]));
   FDCE \random_raw_reg[11] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[11]),
         .Q(\random_raw_reg[31]_0 [11]));
   FDCE \random_raw_reg[12] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[12]),
         .Q(\random_raw_reg[31]_0 [12]));
   FDCE \random_raw_reg[13] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[13]),
         .Q(\random_raw_reg[31]_0 [13]));
   FDCE \random_raw_reg[14] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[14]),
         .Q(\random_raw_reg[31]_0 [14]));
   FDCE \random_raw_reg[15] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[15]),
         .Q(\random_raw_reg[31]_0 [15]));
   FDCE \random_raw_reg[16] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[16]),
         .Q(\random_raw_reg[31]_0 [16]));
   FDCE \random_raw_reg[17] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[17]),
         .Q(\random_raw_reg[31]_0 [17]));
   FDCE \random_raw_reg[18] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[18]),
         .Q(\random_raw_reg[31]_0 [18]));
   FDCE \random_raw_reg[19] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[19]),
         .Q(\random_raw_reg[31]_0 [19]));
   FDCE \random_raw_reg[1] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[1]),
         .Q(\random_raw_reg[31]_0 [1]));
   FDCE \random_raw_reg[20] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[20]),
         .Q(\random_raw_reg[31]_0 [20]));
   FDCE \random_raw_reg[21] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[21]),
         .Q(\random_raw_reg[31]_0 [21]));
   FDCE \random_raw_reg[22] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[22]),
         .Q(\random_raw_reg[31]_0 [22]));
   FDCE \random_raw_reg[23] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[23]),
         .Q(\random_raw_reg[31]_0 [23]));
   FDCE \random_raw_reg[24] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[24]),
         .Q(\random_raw_reg[31]_0 [24]));
   FDCE \random_raw_reg[25] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[25]),
         .Q(\random_raw_reg[31]_0 [25]));
   FDCE \random_raw_reg[26] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[26]),
         .Q(\random_raw_reg[31]_0 [26]));
   FDCE \random_raw_reg[27] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[27]),
         .Q(\random_raw_reg[31]_0 [27]));
   FDCE \random_raw_reg[28] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[28]),
         .Q(\random_raw_reg[31]_0 [28]));
   FDCE \random_raw_reg[29] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[29]),
         .Q(\random_raw_reg[31]_0 [29]));
   FDCE \random_raw_reg[2] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[2]),
         .Q(\random_raw_reg[31]_0 [2]));
   FDCE \random_raw_reg[30] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[30]),
         .Q(\random_raw_reg[31]_0 [30]));
   FDCE \random_raw_reg[31] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[31]),
         .Q(\random_raw_reg[31]_0 [31]));
   FDCE \random_raw_reg[3] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[3]),
         .Q(\random_raw_reg[31]_0 [3]));
   FDCE \random_raw_reg[4] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[4]),
         .Q(\random_raw_reg[31]_0 [4]));
   FDCE \random_raw_reg[5] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[5]),
         .Q(\random_raw_reg[31]_0 [5]));
   FDCE \random_raw_reg[6] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[6]),
         .Q(\random_raw_reg[31]_0 [6]));
   FDCE \random_raw_reg[7] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[7]),
         .Q(\random_raw_reg[31]_0 [7]));
   FDCE \random_raw_reg[8] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[8]),
         .Q(\random_raw_reg[31]_0 [8]));
   FDCE \random_raw_reg[9] 
        (.C(s00_axi_aclk),
-        .CE(u_vn_n_6),
+        .CE(u_vn_n_4),
         .CLR(SR),
         .D(p_0_in__0[9]),
         .Q(\random_raw_reg[31]_0 [9]));
-  LUT3 #(
-    .INIT(8'hFE)) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
     rct_fail_i_3
        (.I0(run_len[9]),
         .I1(run_len[12]),
-        .I2(run_len[15]),
         .O(rct_fail_i_3_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
     rct_fail_i_4
-       (.I0(run_len[14]),
+       (.I0(run_len[7]),
         .I1(run_len[8]),
-        .I2(run_len[11]),
-        .I3(run_len[13]),
-        .I4(run_len[10]),
-        .I5(run_len[7]),
+        .I2(run_len[10]),
+        .I3(run_len[11]),
         .O(rct_fail_i_4_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT3 #(
+    .INIT(8'hFE)) 
+    rct_fail_i_5
+       (.I0(run_len[13]),
+        .I1(run_len[15]),
+        .I2(run_len[14]),
+        .O(rct_fail_i_5_n_0));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    rct_fail_i_5
+    rct_fail_i_6
        (.I0(run_len[0]),
         .I1(run_len[1]),
         .I2(run_len[3]),
         .I3(run_len[4]),
         .I4(run_len[5]),
         .I5(run_len[2]),
-        .O(rct_fail_i_5_n_0));
+        .O(rct_fail_i_6_n_0));
   FDCE rct_fail_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
@@ -7848,33 +7910,33 @@ module design_1_axi_trng_0_0_trng_core
         .CE(1'b1),
         .CLR(SR),
         .D(ro_sync_0),
-        .Q(ro_sync_1_reg_0));
+        .Q(ro_sync_1));
   design_1_axi_trng_0_0_ring_oscillator \ros[0].u_ro 
-       (.n_inferred_i_4_0(\apt_ones_reg[15]_0 [0]),
+       (.n_inferred_i_4_0(\apt_ones_reg[0]_0 ),
         .out(ro_bits[0]));
   design_1_axi_trng_0_0_ring_oscillator_0 \ros[1].u_ro 
        (.n_inferred_i_1__5(\ros[1].u_ro_n_0 ),
-        .n_inferred_i_4__0_0(\apt_ones_reg[15]_0 [0]),
+        .n_inferred_i_4__0_0(\apt_ones_reg[0]_0 ),
         .ro_sync_0_reg({ro_bits[7:6],ro_bits[0]}));
   design_1_axi_trng_0_0_ring_oscillator_1 \ros[2].u_ro 
-       (.n_inferred_i_4__1_0(\apt_ones_reg[15]_0 [0]),
+       (.n_inferred_i_4__1_0(\apt_ones_reg[0]_0 ),
         .ro_mix(ro_mix),
         .ro_sync_0_reg(ro_bits[5:3]),
         .ro_sync_0_reg_0(\ros[1].u_ro_n_0 ));
   design_1_axi_trng_0_0_ring_oscillator_2 \ros[3].u_ro 
-       (.n_inferred_i_4__2_0(\apt_ones_reg[15]_0 [0]),
+       (.n_inferred_i_4__2_0(\apt_ones_reg[0]_0 ),
         .out(ro_bits[3]));
   design_1_axi_trng_0_0_ring_oscillator_3 \ros[4].u_ro 
-       (.n_inferred_i_4__3_0(\apt_ones_reg[15]_0 [0]),
+       (.n_inferred_i_4__3_0(\apt_ones_reg[0]_0 ),
         .out(ro_bits[4]));
   design_1_axi_trng_0_0_ring_oscillator_4 \ros[5].u_ro 
-       (.n_inferred_i_4__4_0(\apt_ones_reg[15]_0 [0]),
+       (.n_inferred_i_4__4_0(\apt_ones_reg[0]_0 ),
         .out(ro_bits[5]));
   design_1_axi_trng_0_0_ring_oscillator_5 \ros[6].u_ro 
-       (.n_inferred_i_4__5_0(\apt_ones_reg[15]_0 [0]),
+       (.n_inferred_i_4__5_0(\apt_ones_reg[0]_0 ),
         .out(ro_bits[6]));
   design_1_axi_trng_0_0_ring_oscillator_6 \ros[7].u_ro 
-       (.n_inferred_i_4__6_0(\apt_ones_reg[15]_0 [0]),
+       (.n_inferred_i_4__6_0(\apt_ones_reg[0]_0 ),
         .out(ro_bits[7]));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 run_len0_carry
@@ -7909,36 +7971,46 @@ module design_1_axi_trng_0_0_trng_core
         .O({NLW_run_len0_carry__2_O_UNCONNECTED[3],run_len0[15:13]}),
         .S({1'b0,run_len[15:13]}));
   LUT4 #(
+    .INIT(16'hFFFE)) 
+    \run_len[15]_i_2 
+       (.I0(\run_len[15]_i_3_n_0 ),
+        .I1(\run_len[15]_i_4_n_0 ),
+        .I2(\run_len[15]_i_5_n_0 ),
+        .I3(\run_len[15]_i_6_n_0 ),
+        .O(\run_len[15]_i_2_n_0 ));
+  LUT4 #(
     .INIT(16'h7FFF)) 
     \run_len[15]_i_3 
-       (.I0(run_len[4]),
-        .I1(run_len[7]),
-        .I2(run_len[2]),
-        .I3(run_len[3]),
-        .O(\run_len[15]_i_3_n_0 ));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \run_len[15]_i_4 
-       (.I0(run_len[9]),
-        .I1(run_len[10]),
-        .I2(run_len[11]),
-        .I3(run_len[0]),
-        .O(\run_len[15]_i_4_n_0 ));
-  LUT4 #(
-    .INIT(16'h8000)) 
-    \run_len[15]_i_5 
-       (.I0(run_len[12]),
-        .I1(run_len[14]),
-        .I2(run_len[1]),
-        .I3(run_len[13]),
-        .O(\run_len[15]_i_5_n_0 ));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \run_len[15]_i_6 
        (.I0(run_len[5]),
         .I1(run_len[6]),
         .I2(run_len[15]),
         .I3(run_len[8]),
+        .O(\run_len[15]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT4 #(
+    .INIT(16'h7FFF)) 
+    \run_len[15]_i_4 
+       (.I0(run_len[13]),
+        .I1(run_len[14]),
+        .I2(run_len[1]),
+        .I3(run_len[12]),
+        .O(\run_len[15]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT4 #(
+    .INIT(16'h7FFF)) 
+    \run_len[15]_i_5 
+       (.I0(run_len[9]),
+        .I1(run_len[10]),
+        .I2(run_len[11]),
+        .I3(run_len[0]),
+        .O(\run_len[15]_i_5_n_0 ));
+  LUT4 #(
+    .INIT(16'h7FFF)) 
+    \run_len[15]_i_6 
+       (.I0(run_len[2]),
+        .I1(run_len[3]),
+        .I2(run_len[4]),
+        .I3(run_len[7]),
         .O(\run_len[15]_i_6_n_0 ));
   FDCE \run_len_reg[0] 
        (.C(s00_axi_aclk),
@@ -8036,12 +8108,12 @@ module design_1_axi_trng_0_0_trng_core
         .CLR(SR),
         .D(u_vn_n_16),
         .Q(run_len[9]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT2 #(
     .INIT(4'h8)) 
     sample_stb_i_1
-       (.I0(divcnt1),
-        .I1(\apt_ones_reg[15]_0 [0]),
+       (.I0(\apt_ones_reg[0]_0 ),
+        .I1(divcnt1),
         .O(sample_stb));
   FDCE sample_stb_reg
        (.C(s00_axi_aclk),
@@ -8436,388 +8508,373 @@ module design_1_axi_trng_0_0_trng_core
         .O(span_carry_i_4_n_0));
   design_1_axi_trng_0_0_von_neumann u_vn
        (.D(D[0]),
-        .E(u_vn_n_5),
-        .Q({run_len[6],run_len[0]}),
-        .\acc_cnt_reg[2] (u_vn_n_6),
-        .\acc_cnt_reg[4] (sample_stb_reg_0),
-        .\apt_ones_reg[15] (\apt_ones_reg[15]_0 ),
-        .\apt_ones_reg[15]_0 (ro_sync_1_reg_0),
-        .\apt_ones_reg[15]_1 (\apt_count_reg[9]_0 ),
+        .E(u_vn_n_4),
+        .Q(acc_cnt),
+        .\apt_ones_reg[0] (\apt_ones_reg[0]_0 ),
+        .\apt_ones_reg[0]_0 (\apt_count_reg[9]_0 ),
         .first_bit(first_bit),
         .first_bit_reg_0(first_bit_reg),
         .have_first(have_first),
         .have_first_reg_0(have_first_reg),
         .health_ok_reg(acc_cnt0),
-        .last_bit(last_bit),
-        .out_bit(out_bit),
-        .out_bit_reg_0(p_0_in__0[0]),
-        .out_bit_reg_1(out_bit_reg),
-        .out_valid_reg_0(last_bit1),
+        .out_bit_reg_0(out_bit_reg),
+        .out_bit_reg_1({u_vn_n_10,u_vn_n_11,u_vn_n_12,u_vn_n_13,u_vn_n_14,u_vn_n_15,u_vn_n_16,u_vn_n_17,u_vn_n_18,u_vn_n_19,u_vn_n_20,u_vn_n_21,u_vn_n_22,u_vn_n_23,u_vn_n_24,u_vn_n_25}),
+        .out_bit_reg_2(out_bit_reg_0),
+        .out_valid_reg_0(out_valid_reg),
+        .out_valid_reg_1(u_vn_n_6),
+        .out_valid_reg_2(last_bit1),
+        .out_valid_reg_3(sample_stb_reg_0),
         .rct_fail_reg(rct_fail_i_3_n_0),
         .rct_fail_reg_0(rct_fail_i_4_n_0),
         .rct_fail_reg_1(rct_fail_i_5_n_0),
+        .rct_fail_reg_2({run_len[6],run_len[0]}),
+        .rct_fail_reg_3(rct_fail_i_6_n_0),
+        .ro_sync_1(ro_sync_1),
         .run_len0(run_len0),
-        .\run_len_reg[15] ({u_vn_n_10,u_vn_n_11,u_vn_n_12,u_vn_n_13,u_vn_n_14,u_vn_n_15,u_vn_n_16,u_vn_n_17,u_vn_n_18,u_vn_n_19,u_vn_n_20,u_vn_n_21,u_vn_n_22,u_vn_n_23,u_vn_n_24,u_vn_n_25}),
-        .\run_len_reg[15]_0 (\run_len[15]_i_3_n_0 ),
-        .\run_len_reg[15]_1 (\run_len[15]_i_4_n_0 ),
-        .\run_len_reg[15]_2 (\run_len[15]_i_5_n_0 ),
-        .\run_len_reg[15]_3 (\run_len[15]_i_6_n_0 ),
+        .\run_len_reg[0] (last_bit_reg_0),
+        .\run_len_reg[0]_0 (\run_len[15]_i_2_n_0 ),
         .\run_len_reg[6] (\run_len_reg[6]_0 ),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_aresetn(s00_axi_aresetn),
-        .sample_stb_reg(u_vn_n_8),
-        .\slv_reg0_reg[0] (\slv_reg0_reg[0] ),
-        .valid_reg(acc_cnt));
+        .\slv_reg0_reg[0] (u_vn_n_7));
   FDCE valid_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
         .CLR(SR),
-        .D(u_vn_n_6),
+        .D(u_vn_n_4),
         .Q(E));
 endmodule
 
 (* ORIG_REF_NAME = "von_neumann" *) 
 module design_1_axi_trng_0_0_von_neumann
-   (have_first,
+   (out_valid_reg_0,
     first_bit,
-    out_bit,
-    \run_len_reg[6] ,
-    \slv_reg0_reg[0] ,
-    E,
-    \acc_cnt_reg[2] ,
-    health_ok_reg,
-    sample_stb_reg,
-    out_valid_reg_0,
-    \run_len_reg[15] ,
+    have_first,
     out_bit_reg_0,
+    E,
+    health_ok_reg,
+    out_valid_reg_1,
+    \slv_reg0_reg[0] ,
+    \run_len_reg[6] ,
+    out_valid_reg_2,
+    out_bit_reg_1,
     s00_axi_aclk,
+    out_valid_reg_3,
+    ro_sync_1,
     have_first_reg_0,
     first_bit_reg_0,
-    out_bit_reg_1,
+    out_bit_reg_2,
+    Q,
+    D,
+    \apt_ones_reg[0] ,
+    s00_axi_aresetn,
+    \apt_ones_reg[0]_0 ,
     rct_fail_reg,
     rct_fail_reg_0,
-    Q,
     rct_fail_reg_1,
-    \apt_ones_reg[15] ,
-    \apt_ones_reg[15]_0 ,
-    \apt_ones_reg[15]_1 ,
-    valid_reg,
-    \acc_cnt_reg[4] ,
-    D,
-    s00_axi_aresetn,
-    run_len0,
-    last_bit,
-    \run_len_reg[15]_0 ,
-    \run_len_reg[15]_1 ,
-    \run_len_reg[15]_2 ,
-    \run_len_reg[15]_3 );
-  output have_first;
+    rct_fail_reg_2,
+    rct_fail_reg_3,
+    \run_len_reg[0] ,
+    \run_len_reg[0]_0 ,
+    run_len0);
+  output out_valid_reg_0;
   output first_bit;
-  output out_bit;
-  output \run_len_reg[6] ;
-  output \slv_reg0_reg[0] ;
+  output have_first;
+  output out_bit_reg_0;
   output [0:0]E;
-  output [0:0]\acc_cnt_reg[2] ;
   output [0:0]health_ok_reg;
-  output [0:0]sample_stb_reg;
-  output [0:0]out_valid_reg_0;
-  output [15:0]\run_len_reg[15] ;
-  output [0:0]out_bit_reg_0;
+  output [0:0]out_valid_reg_1;
+  output [0:0]\slv_reg0_reg[0] ;
+  output \run_len_reg[6] ;
+  output [0:0]out_valid_reg_2;
+  output [15:0]out_bit_reg_1;
   input s00_axi_aclk;
+  input out_valid_reg_3;
+  input ro_sync_1;
   input have_first_reg_0;
   input first_bit_reg_0;
-  input out_bit_reg_1;
+  input out_bit_reg_2;
+  input [4:0]Q;
+  input [0:0]D;
+  input [0:0]\apt_ones_reg[0] ;
+  input s00_axi_aresetn;
+  input \apt_ones_reg[0]_0 ;
   input rct_fail_reg;
   input rct_fail_reg_0;
-  input [1:0]Q;
   input rct_fail_reg_1;
-  input [1:0]\apt_ones_reg[15] ;
-  input \apt_ones_reg[15]_0 ;
-  input \apt_ones_reg[15]_1 ;
-  input [4:0]valid_reg;
-  input \acc_cnt_reg[4] ;
-  input [0:0]D;
-  input s00_axi_aresetn;
+  input [1:0]rct_fail_reg_2;
+  input rct_fail_reg_3;
+  input \run_len_reg[0] ;
+  input \run_len_reg[0]_0 ;
   input [14:0]run_len0;
-  input last_bit;
-  input \run_len_reg[15]_0 ;
-  input \run_len_reg[15]_1 ;
-  input \run_len_reg[15]_2 ;
-  input \run_len_reg[15]_3 ;
 
   wire [0:0]D;
   wire [0:0]E;
-  wire [1:0]Q;
-  wire [0:0]\acc_cnt_reg[2] ;
-  wire \acc_cnt_reg[4] ;
-  wire [1:0]\apt_ones_reg[15] ;
-  wire \apt_ones_reg[15]_0 ;
-  wire \apt_ones_reg[15]_1 ;
+  wire [4:0]Q;
+  wire \__0/i__n_0 ;
+  wire [0:0]\apt_ones_reg[0] ;
+  wire \apt_ones_reg[0]_0 ;
   wire first_bit;
   wire first_bit_reg_0;
   wire have_first;
   wire have_first_reg_0;
   wire [0:0]health_ok_reg;
-  wire last_bit;
-  wire out_bit;
-  wire [0:0]out_bit_reg_0;
-  wire out_bit_reg_1;
+  wire out_bit_reg_0;
+  wire [15:0]out_bit_reg_1;
+  wire out_bit_reg_2;
   wire out_valid_i_1_n_0;
-  wire out_valid_i_2_n_0;
-  wire [0:0]out_valid_reg_0;
+  wire out_valid_reg_0;
+  wire [0:0]out_valid_reg_1;
+  wire [0:0]out_valid_reg_2;
+  wire out_valid_reg_3;
   wire rct_fail_reg;
   wire rct_fail_reg_0;
   wire rct_fail_reg_1;
+  wire [1:0]rct_fail_reg_2;
+  wire rct_fail_reg_3;
+  wire ro_sync_1;
   wire [14:0]run_len0;
-  wire \run_len[15]_i_2_n_0 ;
-  wire [15:0]\run_len_reg[15] ;
-  wire \run_len_reg[15]_0 ;
-  wire \run_len_reg[15]_1 ;
-  wire \run_len_reg[15]_2 ;
-  wire \run_len_reg[15]_3 ;
+  wire \run_len_reg[0] ;
+  wire \run_len_reg[0]_0 ;
   wire \run_len_reg[6] ;
   wire s00_axi_aclk;
   wire s00_axi_aresetn;
-  wire [0:0]sample_stb_reg;
-  wire \slv_reg0_reg[0] ;
-  wire [4:0]valid_reg;
-  wire vn_valid;
+  wire [0:0]\slv_reg0_reg[0] ;
 
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT5 #(
-    .INIT(32'hE200FFFF)) 
-    \acc_cnt[4]_i_1 
-       (.I0(\acc_cnt_reg[4] ),
-        .I1(\apt_ones_reg[15] [1]),
-        .I2(vn_valid),
-        .I3(D),
-        .I4(\apt_ones_reg[15] [0]),
-        .O(sample_stb_reg));
+  LUT4 #(
+    .INIT(16'h2800)) 
+    \__0/i_ 
+       (.I0(out_valid_reg_3),
+        .I1(ro_sync_1),
+        .I2(first_bit),
+        .I3(have_first),
+        .O(\__0/i__n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
-    .INIT(8'hB8)) 
-    \acc_reg[0]_i_1 
-       (.I0(out_bit),
-        .I1(\apt_ones_reg[15] [1]),
-        .I2(\apt_ones_reg[15]_0 ),
-        .O(out_bit_reg_0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT5 #(
-    .INIT(32'h8A800000)) 
+    .INIT(8'h8F)) 
+    \acc_cnt[4]_i_1 
+       (.I0(out_valid_reg_0),
+        .I1(D),
+        .I2(\apt_ones_reg[0] ),
+        .O(out_valid_reg_1));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \acc_reg[31]_i_1 
        (.I0(D),
-        .I1(vn_valid),
-        .I2(\apt_ones_reg[15] [1]),
-        .I3(\acc_cnt_reg[4] ),
-        .I4(\apt_ones_reg[15] [0]),
+        .I1(\apt_ones_reg[0] ),
+        .I2(out_valid_reg_0),
         .O(health_ok_reg));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'hB800)) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
     \apt_count[15]_i_1 
-       (.I0(vn_valid),
-        .I1(\apt_ones_reg[15] [1]),
-        .I2(\acc_cnt_reg[4] ),
-        .I3(\apt_ones_reg[15] [0]),
-        .O(out_valid_reg_0));
+       (.I0(out_valid_reg_0),
+        .I1(\apt_ones_reg[0] ),
+        .O(out_valid_reg_2));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'h45405555)) 
-    \apt_ones[15]_i_1 
-       (.I0(\slv_reg0_reg[0] ),
-        .I1(out_bit),
-        .I2(\apt_ones_reg[15] [1]),
-        .I3(\apt_ones_reg[15]_0 ),
-        .I4(\apt_ones_reg[15]_1 ),
-        .O(E));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
-    .INIT(16'h57F7)) 
-    \apt_ones[15]_i_3 
-       (.I0(\apt_ones_reg[15] [0]),
-        .I1(\acc_cnt_reg[4] ),
-        .I2(\apt_ones_reg[15] [1]),
-        .I3(vn_valid),
+    .INIT(16'h8088)) 
+    \apt_ones[15]_i_1 
+       (.I0(\apt_ones_reg[0] ),
+        .I1(out_valid_reg_0),
+        .I2(out_bit_reg_0),
+        .I3(\apt_ones_reg[0]_0 ),
         .O(\slv_reg0_reg[0] ));
   FDCE first_bit_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(out_valid_i_2_n_0),
+        .CLR(out_valid_i_1_n_0),
         .D(first_bit_reg_0),
         .Q(first_bit));
   FDCE have_first_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(out_valid_i_2_n_0),
+        .CLR(out_valid_i_1_n_0),
         .D(have_first_reg_0),
         .Q(have_first));
   FDCE out_bit_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(out_valid_i_2_n_0),
-        .D(out_bit_reg_1),
-        .Q(out_bit));
-  LUT4 #(
-    .INIT(16'h2800)) 
-    out_valid_i_1
-       (.I0(\acc_cnt_reg[4] ),
-        .I1(first_bit),
-        .I2(\apt_ones_reg[15]_0 ),
-        .I3(have_first),
-        .O(out_valid_i_1_n_0));
+        .CLR(out_valid_i_1_n_0),
+        .D(out_bit_reg_2),
+        .Q(out_bit_reg_0));
   LUT2 #(
     .INIT(4'h7)) 
-    out_valid_i_2
-       (.I0(\apt_ones_reg[15] [0]),
+    out_valid_i_1
+       (.I0(\apt_ones_reg[0] ),
         .I1(s00_axi_aresetn),
-        .O(out_valid_i_2_n_0));
+        .O(out_valid_i_1_n_0));
   FDCE out_valid_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .CLR(out_valid_i_2_n_0),
-        .D(out_valid_i_1_n_0),
-        .Q(vn_valid));
-  LUT5 #(
-    .INIT(32'h55545454)) 
+        .CLR(out_valid_i_1_n_0),
+        .D(\__0/i__n_0 ),
+        .Q(out_valid_reg_0));
+  LUT6 #(
+    .INIT(64'hAAAAAAA8AAA8AAA8)) 
     rct_fail_i_2
-       (.I0(\slv_reg0_reg[0] ),
+       (.I0(out_valid_reg_2),
         .I1(rct_fail_reg),
         .I2(rct_fail_reg_0),
-        .I3(Q[1]),
-        .I4(rct_fail_reg_1),
+        .I3(rct_fail_reg_1),
+        .I4(rct_fail_reg_2[1]),
+        .I5(rct_fail_reg_3),
         .O(\run_len_reg[6] ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT2 #(
-    .INIT(4'hB)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'h7DFF)) 
     \run_len[0]_i_1 
-       (.I0(\run_len[15]_i_2_n_0 ),
-        .I1(Q[0]),
-        .O(\run_len_reg[15] [0]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(rct_fail_reg_2[0]),
+        .I1(out_bit_reg_0),
+        .I2(\run_len_reg[0] ),
+        .I3(\run_len_reg[0]_0 ),
+        .O(out_bit_reg_1[0]));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[10]_i_1 
-       (.I0(run_len0[9]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [10]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[9]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[10]));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[11]_i_1 
-       (.I0(run_len0[10]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [11]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[10]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[11]));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[12]_i_1 
-       (.I0(run_len0[11]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [12]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[11]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[12]));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[13]_i_1 
-       (.I0(run_len0[12]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [13]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[12]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[13]));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[14]_i_1 
-       (.I0(run_len0[13]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [14]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[13]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[14]));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[15]_i_1 
-       (.I0(run_len0[14]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [15]));
-  LUT6 #(
-    .INIT(64'h66666666666F6666)) 
-    \run_len[15]_i_2 
-       (.I0(out_bit_reg_0),
-        .I1(last_bit),
-        .I2(\run_len_reg[15]_0 ),
-        .I3(\run_len_reg[15]_1 ),
-        .I4(\run_len_reg[15]_2 ),
-        .I5(\run_len_reg[15]_3 ),
-        .O(\run_len[15]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[14]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[15]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[1]_i_1 
-       (.I0(run_len0[0]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [1]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[0]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[1]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[2]_i_1 
-       (.I0(run_len0[1]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [2]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[1]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[2]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[3]_i_1 
-       (.I0(run_len0[2]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [3]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[2]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[3]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[4]_i_1 
-       (.I0(run_len0[3]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [4]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[3]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[4]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[5]_i_1 
-       (.I0(run_len0[4]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [5]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[4]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[5]));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[6]_i_1 
-       (.I0(run_len0[5]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [6]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[5]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[6]));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[7]_i_1 
-       (.I0(run_len0[6]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [7]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[6]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[7]));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[8]_i_1 
-       (.I0(run_len0[7]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [8]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[7]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[8]));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT4 #(
+    .INIT(16'h8008)) 
     \run_len[9]_i_1 
-       (.I0(run_len0[8]),
-        .I1(\run_len[15]_i_2_n_0 ),
-        .O(\run_len_reg[15] [9]));
+       (.I0(\run_len_reg[0]_0 ),
+        .I1(run_len0[8]),
+        .I2(out_bit_reg_0),
+        .I3(\run_len_reg[0] ),
+        .O(out_bit_reg_1[9]));
   LUT6 #(
     .INIT(64'h8000000000000000)) 
     valid_i_1
        (.I0(health_ok_reg),
-        .I1(valid_reg[2]),
-        .I2(valid_reg[0]),
-        .I3(valid_reg[1]),
-        .I4(valid_reg[3]),
-        .I5(valid_reg[4]),
-        .O(\acc_cnt_reg[2] ));
+        .I1(Q[2]),
+        .I2(Q[0]),
+        .I3(Q[1]),
+        .I4(Q[3]),
+        .I5(Q[4]),
+        .O(E));
 endmodule
 `ifndef GLBL
 `define GLBL

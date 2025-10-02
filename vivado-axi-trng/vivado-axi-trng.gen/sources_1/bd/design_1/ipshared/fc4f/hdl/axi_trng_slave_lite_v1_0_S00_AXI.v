@@ -140,13 +140,13 @@ module axi_trng_slave_lite_v1_0_S00_AXI #
     // slv_reg7: Reserved
 
     // I/O Connections assignments
-    assign S_AXI_AWREADY	= axi_awready;
-    assign S_AXI_WREADY	= axi_wready;
-    assign S_AXI_BRESP	= axi_bresp;
-    assign S_AXI_BVALID	= axi_bvalid;
-    assign S_AXI_ARREADY	= axi_arready;
-    assign S_AXI_RRESP	= axi_rresp;
-    assign S_AXI_RVALID	= axi_rvalid;
+    assign S_AXI_AWREADY = axi_awready;
+    assign S_AXI_WREADY	 = axi_wready;
+    assign S_AXI_BRESP	 = axi_bresp;
+    assign S_AXI_BVALID	 = axi_bvalid;
+    assign S_AXI_ARREADY = axi_arready;
+    assign S_AXI_RRESP	 = axi_rresp;
+    assign S_AXI_RVALID	 = axi_rvalid;
     
     //state machine varibles
     reg [1:0] state_write;
@@ -398,7 +398,6 @@ module axi_trng_slave_lite_v1_0_S00_AXI #
         .aresetn(S_AXI_ARESETN),
         .enable(slv_reg0[0]),           // bit 0 of CONTROL
         .clr_alarms(slv_reg0[1]),       // bit 1 of CONTROL
-        .vn_enable(slv_reg0[2]),        // bit 2 of CONTROL
         .sample_div(slv_reg1[SAMPLE_DIV_WIDTH-1:0]),
         .update_range(update_range_pulse),
         .new_low(slv_reg2),
