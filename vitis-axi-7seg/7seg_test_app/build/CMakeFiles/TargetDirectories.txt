@@ -1,0 +1,3 @@
+C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vitis-axi-7seg/7seg_test_app/build/CMakeFiles/7seg_test_app.elf.dir
+C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vitis-axi-7seg/7seg_test_app/build/CMakeFiles/edit_cache.dir
+C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vitis-axi-7seg/7seg_test_app/build/CMakeFiles/rebuild_cache.dir

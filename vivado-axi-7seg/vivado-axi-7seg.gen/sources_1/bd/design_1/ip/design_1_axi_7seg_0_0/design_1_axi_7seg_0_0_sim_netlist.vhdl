@@ -2,7 +2,7 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
--- Date        : Sun Sep 28 16:13:06 2025
+-- Date        : Thu Oct  2 09:03:30 2025
 -- Host        : Emanuel running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-7seg/vivado-axi-7seg.gen/sources_1/bd/design_1/ip/design_1_axi_7seg_0_0/design_1_axi_7seg_0_0_sim_netlist.vhdl

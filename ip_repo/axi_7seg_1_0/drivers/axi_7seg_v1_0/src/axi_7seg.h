@@ -1,79 +1,82 @@
+/**
+ * @file axi_7seg.h
+ * @brief Driver for AXI 7-Segment Display Controller IP Core
+ * 
+ * This driver provides an interface to control a 4-digit 7-segment display
+ * with multiplexing support and digit decoding.
+ */
 
 #ifndef AXI_7SEG_H
 #define AXI_7SEG_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-/****************** Include Files ********************/
+/***************************** Include Files *********************************/
 #include "xil_types.h"
+#include "xil_assert.h"
 #include "xstatus.h"
+#include "xil_io.h"
 
-#define AXI_7SEG_S00_AXI_SLV_REG0_OFFSET 0
-#define AXI_7SEG_S00_AXI_SLV_REG1_OFFSET 4
-#define AXI_7SEG_S00_AXI_SLV_REG2_OFFSET 8
-#define AXI_7SEG_S00_AXI_SLV_REG3_OFFSET 12
+/************************** Constant Definitions *****************************/
 
-
-/**************************** Type Definitions *****************************/
-/**
- *
- * Write a value to a AXI_7SEG register. A 32 bit write is performed.
- * If the component is implemented in a smaller width, only the least
- * significant data is written.
- *
- * @param   BaseAddress is the base address of the AXI_7SEGdevice.
- * @param   RegOffset is the register offset from the base to write to.
- * @param   Data is the data written to the register.
- *
- * @return  None.
- *
- * @note
- * C-style signature:
- * 	void AXI_7SEG_mWriteReg(u32 BaseAddress, unsigned RegOffset, u32 Data)
- *
- */
-#define AXI_7SEG_mWriteReg(BaseAddress, RegOffset, Data) \
-  	Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+/**************************** Type Definitions *******************************/
 
 /**
- *
- * Read a value from a AXI_7SEG register. A 32 bit read is performed.
- * If the component is implemented in a smaller width, only the least
- * significant data is read from the register. The most significant data
- * will be read as 0.
- *
- * @param   BaseAddress is the base address of the AXI_7SEG device.
- * @param   RegOffset is the register offset from the base to write to.
- *
- * @return  Data is the data from the register.
- *
- * @note
- * C-style signature:
- * 	u32 AXI_7SEG_mReadReg(u32 BaseAddress, unsigned RegOffset)
- *
+ * AXI 7-Segment driver instance data
  */
-#define AXI_7SEG_mReadReg(BaseAddress, RegOffset) \
+typedef struct {
+    u32 BaseAddress;    /**< Base address of the device */
+    u32 IsReady;        /**< Device is initialized and ready */
+} axi_7seg_t;
+
+/**
+ * Register map (offsets)
+ */
+enum {
+    SEG7_REG_ANODE_CTRL    = 0x00u,  /**< Anode control register */
+    SEG7_REG_DIGIT_VALUES  = 0x04u   /**< Digit values register */
+};
+
+/**
+ * Anode control bits
+ */
+#define SEG7_ANODE_ALL_BITS    0x0F  /**< Enable all digits */
+
+/***************** Macros (Inline Functions) Definitions *********************/
+
+/**
+ * Read from a 7-Segment register
+ */
+#define AXI_7SEG_READ_REG(BaseAddress, RegOffset) \
     Xil_In32((BaseAddress) + (RegOffset))
 
-/************************** Function Prototypes ****************************/
 /**
- *
- * Run a self-test on the driver/device. Note this may be a destructive test if
- * resets of the device are performed.
- *
- * If the hardware system is not built correctly, this function may never
- * return to the caller.
- *
- * @param   baseaddr_p is the base address of the AXI_7SEG instance to be worked on.
- *
- * @return
- *
- *    - XST_SUCCESS   if all self-test code passed
- *    - XST_FAILURE   if any self-test code failed
- *
- * @note    Caching must be turned off for this function to work.
- * @note    Self test may fail if data memory and device are not on the same bus.
- *
+ * Write to a 7-Segment register
  */
-XStatus AXI_7SEG_Reg_SelfTest(void * baseaddr_p);
+#define AXI_7SEG_WRITE_REG(BaseAddress, RegOffset, Data) \
+    Xil_Out32((BaseAddress) + (RegOffset), (Data))
 
-#endif // AXI_7SEG_H
+/************************** Function Prototypes ******************************/
+
+/* Initialization and control functions */
+void Seg7_Initialize(axi_7seg_t *InstancePtr, u32 BaseAddress);
+void Seg7_Reset(axi_7seg_t *InstancePtr);
+
+/* Anode control functions */
+void Seg7_EnableAllDigits(axi_7seg_t *InstancePtr);
+
+/* Digit value functions */
+void Seg7_SetDigit(axi_7seg_t *InstancePtr, u8 Digit, u8 Value);
+void Seg7_SetAllDigits(axi_7seg_t *InstancePtr, u8 Digit0, u8 Digit1, u8 Digit2, u8 Digit3);
+void Seg7_SetNumber(axi_7seg_t *InstancePtr, u16 Number);
+
+/* Utility functions */
+void Seg7_ClearDisplay(axi_7seg_t *InstancePtr);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* AXI_7SEG_H */

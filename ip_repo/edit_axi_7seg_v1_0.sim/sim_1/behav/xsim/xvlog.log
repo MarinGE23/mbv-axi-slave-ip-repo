@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_7seg_1_0/src/display_decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module display_decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/edit_axi_7seg_v1_0.srcs/sim_1/new/display_decoder_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module display_decoder_tb

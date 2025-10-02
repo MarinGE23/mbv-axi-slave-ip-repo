@@ -1,0 +1,72 @@
+Time resolution is 1 ps
+
+=== Test Case 1: Normal operation with digits 0,1,2,3 ===
+Time=105000 ns | Cycle=0 | cnt100K=0 | cnt100K[10:9]=00 | an_out=1111 | seg_out=11111111
+  --> Active Digit: 0 (Value=0, Pattern=11000000)
+
+=== Test Case 1: Normal operation with digits 0,1,2,3 ===
+Time=105000 ns | Cycle=0 | cnt100K=0 | cnt100K[10:9]=00 | an_out=1111 | seg_out=11111111
+  --> Active Digit: 0 (Value=0, Pattern=11000000)
+Time=5225000 ns | Cycle=512 | cnt100K=512 | cnt100K[10:9]=01 | an_out=0000 | seg_out=11000000
+  --> Active Digit: 1 (Value=1, Pattern=11111001)
+Time=10345000 ns | Cycle=1024 | cnt100K=1024 | cnt100K[10:9]=10 | an_out=0000 | seg_out=11111001
+  --> Active Digit: 2 (Value=2, Pattern=10100100)
+Time=15465000 ns | Cycle=1536 | cnt100K=1536 | cnt100K[10:9]=11 | an_out=0000 | seg_out=10100100
+  --> Active Digit: 3 (Value=3, Pattern=10110000)
+Time=20585000 ns | Cycle=2048 | cnt100K=0 | cnt100K[10:9]=00 | an_out=0000 | seg_out=10110000
+  --> Active Digit: 0 (Value=0, Pattern=11000000)
+Time=25705000 ns | Cycle=2560 | cnt100K=512 | cnt100K[10:9]=01 | an_out=0000 | seg_out=11000000
+  --> Active Digit: 1 (Value=1, Pattern=11111001)
+Time=30825000 ns | Cycle=3072 | cnt100K=1024 | cnt100K[10:9]=10 | an_out=0000 | seg_out=11111001
+  --> Active Digit: 2 (Value=2, Pattern=10100100)
+Time=35945000 ns | Cycle=3584 | cnt100K=1536 | cnt100K[10:9]=11 | an_out=0000 | seg_out=10100100
+  --> Active Digit: 3 (Value=3, Pattern=10110000)
+
+=== Test Case 2: Changing to digits 4,5,6,7 ===
+Time=41065000 ns | Cycle=4096 | cnt100K=0 | cnt100K[10:9]=00 | an_out=0000 | seg_out=11111000
+  --> Active Digit: 0 (Value=4, Pattern=10011001)
+Time=46185000 ns | Cycle=4608 | cnt100K=512 | cnt100K[10:9]=01 | an_out=0000 | seg_out=10011001
+  --> Active Digit: 1 (Value=5, Pattern=10010010)
+Time=51305000 ns | Cycle=5120 | cnt100K=1024 | cnt100K[10:9]=10 | an_out=0000 | seg_out=10010010
+  --> Active Digit: 2 (Value=6, Pattern=10000010)
+Time=56425000 ns | Cycle=5632 | cnt100K=1536 | cnt100K[10:9]=11 | an_out=0000 | seg_out=10000010
+  --> Active Digit: 3 (Value=7, Pattern=11111000)
+Time=61545000 ns | Cycle=6144 | cnt100K=0 | cnt100K[10:9]=00 | an_out=0000 | seg_out=11111000
+  --> Active Digit: 0 (Value=4, Pattern=10011001)
+Time=66665000 ns | Cycle=6656 | cnt100K=512 | cnt100K[10:9]=01 | an_out=0000 | seg_out=10011001
+  --> Active Digit: 1 (Value=5, Pattern=10010010)
+Time=71785000 ns | Cycle=7168 | cnt100K=1024 | cnt100K[10:9]=10 | an_out=0000 | seg_out=10010010
+  --> Active Digit: 2 (Value=6, Pattern=10000010)
+Time=76905000 ns | Cycle=7680 | cnt100K=1536 | cnt100K[10:9]=11 | an_out=0000 | seg_out=10000010
+  --> Active Digit: 3 (Value=7, Pattern=11111000)
+
+=== Test Case 3: Testing digits 8,9 and invalid inputs ===
+Time=82025000 ns | Cycle=8192 | cnt100K=0 | cnt100K[10:9]=00 | an_out=0000 | seg_out=11111111
+  --> Active Digit: 0 (Value=8, Pattern=10000000)
+Time=87145000 ns | Cycle=8704 | cnt100K=512 | cnt100K[10:9]=01 | an_out=0000 | seg_out=10000000
+  --> Active Digit: 1 (Value=9, Pattern=10010000)
+Time=92265000 ns | Cycle=9216 | cnt100K=1024 | cnt100K[10:9]=10 | an_out=0000 | seg_out=10010000
+  --> Active Digit: 2 (Value=10, Pattern=11111111)
+Time=97385000 ns | Cycle=9728 | cnt100K=1536 | cnt100K[10:9]=11 | an_out=0000 | seg_out=11111111
+  --> Active Digit: 3 (Value=15, Pattern=11111111)
+Time=102505000 ns | Cycle=10240 | cnt100K=0 | cnt100K[10:9]=00 | an_out=0000 | seg_out=11111111
+  --> Active Digit: 0 (Value=8, Pattern=10000000)
+Time=107625000 ns | Cycle=10752 | cnt100K=512 | cnt100K[10:9]=01 | an_out=0000 | seg_out=10000000
+  --> Active Digit: 1 (Value=9, Pattern=10010000)
+Time=112745000 ns | Cycle=11264 | cnt100K=1024 | cnt100K[10:9]=10 | an_out=0000 | seg_out=10010000
+  --> Active Digit: 2 (Value=10, Pattern=11111111)
+Time=117865000 ns | Cycle=11776 | cnt100K=1536 | cnt100K[10:9]=11 | an_out=0000 | seg_out=11111111
+  --> Active Digit: 3 (Value=15, Pattern=11111111)
+
+=== Test Case 4: All digits set to 5 ===
+Time=122985000 ns | Cycle=12288 | cnt100K=0 | cnt100K[10:9]=00 | an_out=0000 | seg_out=10010010
+  --> Active Digit: 0 (Value=5, Pattern=10010010)
+Time=128105000 ns | Cycle=12800 | cnt100K=512 | cnt100K[10:9]=01 | an_out=0000 | seg_out=10010010
+  --> Active Digit: 1 (Value=5, Pattern=10010010)
+Time=133225000 ns | Cycle=13312 | cnt100K=1024 | cnt100K[10:9]=10 | an_out=0000 | seg_out=10010010
+  --> Active Digit: 2 (Value=5, Pattern=10010010)
+Time=138345000 ns | Cycle=13824 | cnt100K=1536 | cnt100K[10:9]=11 | an_out=0000 | seg_out=10010010
+  --> Active Digit: 3 (Value=5, Pattern=10010010)
+
+=== Simulation completed successfully ===
+$finish called at time : 140100 ns : File "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/edit_axi_7seg_v1_0.srcs/sim_1/new/display_decoder_tb.v" Line 92
