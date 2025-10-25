@@ -1,0 +1,7 @@
+Time resolution is 1 ps
+>> Using default values: period=100 cycles, width=50 cycles
+>> Loaded new configuration: period=40 cycles, width=10 cycles
+>> start=0, forcing output to 0
+>> After reset: back to default values (period=100, width=50)
+>> Loaded new configuration: period=60 cycles, width=30 cycles
+$stop called at time : 227200 ns : File "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_pulsegen_1_0/src/pulsegen_tb.v" Line 96

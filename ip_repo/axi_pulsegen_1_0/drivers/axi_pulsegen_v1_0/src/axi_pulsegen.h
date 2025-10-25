@@ -1,79 +1,94 @@
+/**
+ * @file axi_pulsegen.h
+ * @brief Driver for AXI Pulse Generator IP Core
+ * 
+ * This driver provides an interface to control the AXI Pulse Generator
+ * IP core that generates configurable pulse waveforms with programmable
+ * period and width.
+ */
 
 #ifndef AXI_PULSEGEN_H
 #define AXI_PULSEGEN_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-/****************** Include Files ********************/
+/***************************** Include Files *********************************/
 #include "xil_types.h"
+#include "xil_assert.h"
 #include "xstatus.h"
+#include "xil_io.h"
 
-#define AXI_PULSEGEN_S00_AXI_SLV_REG0_OFFSET 0
-#define AXI_PULSEGEN_S00_AXI_SLV_REG1_OFFSET 4
-#define AXI_PULSEGEN_S00_AXI_SLV_REG2_OFFSET 8
-#define AXI_PULSEGEN_S00_AXI_SLV_REG3_OFFSET 12
+/************************** Constant Definitions *****************************/
 
-
-/**************************** Type Definitions *****************************/
-/**
- *
- * Write a value to a AXI_PULSEGEN register. A 32 bit write is performed.
- * If the component is implemented in a smaller width, only the least
- * significant data is written.
- *
- * @param   BaseAddress is the base address of the AXI_PULSEGENdevice.
- * @param   RegOffset is the register offset from the base to write to.
- * @param   Data is the data written to the register.
- *
- * @return  None.
- *
- * @note
- * C-style signature:
- * 	void AXI_PULSEGEN_mWriteReg(u32 BaseAddress, unsigned RegOffset, u32 Data)
- *
- */
-#define AXI_PULSEGEN_mWriteReg(BaseAddress, RegOffset, Data) \
-  	Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+/**************************** Type Definitions *******************************/
 
 /**
- *
- * Read a value from a AXI_PULSEGEN register. A 32 bit read is performed.
- * If the component is implemented in a smaller width, only the least
- * significant data is read from the register. The most significant data
- * will be read as 0.
- *
- * @param   BaseAddress is the base address of the AXI_PULSEGEN device.
- * @param   RegOffset is the register offset from the base to write to.
- *
- * @return  Data is the data from the register.
- *
- * @note
- * C-style signature:
- * 	u32 AXI_PULSEGEN_mReadReg(u32 BaseAddress, unsigned RegOffset)
- *
+ * AXI Pulse Generator driver instance data
  */
-#define AXI_PULSEGEN_mReadReg(BaseAddress, RegOffset) \
+typedef struct {
+    u32 BaseAddress;    /**< Base address of the device */
+    u32 IsReady;        /**< Device is initialized and ready */
+} axi_pulsegen_t;
+
+/**
+ * Register map (offsets)
+ */
+enum {
+    PULSEGEN_REG_CONTROL       = 0x00u,  /**< Control register */
+    PULSEGEN_REG_CONFIG_VALID  = 0x04u,  /**< Configuration valid register */
+    PULSEGEN_REG_PERIOD        = 0x08u,  /**< Period configuration register */
+    PULSEGEN_REG_WIDTH         = 0x0Cu   /**< Width configuration register */
+};
+
+/**
+ * Control register bits
+ */
+#define PULSEGEN_CTRL_START_BIT     0x01  /**< Start/Enable pulse generation */
+#define PULSEGEN_CTRL_RESET_BIT     0x02  /**< Reset pulse generator */
+
+/**
+ * Default values (in clock cycles)
+ */
+#define DEFAULT_PERIOD   100000000  /**< Default: 1s at 100MHz */
+#define DEFAULT_WIDTH    50000000   /**< Default: 0.5s at 100MHz */
+
+/***************** Macros (Inline Functions) Definitions *********************/
+
+/**
+ * Read from a Pulse Generator register
+ */
+#define AXI_PULSEGEN_READ_REG(BaseAddress, RegOffset) \
     Xil_In32((BaseAddress) + (RegOffset))
 
-/************************** Function Prototypes ****************************/
 /**
- *
- * Run a self-test on the driver/device. Note this may be a destructive test if
- * resets of the device are performed.
- *
- * If the hardware system is not built correctly, this function may never
- * return to the caller.
- *
- * @param   baseaddr_p is the base address of the AXI_PULSEGEN instance to be worked on.
- *
- * @return
- *
- *    - XST_SUCCESS   if all self-test code passed
- *    - XST_FAILURE   if any self-test code failed
- *
- * @note    Caching must be turned off for this function to work.
- * @note    Self test may fail if data memory and device are not on the same bus.
- *
+ * Write to a Pulse Generator register
  */
-XStatus AXI_PULSEGEN_Reg_SelfTest(void * baseaddr_p);
+#define AXI_PULSEGEN_WRITE_REG(BaseAddress, RegOffset, Data) \
+    Xil_Out32((BaseAddress) + (RegOffset), (Data))
 
-#endif // AXI_PULSEGEN_H
+/************************** Function Prototypes ******************************/
+
+/* Initialization and control functions */
+void PulseGen_Initialize(axi_pulsegen_t *InstancePtr, u32 BaseAddress);
+void PulseGen_Start(axi_pulsegen_t *InstancePtr);
+void PulseGen_Stop(axi_pulsegen_t *InstancePtr);
+void PulseGen_Reset(axi_pulsegen_t *InstancePtr);
+
+/* Configuration functions */
+void PulseGen_SetPeriod(axi_pulsegen_t *InstancePtr, u32 Period);
+void PulseGen_SetWidth(axi_pulsegen_t *InstancePtr, u32 Width);
+void PulseGen_SetPulseParameters(axi_pulsegen_t *InstancePtr, u32 Period, u32 Width);
+void PulseGen_ApplyConfiguration(axi_pulsegen_t *InstancePtr);
+
+/* Status functions */
+u32 PulseGen_GetControlStatus(axi_pulsegen_t *InstancePtr);
+u32 PulseGen_GetPeriod(axi_pulsegen_t *InstancePtr);
+u32 PulseGen_GetWidth(axi_pulsegen_t *InstancePtr);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* AXI_PULSEGEN_H */
