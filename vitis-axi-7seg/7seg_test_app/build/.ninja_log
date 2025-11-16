@@ -1,8 +1,0 @@
-# ninja log v5
-65	495	7811222319449064	CMakeFiles/7seg_test_app.elf.dir/main.c.obj	8bce769854d790aa
-47	510	7811222319549069	CMakeFiles/7seg_test_app.elf.dir/axi_7seg.c.obj	f335a1b27e8ce956
-511	988	7811222323230980	7seg_test_app.elf	c475d0b8abe51b62
-83	447	7811222318903776	CMakeFiles/7seg_test_app.elf.dir/platform.c.obj	1a86c5b290ac0f83
-9	244	7811212541965090	CMakeFiles/7seg_test_app.elf.dir/helloworld.c.obj	7757df487f4a8e82
-28	391	7811225111567707	build.ninja	a5212ca8f127b768
-32	66	0	clean	c3a864d8c6b392ab

@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:axi_7seg:1.0
-// IP Revision: 4
+// IP Revision: 5
 
 (* X_CORE_INFO = "axi_7seg,Vivado 2025.1" *)
 (* CHECK_LICENSE_TYPE = "design_1_axi_7seg_0_0,axi_7seg,{}" *)
-(* CORE_GENERATION_INFO = "design_1_axi_7seg_0_0,axi_7seg,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_7seg,x_ipVersion=1.0,x_ipCoreRevision=4,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "design_1_axi_7seg_0_0,axi_7seg,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_7seg,x_ipVersion=1.0,x_ipCoreRevision=5,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_axi_7seg_0_0 (
   an_out,
