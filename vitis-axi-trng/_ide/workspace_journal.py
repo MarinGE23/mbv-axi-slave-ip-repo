@@ -1,4 +1,4 @@
-# 2025-10-02T05:15:47.186129900
+# 2025-11-16T14:08:57.084426500
 import vitis
 
 client = vitis.create_client()
@@ -18,20 +18,16 @@ status = platform.build()
 comp = client.get_component(name="trng_test_app")
 comp.build()
 
+status = platform.build()
+
+comp.build()
+
 comp = client.get_component(name="trng_test_app")
 status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_trng_v1_0/src", files=["axi_trng.c", "axi_trng.h"], dest_dir_in_cmp = "src")
 
 status = platform.build()
 
 comp = client.get_component(name="trng_test_app")
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
 comp.build()
 
 vitis.dispose()

@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.578804",
-   "Default View_TopLeft":"-104,-114",
+   "Default View_TopLeft":"-104,-86",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
@@ -36,7 +36,7 @@ pagesize -pg 1 -db -bbox -sgen -110 0 1740 390
 "
 }
 {
-   "da_axi4_cnt":"4",
+   "da_axi4_cnt":"5",
    "da_board_cnt":"2",
    "da_microblaze_riscv_cnt":"1"
 }
