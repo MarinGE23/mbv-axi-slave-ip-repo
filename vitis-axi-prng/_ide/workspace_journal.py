@@ -1,4 +1,4 @@
-# 2025-10-01T09:43:36.891008700
+# 2025-11-16T13:34:01.088169300
 import vitis
 
 client = vitis.create_client()
@@ -22,28 +22,8 @@ status = platform.build()
 
 comp.build()
 
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
 comp = client.get_component(name="prng_test_app")
-status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_prng_v1_0/src", files=["axi_prng.c"], dest_dir_in_cmp = "src")
-
-status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_prng_v1_0/src", files=["axi_prng.h"], dest_dir_in_cmp = "src")
+status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_prng_v1_0/src", files=["axi_prng.c", "axi_prng.h"], dest_dir_in_cmp = "src")
 
 status = platform.build()
 

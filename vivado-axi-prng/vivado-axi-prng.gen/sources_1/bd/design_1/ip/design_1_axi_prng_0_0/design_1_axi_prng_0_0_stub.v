@@ -2,7 +2,7 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-// Date        : Wed Oct  1 09:21:02 2025
+// Date        : Sun Nov 16 13:27:48 2025
 // Host        : Emanuel running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-prng/vivado-axi-prng.gen/sources_1/bd/design_1/ip/design_1_axi_prng_0_0/design_1_axi_prng_0_0_stub.v
@@ -14,7 +14,7 @@
 // This empty module with port declaration file causes synthesis tools to infer a black box for IP.
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
-(* CHECK_LICENSE_TYPE = "design_1_axi_prng_0_0,axi_prng,{}" *) (* CORE_GENERATION_INFO = "design_1_axi_prng_0_0,axi_prng,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_prng,x_ipVersion=1.0,x_ipCoreRevision=6,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=5,DEFAULT_SEED=00000000000000000000000000101010,DEFAULT_LOW=00000000000000000000000000000000,DEFAULT_HIGH=00000000000000000000000000000100}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) 
+(* CHECK_LICENSE_TYPE = "design_1_axi_prng_0_0,axi_prng,{}" *) (* CORE_GENERATION_INFO = "design_1_axi_prng_0_0,axi_prng,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_prng,x_ipVersion=1.0,x_ipCoreRevision=7,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=5,DEFAULT_SEED=00000000000000000000000000101010,DEFAULT_LOW=00000000000000000000000000000000,DEFAULT_HIGH=00000000000000000000000000000100}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) 
 (* X_CORE_INFO = "axi_prng,Vivado 2025.1" *) 
 module design_1_axi_prng_0_0(prng_reset, s00_axi_aclk, s00_axi_aresetn, 
   s00_axi_awaddr, s00_axi_awprot, s00_axi_awvalid, s00_axi_awready, s00_axi_wdata, 

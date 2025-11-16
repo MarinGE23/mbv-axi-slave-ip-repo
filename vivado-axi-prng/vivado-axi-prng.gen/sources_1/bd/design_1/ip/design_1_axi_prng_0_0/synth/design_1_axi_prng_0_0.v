@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:axi_prng:1.0
-// IP Revision: 6
+// IP Revision: 7
 
 (* X_CORE_INFO = "axi_prng,Vivado 2025.1" *)
 (* CHECK_LICENSE_TYPE = "design_1_axi_prng_0_0,axi_prng,{}" *)
-(* CORE_GENERATION_INFO = "design_1_axi_prng_0_0,axi_prng,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_prng,x_ipVersion=1.0,x_ipCoreRevision=6,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=5,DEFAULT_SEED=00000000000000000000000000101010,DEFAULT_LOW=00000000000000000000000000000000,DEFAULT_HIGH=00000000000000000000000000000100}" *)
+(* CORE_GENERATION_INFO = "design_1_axi_prng_0_0,axi_prng,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_prng,x_ipVersion=1.0,x_ipCoreRevision=7,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=5,DEFAULT_SEED=00000000000000000000000000101010,DEFAULT_LOW=00000000000000000000000000000000,DEFAULT_HIGH=00000000000000000000000000000100}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_axi_prng_0_0 (
   prng_reset,

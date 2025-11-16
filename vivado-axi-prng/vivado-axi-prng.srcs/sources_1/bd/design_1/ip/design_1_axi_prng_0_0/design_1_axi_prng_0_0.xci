@@ -4,7 +4,7 @@
     "xci_name": "design_1_axi_prng_0_0",
     "cell_name": "axi_prng_0",
     "component_reference": "xilinx.com:user:axi_prng:1.0",
-    "ip_revision": "6",
+    "ip_revision": "7",
     "gen_directory": "../../../../../../vivado-axi-prng.gen/sources_1/bd/design_1/ip/design_1_axi_prng_0_0",
     "parameters": {
       "component_parameters": {
@@ -39,7 +39,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "6" } ],
+        "IPREVISION": [ { "value": "7" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../vivado-axi-prng.gen/sources_1/bd/design_1/ip/design_1_axi_prng_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
