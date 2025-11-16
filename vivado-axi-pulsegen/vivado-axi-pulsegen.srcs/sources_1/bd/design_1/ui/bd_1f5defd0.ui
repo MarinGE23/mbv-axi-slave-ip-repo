@@ -40,7 +40,7 @@ pagesize -pg 1 -db -bbox -sgen -160 0 1810 420
 "
 }
 {
-   "da_axi4_cnt":"5",
+   "da_axi4_cnt":"6",
    "da_board_cnt":"2",
    "da_microblaze_riscv_cnt":"1"
 }

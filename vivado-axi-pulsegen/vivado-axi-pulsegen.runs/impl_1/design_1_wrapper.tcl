@@ -107,7 +107,7 @@ set rc [catch {
   set_param chipscope.maxJobs 2
   set_param general.usePosixSpawnForFork 1
   set_param bd.open.in_stealth_mode 2
-  set_param runs.launchOptions { -jobs 8  }
+  set_param runs.launchOptions { -jobs 6  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
   set_property board_part_repo_paths {C:/Users/emari/AppData/Roaming/Xilinx/Vivado/2025.1/xhub/board_store/xilinx_board_store} [current_project]

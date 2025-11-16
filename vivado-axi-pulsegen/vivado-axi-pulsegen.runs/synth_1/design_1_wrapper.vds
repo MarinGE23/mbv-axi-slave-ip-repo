@@ -3,8 +3,8 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Sat Oct 25 13:02:32 2025
-# Process ID         : 22152
+# Start of session at: Sun Nov 16 13:45:24 2025
+# Process ID         : 17956
 # Current directory  : C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1
 # Command line       : vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file           : C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/design_1_wrapper.vds
@@ -19,10 +19,10 @@
 # Host memory        : 14968 MB
 # Swap memory        : 8589 MB
 # Total Virtual      : 23557 MB
-# Available Virtual  : 5964 MB
+# Available Virtual  : 7019 MB
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 497.633 ; gain = 212.828
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 494.980 ; gain = 211.832
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_pulsegen_1_0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/2025.1/Vivado/data/ip'.
@@ -40,70 +40,70 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 23468
+INFO: [Synth 8-7075] Helper process launched with PID 13472
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1238.555 ; gain = 494.844
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1239.262 ; gain = 492.547
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_pulsegen_0_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_axi_pulsegen_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_pulsegen_0_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_axi_pulsegen_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_axi_smc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_axi_smc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_pulsegen_0_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_axi_pulsegen_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_pulsegen_0_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_axi_pulsegen_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_axi_smc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_axi_smc_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:148]
 WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:148]
 WARNING: [Synth 8-7023] instance 'axi_smc' of module 'design_1_axi_smc_0' has 59 connections declared, but only 57 given [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:148]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_axi_uartlite_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_axi_uartlite_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_axi_uartlite_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_axi_uartlite_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_axi_uartlite_0_0' is unconnected for instance 'axi_uartlite_0' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:206]
 WARNING: [Synth 8-7023] instance 'axi_uartlite_0' of module 'design_1_axi_uartlite_0_0' has 22 connections declared, but only 21 given [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:206]
-INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_clk_wiz_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_clk_wiz_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_mdm_1_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_mdm_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_mdm_1_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_mdm_1_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_microblaze_riscv_0_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_microblaze_riscv_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_microblaze_riscv_0_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_microblaze_riscv_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_clk_wiz_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_clk_wiz_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_mdm_1_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_mdm_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_mdm_1_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_mdm_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_microblaze_riscv_0_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_microblaze_riscv_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_microblaze_riscv_0_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_microblaze_riscv_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'design_1_microblaze_riscv_0_0' is unconnected for instance 'microblaze_riscv_0' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:246]
 WARNING: [Synth 8-7023] instance 'microblaze_riscv_0' of module 'design_1_microblaze_riscv_0_0' has 52 connections declared, but only 51 given [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:246]
 INFO: [Synth 8-6157] synthesizing module 'microblaze_riscv_0_local_memory_imp_1TUIWYR' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:331]
-INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_bram_if_cntlr_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_bram_if_cntlr_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_v10_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_dlmb_v10_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_v10_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_dlmb_v10_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_bram_if_cntlr_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_bram_if_cntlr_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_v10_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_dlmb_v10_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_v10_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_dlmb_v10_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'design_1_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:456]
 WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'design_1_dlmb_v10_0' has 25 connections declared, but only 24 given [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:456]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_bram_if_cntlr_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_bram_if_cntlr_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_v10_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_ilmb_v10_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_v10_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_ilmb_v10_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_bram_if_cntlr_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_bram_if_cntlr_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_v10_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_ilmb_v10_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_v10_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_ilmb_v10_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'design_1_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:502]
 WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'design_1_ilmb_v10_0' has 25 connections declared, but only 24 given [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:502]
-INFO: [Synth 8-6157] synthesizing module 'design_1_lmb_bram_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_lmb_bram_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_lmb_bram_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_lmb_bram_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_lmb_bram_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_lmb_bram_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_lmb_bram_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_lmb_bram_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'rsta_busy' of module 'design_1_lmb_bram_0' is unconnected for instance 'lmb_bram' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:527]
 WARNING: [Synth 8-7071] port 'rstb_busy' of module 'design_1_lmb_bram_0' is unconnected for instance 'lmb_bram' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:527]
 WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'design_1_lmb_bram_0' has 16 connections declared, but only 14 given [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:527]
 INFO: [Synth 8-6155] done synthesizing module 'microblaze_riscv_0_local_memory_imp_1TUIWYR' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:331]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_clk_wiz_0_100M_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_rst_clk_wiz_0_100M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_clk_wiz_0_100M_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-22152-Emanuel/realtime/design_1_rst_clk_wiz_0_100M_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_clk_wiz_0_100M_0' [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_rst_clk_wiz_0_100M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_clk_wiz_0_100M_0' (0#1) [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/.Xil/Vivado-17956-Emanuel/realtime/design_1_rst_clk_wiz_0_100M_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_clk_wiz_0_100M_0' is unconnected for instance 'rst_clk_wiz_0_100M' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:320]
 WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_clk_wiz_0_100M_0' is unconnected for instance 'rst_clk_wiz_0_100M' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:320]
 WARNING: [Synth 8-7023] instance 'rst_clk_wiz_0_100M' of module 'design_1_rst_clk_wiz_0_100M_0' has 10 connections declared, but only 8 given [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:320]
 INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/synth/design_1.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1352.152 ; gain = 608.441
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1352.930 ; gain = 606.215
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1352.152 ; gain = 608.441
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1352.930 ; gain = 606.215
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1352.152 ; gain = 608.441
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1352.930 ; gain = 606.215
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1352.152 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1354.441 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -140,32 +140,32 @@ Parsing XDC File [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulseg
 Finished Parsing XDC File [C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1352.152 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1376.613 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1352.152 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1376.613 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'design_1_i/microblaze_riscv_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1352.152 ; gain = 608.441
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1376.629 ; gain = 629.914
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1352.152 ; gain = 608.441
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1376.629 ; gain = 629.914
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1352.152 ; gain = 608.441
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1376.629 ; gain = 629.914
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1352.152 ; gain = 608.441
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1376.629 ; gain = 629.914
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -188,25 +188,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1363.898 ; gain = 620.188
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1376.629 ; gain = 629.914
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1535.363 ; gain = 791.652
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1540.590 ; gain = 793.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1535.512 ; gain = 791.801
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1541.262 ; gain = 794.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1546.418 ; gain = 802.707
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1551.793 ; gain = 805.078
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -224,37 +224,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1781.102 ; gain = 1037.391
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1786.180 ; gain = 1039.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1781.102 ; gain = 1037.391
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1786.180 ; gain = 1039.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1781.102 ; gain = 1037.391
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1786.180 ; gain = 1039.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1781.102 ; gain = 1037.391
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1786.180 ; gain = 1039.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1781.102 ; gain = 1037.391
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1786.180 ; gain = 1039.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1781.102 ; gain = 1037.391
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1786.180 ; gain = 1039.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -298,16 +298,16 @@ Report Cell Usage:
 |14    |OBUF                        |     2|
 +------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1781.102 ; gain = 1037.391
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1786.180 ; gain = 1039.465
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 1781.102 ; gain = 1037.391
-Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1781.102 ; gain = 1037.391
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:39 . Memory (MB): peak = 1786.180 ; gain = 1015.766
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1786.180 ; gain = 1039.465
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1790.301 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1795.324 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1793.926 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1798.992 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -315,8 +315,8 @@ Synth Design complete | Checksum: 38f4e44e
 INFO: [Common 17-83] Releasing license: Synthesis
 52 Infos, 20 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:51 . Memory (MB): peak = 1793.926 ; gain = 1236.148
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1793.926 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:52 . Memory (MB): peak = 1798.992 ; gain = 1241.957
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1798.992 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-pulsegen/vivado-axi-pulsegen.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Oct 25 13:03:43 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 16 13:46:37 2025...

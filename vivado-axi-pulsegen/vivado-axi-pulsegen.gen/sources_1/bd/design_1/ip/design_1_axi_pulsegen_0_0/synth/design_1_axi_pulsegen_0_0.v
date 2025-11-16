@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:axi_pulsegen:1.0
-// IP Revision: 5
+// IP Revision: 6
 
 (* X_CORE_INFO = "axi_pulsegen,Vivado 2025.1" *)
 (* CHECK_LICENSE_TYPE = "design_1_axi_pulsegen_0_0,axi_pulsegen,{}" *)
-(* CORE_GENERATION_INFO = "design_1_axi_pulsegen_0_0,axi_pulsegen,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_pulsegen,x_ipVersion=1.0,x_ipCoreRevision=5,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4,CLK_FREQ_HZ=100000000,PERIOD_DEF=100000000,WIDTH_DEF=50000000}" *)
+(* CORE_GENERATION_INFO = "design_1_axi_pulsegen_0_0,axi_pulsegen,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_pulsegen,x_ipVersion=1.0,x_ipCoreRevision=6,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4,CLK_FREQ_HZ=100000000,PERIOD_DEF=100000000,WIDTH_DEF=50000000}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_axi_pulsegen_0_0 (
   pulsegen_reset,
