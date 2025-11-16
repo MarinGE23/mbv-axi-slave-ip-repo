@@ -1,4 +1,4 @@
-# 2025-11-15T23:35:14.657403600
+# 2025-11-16T13:17:06.358214600
 import vitis
 
 client = vitis.create_client()
@@ -13,36 +13,9 @@ status = platform.build()
 
 comp = client.create_app_component(name="perceptron_test_app",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
 
-comp = client.get_component(name="perceptron_test_app")
-status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/drivers/axi_perceptron_v1_0/src", files=["axi_perceptron.c", "axi_perceptron.h"], dest_dir_in_cmp = "src")
-
 status = platform.build()
 
 comp = client.get_component(name="perceptron_test_app")
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = comp.clean()
-
-status = platform.build()
-
-comp.build()
-
-client.delete_component(name="perceptron_test_app")
-
-client.delete_component(name="componentName")
-
-comp = client.create_app_component(name="perceptron_test_app",platform = "$COMPONENT_LOCATION/../platform/export/platform/platform.xpfm",domain = "standalone_microblaze_riscv_0",template = "hello_world")
-
-status = platform.build()
-
 comp.build()
 
 status = platform.build()
@@ -55,26 +28,6 @@ status = comp.import_files(from_loc="$COMPONENT_LOCATION/../platform/hw/sdt/driv
 status = platform.build()
 
 comp = client.get_component(name="perceptron_test_app")
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
 comp.build()
 
 vitis.dispose()

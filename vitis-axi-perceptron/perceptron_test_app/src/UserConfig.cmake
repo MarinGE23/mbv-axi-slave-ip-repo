@@ -28,9 +28,9 @@ set(USER_UNDEFINED_SYMBOLS
 set(USER_INCLUDE_DIRECTORIES
 )
 set(USER_COMPILE_SOURCES
+"axi_perceptron.c"
 "main.c"
 "platform.c"
-"axi_perceptron.c"
 )
 
 # -----------------------------------------

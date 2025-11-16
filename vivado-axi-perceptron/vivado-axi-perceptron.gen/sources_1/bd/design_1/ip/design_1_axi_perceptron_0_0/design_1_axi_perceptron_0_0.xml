@@ -594,7 +594,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e26d30c3</spirit:value>
+            <spirit:value>9:7698a500</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -608,11 +608,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Nov 16 05:28:40 UTC 2025</spirit:value>
+            <spirit:value>Sun Nov 16 19:10:49 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e26d30c3</spirit:value>
+            <spirit:value>9:7698a500</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -626,11 +626,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Nov 16 05:27:19 UTC 2025</spirit:value>
+            <spirit:value>Sun Nov 16 19:09:28 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e26d30c3</spirit:value>
+            <spirit:value>9:7698a500</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -641,7 +641,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e26d30c3</spirit:value>
+            <spirit:value>9:7698a500</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -657,11 +657,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Nov 16 05:27:19 UTC 2025</spirit:value>
+            <spirit:value>Sun Nov 16 19:09:28 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:565fe496</spirit:value>
+            <spirit:value>9:c2aa7155</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -677,11 +677,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Nov 16 05:27:19 UTC 2025</spirit:value>
+            <spirit:value>Sun Nov 16 19:09:28 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:565fe496</spirit:value>
+            <spirit:value>9:c2aa7155</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -697,11 +697,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Nov 16 05:27:19 UTC 2025</spirit:value>
+            <spirit:value>Sun Nov 16 19:09:28 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e26d30c3</spirit:value>
+            <spirit:value>9:7698a500</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -717,11 +717,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Nov 16 05:27:19 UTC 2025</spirit:value>
+            <spirit:value>Sun Nov 16 19:09:28 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e26d30c3</spirit:value>
+            <spirit:value>9:7698a500</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1184,15 +1184,15 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/1cce/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v</spirit:name>
+        <spirit:name>../../ipshared/133e/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/1cce/src/binary_perceptron.v</spirit:name>
+        <spirit:name>../../ipshared/133e/src/binary_perceptron.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/1cce/hdl/axi_perceptron.v</spirit:name>
+        <spirit:name>../../ipshared/133e/hdl/axi_perceptron.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1207,15 +1207,15 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogsynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/1cce/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v</spirit:name>
+        <spirit:name>../../ipshared/133e/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/1cce/src/binary_perceptron.v</spirit:name>
+        <spirit:name>../../ipshared/133e/src/binary_perceptron.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/1cce/hdl/axi_perceptron.v</spirit:name>
+        <spirit:name>../../ipshared/133e/hdl/axi_perceptron.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1298,7 +1298,7 @@
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
       <xilinx:displayName>axi_perceptron_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ADDR_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ARUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
