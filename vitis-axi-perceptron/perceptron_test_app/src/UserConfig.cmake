@@ -28,7 +28,7 @@ set(USER_UNDEFINED_SYMBOLS
 set(USER_INCLUDE_DIRECTORIES
 )
 set(USER_COMPILE_SOURCES
-"helloworld.c"
+"main.c"
 "platform.c"
 "axi_perceptron.c"
 )
