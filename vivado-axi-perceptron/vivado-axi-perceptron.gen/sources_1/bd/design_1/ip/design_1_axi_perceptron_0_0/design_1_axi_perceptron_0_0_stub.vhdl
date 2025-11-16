@@ -2,7 +2,7 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
--- Date        : Sat Nov 15 20:47:44 2025
+-- Date        : Sat Nov 15 23:28:40 2025
 -- Host        : Emanuel running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ip/design_1_axi_perceptron_0_0/design_1_axi_perceptron_0_0_stub.vhdl
@@ -44,7 +44,7 @@ entity design_1_axi_perceptron_0_0 is
   attribute CHECK_LICENSE_TYPE : string;
   attribute CHECK_LICENSE_TYPE of design_1_axi_perceptron_0_0 : entity is "design_1_axi_perceptron_0_0,axi_perceptron,{}";
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1_axi_perceptron_0_0 : entity is "design_1_axi_perceptron_0_0,axi_perceptron,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_perceptron,x_ipVersion=1.0,x_ipCoreRevision=4,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=5,PERCEPTRON_W=8,PERCEPTRON_TIE_IS_ONE=0}";
+  attribute CORE_GENERATION_INFO of design_1_axi_perceptron_0_0 : entity is "design_1_axi_perceptron_0_0,axi_perceptron,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=axi_perceptron,x_ipVersion=1.0,x_ipCoreRevision=5,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=5,PERCEPTRON_W=8,PERCEPTRON_TIE_IS_ONE=0}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of design_1_axi_perceptron_0_0 : entity is "yes";
 end design_1_axi_perceptron_0_0;

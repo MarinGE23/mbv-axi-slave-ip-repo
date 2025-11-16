@@ -1,83 +1,110 @@
+/**
+ * @file axi_perceptron.h
+ * @brief Driver for AXI Perceptron IP Core
+ * 
+ * This driver provides an interface to control and read from the AXI Perceptron.
+ */
 
 #ifndef AXI_PERCEPTRON_H
 #define AXI_PERCEPTRON_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-/****************** Include Files ********************/
+/***************************** Include Files *********************************/
+#include <stddef.h>
 #include "xil_types.h"
-#include "xstatus.h"
 
-#define AXI_PERCEPTRON_S00_AXI_SLV_REG0_OFFSET 0
-#define AXI_PERCEPTRON_S00_AXI_SLV_REG1_OFFSET 4
-#define AXI_PERCEPTRON_S00_AXI_SLV_REG2_OFFSET 8
-#define AXI_PERCEPTRON_S00_AXI_SLV_REG3_OFFSET 12
-#define AXI_PERCEPTRON_S00_AXI_SLV_REG4_OFFSET 16
-#define AXI_PERCEPTRON_S00_AXI_SLV_REG5_OFFSET 20
-#define AXI_PERCEPTRON_S00_AXI_SLV_REG6_OFFSET 24
-#define AXI_PERCEPTRON_S00_AXI_SLV_REG7_OFFSET 28
+/************************** Constant Definitions *****************************/
 
-
-/**************************** Type Definitions *****************************/
-/**
- *
- * Write a value to a AXI_PERCEPTRON register. A 32 bit write is performed.
- * If the component is implemented in a smaller width, only the least
- * significant data is written.
- *
- * @param   BaseAddress is the base address of the AXI_PERCEPTRONdevice.
- * @param   RegOffset is the register offset from the base to write to.
- * @param   Data is the data written to the register.
- *
- * @return  None.
- *
- * @note
- * C-style signature:
- * 	void AXI_PERCEPTRON_mWriteReg(u32 BaseAddress, unsigned RegOffset, u32 Data)
- *
- */
-#define AXI_PERCEPTRON_mWriteReg(BaseAddress, RegOffset, Data) \
-  	Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+/**************************** Type Definitions *******************************/
 
 /**
- *
- * Read a value from a AXI_PERCEPTRON register. A 32 bit read is performed.
- * If the component is implemented in a smaller width, only the least
- * significant data is read from the register. The most significant data
- * will be read as 0.
- *
- * @param   BaseAddress is the base address of the AXI_PERCEPTRON device.
- * @param   RegOffset is the register offset from the base to write to.
- *
- * @return  Data is the data from the register.
- *
- * @note
- * C-style signature:
- * 	u32 AXI_PERCEPTRON_mReadReg(u32 BaseAddress, unsigned RegOffset)
- *
+ * AXI Perceptron driver instance data
  */
-#define AXI_PERCEPTRON_mReadReg(BaseAddress, RegOffset) \
+typedef struct {
+    u32 BaseAddress;    /**< Base address of the device */
+    u32 IsReady;        /**< Device is initialized and ready */
+} axi_perceptron_t;
+
+/**
+ * Register map (offsets)
+ */
+enum {
+    PERCEPTRON_REG_CONTROL    = 0x00u,  /**< Control register */
+    PERCEPTRON_REG_MAXEPOCHS  = 0x04u,  /**< Max epochs register */
+    PERCEPTRON_REG_ETA        = 0x08u,  /**< Learning rate register */
+    PERCEPTRON_REG_INIT       = 0x0Cu,  /**< Init register */
+    PERCEPTRON_REG_STATUS     = 0x10u,  /**< Status register (read-only) */
+    PERCEPTRON_REG_W12        = 0x14u,  /**< Weights register */
+    PERCEPTRON_REG_BIAS       = 0x18u,  /**< Bias register */
+    PERCEPTRON_REG_RESULT     = 0x1Cu   /**< Result register */
+};
+
+/**
+ * Targets helpers (truth tables for x1,x2 in {11,10,01,00})
+ */
+#define PERCEPTRON_TARGETS_AND   (0x8u)  /* 1000b */
+#define PERCEPTRON_TARGETS_OR    (0xEu)  /* 1110b */
+#define PERCEPTRON_TARGETS_NAND  (0x7u)  /* 0111b */
+#define PERCEPTRON_TARGETS_NOR   (0x1u)  /* 0001b */
+#define PERCEPTRON_TARGETS_XOR   (0x6u)  /* 0110b */
+#define PERCEPTRON_TARGETS_XNOR  (0x9u)  /* 1001b */
+
+/**
+ * Control register bits
+ */
+#define PERCEPTRON_CTRL_START_MASK      0x01
+#define PERCEPTRON_CTRL_TARGETS_SHIFT   0x04
+
+/**
+ * Status register bits
+ */
+#define PERCEPTRON_STATUS_CONV_MASK     0x01
+
+/**
+ * Default values
+ */
+#define DEFAULT_MAX_EPOCHS 64
+#define DEFAULT_ETA_Q4_4   8
+#define POLL_US            100
+#define MAX_WAIT_MS        3000
+
+/***************** Macros (Inline Functions) Definitions *********************/
+
+/**
+ * Read from a Perceptron register
+ */
+#define AXI_PERCEPTRON_READ_REG(BaseAddress, RegOffset) \
     Xil_In32((BaseAddress) + (RegOffset))
 
-/************************** Function Prototypes ****************************/
 /**
- *
- * Run a self-test on the driver/device. Note this may be a destructive test if
- * resets of the device are performed.
- *
- * If the hardware system is not built correctly, this function may never
- * return to the caller.
- *
- * @param   baseaddr_p is the base address of the AXI_PERCEPTRON instance to be worked on.
- *
- * @return
- *
- *    - XST_SUCCESS   if all self-test code passed
- *    - XST_FAILURE   if any self-test code failed
- *
- * @note    Caching must be turned off for this function to work.
- * @note    Self test may fail if data memory and device are not on the same bus.
- *
+ * Write to a Perceptron register
  */
-XStatus AXI_PERCEPTRON_Reg_SelfTest(void * baseaddr_p);
+#define AXI_PERCEPTRON_WRITE_REG(BaseAddress, RegOffset, Data) \
+    Xil_Out32((BaseAddress) + (RegOffset), (Data))
 
-#endif // AXI_PERCEPTRON_H
+/************************** Function Prototypes ******************************/
+
+/* Initialization functions */
+void Perceptron_Initialize(axi_perceptron_t* InstancePtr, u32 BaseAddress);
+void Perceptron_StartTraining(axi_perceptron_t* InstancePtr, u8 Targets, u32* StatusOut);
+
+/* Configuration functions */
+void Perceptron_SetTrainingParams(axi_perceptron_t* InstancePtr, u16 MaxEpochs, s8 LearningRate);
+void Perceptron_LoadWeights(axi_perceptron_t* InstancePtr, s8 Weight1, s8 Weight2, s8 Bias);
+
+/* Read functions */
+u32 Perceptron_ReadStatus(const axi_perceptron_t* InstancePtr);
+void Perceptron_ReadWeights(const axi_perceptron_t* InstancePtr, s8* W1, s8* W2, s8* B);
+void Perceptron_ReadResult(const axi_perceptron_t* InstancePtr, s8* SumQ4_4, u8* Ybit);
+
+/* Util function */
+char* Perceptron_Q4_4ToString(s8 Q, char* Out, size_t OutSize);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* AXI_PERCEPTRON_H */
