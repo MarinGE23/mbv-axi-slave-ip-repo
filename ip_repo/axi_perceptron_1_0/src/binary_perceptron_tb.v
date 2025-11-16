@@ -44,10 +44,7 @@ module binary_perceptron_tb;
     wire signed [W-1:0]    b_o;
 
     // Status
-    wire                   busy;
-    wire                   done;
     wire                   converged;
-    wire [15:0]            epoch_count;
 
     integer                errs = 0;
 
@@ -74,10 +71,7 @@ module binary_perceptron_tb;
         .w1_o(w1_o),
         .w2_o(w2_o),
         .b_o(b_o),
-        .busy(busy),
-        .done(done),
-        .converged(converged),
-        .epoch_count(epoch_count)
+        .converged(converged)
     );
 
     // ---------------------------------------------------------------------------
@@ -106,12 +100,12 @@ module binary_perceptron_tb;
         integer c;
         begin
             c = 0;
-            while (!done && c < max_cycles)
+            while (!dut.done && c < max_cycles)
             begin
                 @(posedge clk);
                 c = c + 1;
             end
-            if (!done)
+            if (!dut.done)
             begin
                 $display("%0t [TIMEOUT] Training did not finish: %0s", $time, tag);
                 errs = errs + 1;
@@ -193,7 +187,7 @@ module binary_perceptron_tb;
             start_train(T, 8'sd0, 8'sd0, 8'sd0);
             wait_done_with_timeout(2000, tag);
             $display("%0t [%0s] done=%0d converged=%0d epochs=%0d  w={%0d,%0d} b=%0d",
-                     $time, tag, done, converged, epoch_count, $signed(w1_o), $signed(w2_o), $signed(b_o));
+                     $time, tag, dut.done, converged, dut.epoch_count, $signed(w1_o), $signed(w2_o), $signed(b_o));
 
             if (expect_converged && !converged)
             begin

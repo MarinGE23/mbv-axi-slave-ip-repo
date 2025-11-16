@@ -120,10 +120,7 @@ module axi_perceptron_slave_lite_v1_0_S00_AXI #
     // Perceptron signals
     wire                      perceptron_y;
     wire signed [PERCEPTRON_W+1:0] perceptron_sum_dbg;
-    wire                      perceptron_busy;
-    wire                      perceptron_done;
     wire                      perceptron_converged;
-    wire        [15:0]        perceptron_epoch_count;
     wire signed [PERCEPTRON_W-1:0] perceptron_w1_o;
     wire signed [PERCEPTRON_W-1:0] perceptron_w2_o;
     wire signed [PERCEPTRON_W-1:0] perceptron_b_o;
@@ -379,7 +376,7 @@ module axi_perceptron_slave_lite_v1_0_S00_AXI #
     
     // Implement memory mapped register select and read logic generation
     // Map registers to perceptron interface
-    wire [31:0] status_reg = {15'b0, perceptron_busy, perceptron_done, perceptron_converged, perceptron_epoch_count};
+    wire [31:0] status_reg = {31'b0, perceptron_converged};
     wire [31:0] weights_reg1 = {{(32-PERCEPTRON_W*2){1'b0}}, perceptron_w2_o, perceptron_w1_o};
     wire [31:0] weights_reg2 = {{(32-PERCEPTRON_W){1'b0}}, perceptron_b_o};
     wire [31:0] result_reg = {{(32-PERCEPTRON_W-2){1'b0}}, perceptron_sum_dbg, perceptron_y};
@@ -426,10 +423,7 @@ module axi_perceptron_slave_lite_v1_0_S00_AXI #
         .b_o(perceptron_b_o),
         
         // Status
-        .busy(perceptron_busy),
-        .done(perceptron_done),
-        .converged(perceptron_converged),
-        .epoch_count(perceptron_epoch_count)
+        .converged(perceptron_converged)
     );
 
     // User logic ends

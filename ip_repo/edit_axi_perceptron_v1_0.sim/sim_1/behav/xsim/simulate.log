@@ -1,0 +1,45 @@
+Time resolution is 1 ps
+685000 [AND] done=1 converged=1 epochs=6  w={32,16} b=-32
+696000 [AND] OK      x1=0 x2=0  y=0 (sum=-32)
+706000 [AND] OK      x1=0 x2=1  y=0 (sum=-16)
+716000 [AND] OK      x1=1 x2=0  y=0 (sum=0)
+726000 [AND] OK      x1=1 x2=1  y=1 (sum=16)
+
+955000 [OR] done=1 converged=1 epochs=2  w={32,32} b=-16
+966000 [OR] OK      x1=0 x2=0  y=0 (sum=-16)
+976000 [OR] OK      x1=0 x2=1  y=1 (sum=16)
+986000 [OR] OK      x1=1 x2=0  y=1 (sum=16)
+996000 [OR] OK      x1=1 x2=1  y=1 (sum=48)
+
+685000 [AND] done=1 converged=1 epochs=6  w={32,16} b=-32
+696000 [AND] OK      x1=0 x2=0  y=0 (sum=-32)
+706000 [AND] OK      x1=0 x2=1  y=0 (sum=-16)
+716000 [AND] OK      x1=1 x2=0  y=0 (sum=0)
+726000 [AND] OK      x1=1 x2=1  y=1 (sum=16)
+
+955000 [OR] done=1 converged=1 epochs=2  w={32,32} b=-16
+966000 [OR] OK      x1=0 x2=0  y=0 (sum=-16)
+976000 [OR] OK      x1=0 x2=1  y=1 (sum=16)
+986000 [OR] OK      x1=1 x2=0  y=1 (sum=16)
+996000 [OR] OK      x1=1 x2=1  y=1 (sum=48)
+
+1925000 [NAND] done=1 converged=1 epochs=9  w={-32,-16} b=48
+1936000 [NAND] OK      x1=0 x2=0  y=1 (sum=48)
+1946000 [NAND] OK      x1=0 x2=1  y=1 (sum=32)
+1956000 [NAND] OK      x1=1 x2=0  y=1 (sum=16)
+1966000 [NAND] OK      x1=1 x2=1  y=0 (sum=0)
+
+2195000 [NOR] done=1 converged=1 epochs=2  w={-32,-32} b=32
+2206000 [NOR] OK      x1=0 x2=0  y=1 (sum=32)
+2216000 [NOR] OK      x1=0 x2=1  y=0 (sum=0)
+2226000 [NOR] OK      x1=1 x2=0  y=0 (sum=0)
+2236000 [NOR] OK      x1=1 x2=1  y=0 (sum=-32)
+
+3865000 [XOR] done=1 converged=0 epochs=16  w={-32,-32} b=32
+3876000 [XOR] MISMATCH x1=0 x2=0  exp=0 got=1  (w1=-32 w2=-32 b=32 sum=32)
+3886000 [XOR] MISMATCH x1=0 x2=1  exp=1 got=0  (w1=-32 w2=-32 b=32 sum=0)
+3896000 [XOR] MISMATCH x1=1 x2=0  exp=1 got=0  (w1=-32 w2=-32 b=32 sum=0)
+3906000 [XOR] OK      x1=1 x2=1  y=0 (sum=-32)
+
+=== FAILURES: 3 ===
+$finish called at time : 3956 ns : File "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_perceptron_1_0/src/binary_perceptron_tb.v" Line 235

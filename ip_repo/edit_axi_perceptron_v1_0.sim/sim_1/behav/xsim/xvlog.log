@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_perceptron_1_0/src/binary_perceptron.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module binary_perceptron
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_perceptron_1_0/src/binary_perceptron_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module binary_perceptron_tb

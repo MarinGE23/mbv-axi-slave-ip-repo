@@ -25,16 +25,16 @@ module binary_perceptron #(
         output reg  signed [W-1:0]      w1_o,
         output reg  signed [W-1:0]      w2_o,
         output reg  signed [W-1:0]      b_o,
-
+        
         // Status
-        output reg                      busy,
-        output reg                      done,         // 1-cycle pulse when finished
-        output reg                      converged,
-        output reg        [15:0]        epoch_count
+        output reg                      converged
     );
 
     // Weight bank
     reg signed [W-1:0] w1, w2, b;
+    reg busy;
+    reg done;
+    reg [15:0] epoch_count;
 
     // Parameterizable step function
     function [0:0] step_fn;

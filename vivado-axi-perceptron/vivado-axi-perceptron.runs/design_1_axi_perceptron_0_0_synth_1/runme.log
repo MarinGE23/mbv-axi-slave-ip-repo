@@ -8,12 +8,12 @@
   **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
   **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
   **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-  **** Start of session at: Sun Sep 28 22:55:05 2025
+  **** Start of session at: Sat Nov 15 20:46:37 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source design_1_axi_perceptron_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 497.438 ; gain = 214.398
+create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 497.090 ; gain = 210.617
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_perceptron_1_0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/2025.1/Vivado/data/ip'.
@@ -26,26 +26,27 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 6484
+INFO: [Synth 8-7075] Helper process launched with PID 14212
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1191.027 ; gain = 491.871
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1191.547 ; gain = 493.332
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-11241] undeclared symbol 'sum_dbg', assumed default net type 'wire' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:143]
+INFO: [Synth 8-11241] undeclared symbol 'sum_dbg', assumed default net type 'wire' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:140]
 INFO: [Synth 8-6157] synthesizing module 'design_1_axi_perceptron_0_0' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ip/design_1_axi_perceptron_0_0/synth/design_1_axi_perceptron_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'axi_perceptron' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron.v:3]
-INFO: [Synth 8-6157] synthesizing module 'axi_perceptron_slave_lite_v1_0_S00_AXI' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:3]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:165]
-INFO: [Synth 8-226] default block is never used [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:248]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:342]
-INFO: [Synth 8-6157] synthesizing module 'binary_perceptron' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/src/binary_perceptron.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'binary_perceptron' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/src/binary_perceptron.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'axi_perceptron_slave_lite_v1_0_S00_AXI' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'axi_perceptron' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron.v:3]
+INFO: [Synth 8-6157] synthesizing module 'axi_perceptron' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron.v:3]
+INFO: [Synth 8-6157] synthesizing module 'axi_perceptron_slave_lite_v1_0_S00_AXI' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:162]
+INFO: [Synth 8-226] default block is never used [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:245]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:339]
+INFO: [Synth 8-6157] synthesizing module 'binary_perceptron' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/src/binary_perceptron.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'binary_perceptron' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/src/binary_perceptron.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'axi_perceptron_slave_lite_v1_0_S00_AXI' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'axi_perceptron' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron.v:3]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_perceptron_0_0' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ip/design_1_axi_perceptron_0_0/synth/design_1_axi_perceptron_0_0.v:53]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg4_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:239]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg5_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:240]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg6_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:241]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg7_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:242]
+WARNING: [Synth 8-6014] Unused sequential element done_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/src/binary_perceptron.v:130]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg4_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:236]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg5_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:237]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg6_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:238]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg7_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/cb47/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:239]
 WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
@@ -53,45 +54,45 @@ WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module axi_perceptron_slave_lite
 WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1307.676 ; gain = 608.520
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1308.125 ; gain = 609.910
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1307.676 ; gain = 608.520
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1308.125 ; gain = 609.910
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1307.676 ; gain = 608.520
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1308.125 ; gain = 609.910
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1307.676 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1308.125 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1384.648 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1365.082 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 1385.934 ; gain = 1.285
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 1365.531 ; gain = 0.449
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1385.934 ; gain = 686.777
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1365.531 ; gain = 667.316
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1385.934 ; gain = 686.777
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1365.531 ; gain = 667.316
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1385.934 ; gain = 686.777
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1365.531 ; gain = 667.316
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'st_reg' in module 'binary_perceptron'
 INFO: [Synth 8-802] inferred FSM for state register 'state_write_reg' in module 'axi_perceptron_slave_lite_v1_0_S00_AXI'
@@ -124,7 +125,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_write_reg' using enc
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_read_reg' using encoding 'sequential' in module 'axi_perceptron_slave_lite_v1_0_S00_AXI'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1385.934 ; gain = 686.777
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1365.531 ; gain = 667.316
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -143,7 +144,7 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 7     
 	                5 Bit    Registers := 2     
 	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 12    
+	                1 Bit    Registers := 11    
 +---Muxes : 
 	   2 Input   32 Bit        Muxes := 4     
 	   8 Input   32 Bit        Muxes := 4     
@@ -157,180 +158,7 @@ Detailed RTL Component Info :
 	   2 Input    2 Bit        Muxes := 5     
 	   4 Input    1 Bit        Muxes := 1     
 	   2 Input    1 Bit        Muxes := 9     
-	   6 Input    1 Bit        Muxes := 17    
-	   3 Input    1 Bit        Muxes := 13    
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 90 (col length:60)
-BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
-
-*** Running vivado
-    with args -log design_1_axi_perceptron_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_perceptron_0_0.tcl
-
-
-
-****** Vivado v2025.1 (64-bit)
-  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
-  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
-  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-  **** Start of session at: Sun Sep 28 22:56:02 2025
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-
-source design_1_axi_perceptron_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 498.453 ; gain = 214.004
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/ip_repo/axi_perceptron_1_0'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/2025.1/Vivado/data/ip'.
-WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
-Current IP cache path is c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.cache/ip 
-Command: synth_design -top design_1_axi_perceptron_0_0 -part xc7a35tcpg236-1 -incremental_mode off -mode out_of_context
-Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
-INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
-INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 4272
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1192.949 ; gain = 491.895
----------------------------------------------------------------------------------
-INFO: [Synth 8-11241] undeclared symbol 'sum_dbg', assumed default net type 'wire' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:143]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_perceptron_0_0' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ip/design_1_axi_perceptron_0_0/synth/design_1_axi_perceptron_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'axi_perceptron' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron.v:3]
-INFO: [Synth 8-6157] synthesizing module 'axi_perceptron_slave_lite_v1_0_S00_AXI' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:3]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:165]
-INFO: [Synth 8-226] default block is never used [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:248]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:342]
-INFO: [Synth 8-6157] synthesizing module 'binary_perceptron' [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/src/binary_perceptron.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'binary_perceptron' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/src/binary_perceptron.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'axi_perceptron_slave_lite_v1_0_S00_AXI' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'axi_perceptron' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_perceptron_0_0' (0#1) [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ip/design_1_axi_perceptron_0_0/synth/design_1_axi_perceptron_0_0.v:53]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg4_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:239]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg5_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:240]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg6_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:241]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg7_reg was removed.  [c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ipshared/5f0f/hdl/axi_perceptron_slave_lite_v1_0_S00_AXI.v:242]
-WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module axi_perceptron_slave_lite_v1_0_S00_AXI is either unconnected or has no load
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1310.523 ; gain = 609.469
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1310.523 ; gain = 609.469
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1310.523 ; gain = 609.469
----------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1310.523 ; gain = 0.000
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Completed Processing XDC Constraints
-
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1387.887 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.055 . Memory (MB): peak = 1388.258 ; gain = 0.371
-INFO: [Designutils 20-5008] Incremental synthesis strategy off
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1388.258 ; gain = 687.203
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Loading Part and Timing Information
----------------------------------------------------------------------------------
-Loading part: xc7a35tcpg236-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1388.258 ; gain = 687.203
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1388.258 ; gain = 687.203
----------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'st_reg' in module 'binary_perceptron'
-INFO: [Synth 8-802] inferred FSM for state register 'state_write_reg' in module 'axi_perceptron_slave_lite_v1_0_S00_AXI'
-INFO: [Synth 8-802] inferred FSM for state register 'state_read_reg' in module 'axi_perceptron_slave_lite_v1_0_S00_AXI'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                  S_IDLE |                              000 |                              000
-                 S_EPOCH |                              001 |                              001
-                S_SAMPLE |                              010 |                              010
-                S_UPDATE |                              011 |                              011
-                 S_CHECK |                              100 |                              100
-                  S_DONE |                              101 |                              101
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'st_reg' using encoding 'sequential' in module 'binary_perceptron'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    Idle |                               00 |                               00
-                   Waddr |                               01 |                               10
-                   Wdata |                               10 |                               11
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_write_reg' using encoding 'sequential' in module 'axi_perceptron_slave_lite_v1_0_S00_AXI'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    Idle |                               00 |                               00
-                   Raddr |                               01 |                               10
-                   Rdata |                               10 |                               11
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_read_reg' using encoding 'sequential' in module 'axi_perceptron_slave_lite_v1_0_S00_AXI'
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1388.258 ; gain = 687.203
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input   16 Bit       Adders := 1     
-	   3 Input   10 Bit       Adders := 2     
-	   2 Input    8 Bit       Adders := 4     
-	   3 Input    2 Bit       Adders := 1     
-	   2 Input    2 Bit       Adders := 1     
-+---Registers : 
-	               32 Bit    Registers := 4     
-	               16 Bit    Registers := 1     
-	               10 Bit    Registers := 1     
-	                8 Bit    Registers := 7     
-	                5 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 12    
-+---Muxes : 
-	   2 Input   32 Bit        Muxes := 4     
-	   8 Input   32 Bit        Muxes := 4     
-	   6 Input   16 Bit        Muxes := 1     
-	   2 Input    8 Bit        Muxes := 11    
-	   6 Input    8 Bit        Muxes := 6     
-	   6 Input    3 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 4     
-	   6 Input    2 Bit        Muxes := 1     
-	   3 Input    2 Bit        Muxes := 2     
-	   2 Input    2 Bit        Muxes := 5     
-	   4 Input    1 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 9     
-	   6 Input    1 Bit        Muxes := 17    
+	   6 Input    1 Bit        Muxes := 15    
 	   3 Input    1 Bit        Muxes := 13    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -355,25 +183,25 @@ WARNING: [Synth 8-7129] Port s00_axi_arprot[2] in module design_1_axi_perceptron
 WARNING: [Synth 8-7129] Port s00_axi_arprot[1] in module design_1_axi_perceptron_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s00_axi_arprot[0] in module design_1_axi_perceptron_0_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1388.258 ; gain = 687.203
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1371.297 ; gain = 673.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1515.785 ; gain = 814.730
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1510.492 ; gain = 812.277
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1516.645 ; gain = 815.590
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1511.199 ; gain = 812.984
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1532.598 ; gain = 831.543
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1527.355 ; gain = 829.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -391,37 +219,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1760.184 ; gain = 1059.129
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 1754.867 ; gain = 1056.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1760.184 ; gain = 1059.129
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 1754.867 ; gain = 1056.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1760.184 ; gain = 1059.129
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 1754.867 ; gain = 1056.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1760.184 ; gain = 1059.129
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 1754.867 ; gain = 1056.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1760.184 ; gain = 1059.129
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 1754.867 ; gain = 1056.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1760.184 ; gain = 1059.129
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 1754.867 ; gain = 1056.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -439,41 +267,41 @@ Report Cell Usage:
 +------+-------+------+
 |1     |CARRY4 |    18|
 |2     |LUT1   |     2|
-|3     |LUT2   |    58|
+|3     |LUT2   |    61|
 |4     |LUT3   |     8|
-|5     |LUT4   |    25|
-|6     |LUT5   |    79|
-|7     |LUT6   |   112|
-|8     |MUXF7  |    11|
-|9     |FDCE   |    94|
+|5     |LUT4   |    24|
+|6     |LUT5   |    85|
+|7     |LUT6   |   103|
+|8     |MUXF7  |     8|
+|9     |FDCE   |    93|
 |10    |FDRE   |   143|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1760.184 ; gain = 1059.129
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 1754.867 ; gain = 1056.652
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 7 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:41 . Memory (MB): peak = 1760.184 ; gain = 981.395
-Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1760.184 ; gain = 1059.129
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:41 . Memory (MB): peak = 1754.867 ; gain = 999.246
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1754.867 ; gain = 1056.652
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1769.402 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 29 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1764.023 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 26 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1773.039 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1767.730 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 944696c3
+Synth Design complete | Checksum: 513ac67d
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
+36 Infos, 19 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1773.039 ; gain = 1254.445
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1773.039 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1767.730 ; gain = 1252.332
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1767.730 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.runs/design_1_axi_perceptron_0_0_synth_1/design_1_axi_perceptron_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_axi_perceptron_0_0, cache-ID = dff2dcbe366be40d
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_axi_perceptron_0_0, cache-ID = d86ae947a0c7e850
 INFO: [Coretcl 2-1174] Renamed 3 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1773.039 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1767.730 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.runs/design_1_axi_perceptron_0_0_synth_1/design_1_axi_perceptron_0_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_axi_perceptron_0_0_utilization_synth.rpt -pb design_1_axi_perceptron_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Sep 28 22:57:09 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 15 20:47:44 2025...

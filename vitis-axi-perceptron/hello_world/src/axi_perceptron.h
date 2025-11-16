@@ -17,19 +17,12 @@
  *        [23:16]  W2_INIT (s8, Q4.4)
  *        [31:24]  B_INIT  (s8, Q4.4)
  *   0x10 (R)   STATUS:
- *        bit[18]  BUSY
- *        bit[17]  DONE (may be a short pulse)
- *        bit[16]  CONVERGED
- *        [15:0]   EPOCH_COUNT
+ *        bit[0]  CONVERGED
  *   0x14 (R)   W12: W1 in [7:0], W2 in [15:8] (both s8, Q4.4)
  *   0x18 (R)   BIAS: B in [7:0] (s8, Q4.4)
  *   0x1C (R)   RESULT:
  *        bit[0]   y (0/1)
  *        [10:1]   sum_dbg (signed, Q4.4 with width W+2 when W=8 -> 10 bits)
- *
- * Timing note: DONE/BUSY may be very short pulses when training converges quickly.
- * This driver’s blocking train function detects progress via EPOCH_COUNT and
- * “stability” after BUSY de-asserts, making it robust against short pulses.
  */
 
 #include <stddef.h>
@@ -61,10 +54,7 @@ enum {
 #define AXIPERC_CTRL_START_MASK      (0x1u)
 #define AXIPERC_CTRL_TARGETS_SHIFT   (4u)
 
-#define AXIPERC_STATUS_BUSY_MASK     (1u << 18)
-#define AXIPERC_STATUS_DONE_MASK     (1u << 17)
-#define AXIPERC_STATUS_CONV_MASK     (1u << 16)
-#define AXIPERC_STATUS_EPOCHS_MASK   (0x0000FFFFu)
+#define AXIPERC_STATUS_CONV_MASK     (0x0000000Fu)
 
 /* ---------- Targets helpers (truth tables for x1,x2 in {11,10,01,00}) ---------- */
 #define AXIPERC_TARGETS_AND   (0x8u)  /* 1000b */
@@ -118,8 +108,7 @@ void AxiPerceptron_Start(AxiPerceptron* dev, u8 targets);
  * @param  max_wait_ms Maximum wait time in milliseconds (safety timeout).
  * @return 1 on observed progress/completion; 0 if no progress was ever observed.
  */
-void AxiPerceptron_TrainBlocking(AxiPerceptron* dev, u8 targets,
-                                u16* epochs_out, u32* status_out,
+void AxiPerceptron_TrainBlocking(AxiPerceptron* dev, u8 targets, u32* status_out,
                                 u32 poll_us, u32 max_wait_ms);
 
 /**
@@ -148,14 +137,6 @@ void AxiPerceptron_ReadResult(const AxiPerceptron* dev, s8* sum_q4_4, u8* y_bit)
  * @return Pointer to @p out for convenience; NULL if @p out is too small.
  */
 char* AxiPerceptron_Q4_4ToString(s8 q, char* out, size_t out_size);
-
-/* ---------- Small utilities ---------- */
-
-/** Sign-extend @p v that has @p nbits significant bits (nbits ∈ [1..31]). */
-static inline s32 AxiPerceptron_Sext(s32 v, unsigned nbits) {
-    s32 m = 1 << (nbits - 1);
-    return (v ^ m) - m;
-}
 
 #ifdef __cplusplus
 }

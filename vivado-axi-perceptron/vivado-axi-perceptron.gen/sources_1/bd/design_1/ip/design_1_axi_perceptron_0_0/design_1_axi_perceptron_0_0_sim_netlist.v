@@ -2,7 +2,7 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-// Date        : Sun Sep 28 22:57:09 2025
+// Date        : Sat Nov 15 20:47:44 2025
 // Host        : Emanuel running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-perceptron/vivado-axi-perceptron.gen/sources_1/bd/design_1/ip/design_1_axi_perceptron_0_0/design_1_axi_perceptron_0_0_sim_netlist.v
@@ -419,7 +419,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .D(\FSM_sequential_state_read[1]_i_1_n_0 ),
         .Q(state_read[1]),
         .R(perceptron_inst_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT5 #(
     .INIT(32'hFFF0F7FF)) 
     \FSM_sequential_state_write[0]_i_1 
@@ -429,7 +429,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I3(state_write[0]),
         .I4(state_write[1]),
         .O(\FSM_sequential_state_write[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT5 #(
     .INIT(32'hFF0F0800)) 
     \FSM_sequential_state_write[1]_i_1 
@@ -460,7 +460,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I1(\axi_araddr[4]_i_2_n_0 ),
         .I2(sel0[0]),
         .O(\axi_araddr[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \axi_araddr[3]_i_1 
@@ -468,7 +468,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I1(\axi_araddr[4]_i_2_n_0 ),
         .I2(sel0[1]),
         .O(\axi_araddr[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \axi_araddr[4]_i_1 
@@ -567,7 +567,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .D(\axi_awaddr[4]_i_1_n_0 ),
         .Q(\axi_awaddr_reg_n_0_[4] ),
         .R(perceptron_inst_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'hFDFF4545)) 
     axi_awready_i_1
@@ -593,7 +593,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(axi_awready0__0),
         .I5(state_write[0]),
         .O(axi_bvalid_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT2 #(
     .INIT(4'h8)) 
     axi_bvalid_i_2
@@ -636,13 +636,13 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .Q(s00_axi_wready),
         .R(perceptron_inst_n_0));
   design_1_axi_perceptron_0_0_binary_perceptron perceptron_inst
-       (.Q({in12,in9,in5,slv_reg3}),
-        .\delta_r_reg[6]_0 ({\slv_reg0_reg_n_0_[7] ,\slv_reg0_reg_n_0_[6] ,targets,slv_reg0}),
+       (.Q({\slv_reg0_reg_n_0_[7] ,\slv_reg0_reg_n_0_[6] ,targets,slv_reg0}),
+        .\b_o_reg[7]_0 ({in12,in9,in5,slv_reg3}),
         .\delta_r_reg[7]_0 (slv_reg2[7:0]),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_aresetn(s00_axi_aresetn),
         .s00_axi_aresetn_0(perceptron_inst_n_0),
-        .s00_axi_rdata(s00_axi_rdata[18:0]),
+        .s00_axi_rdata(s00_axi_rdata[15:0]),
         .s00_axi_rdata_0_sp_1(\s00_axi_rdata[0]_INST_0_i_1_n_0 ),
         .s00_axi_rdata_10_sp_1(\s00_axi_rdata[10]_INST_0_i_1_n_0 ),
         .s00_axi_rdata_11_sp_1(\s00_axi_rdata[11]_INST_0_i_1_n_0 ),
@@ -650,9 +650,6 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .s00_axi_rdata_13_sp_1(\s00_axi_rdata[13]_INST_0_i_1_n_0 ),
         .s00_axi_rdata_14_sp_1(\s00_axi_rdata[14]_INST_0_i_1_n_0 ),
         .s00_axi_rdata_15_sp_1(\s00_axi_rdata[15]_INST_0_i_1_n_0 ),
-        .s00_axi_rdata_16_sp_1(\s00_axi_rdata[16]_INST_0_i_1_n_0 ),
-        .s00_axi_rdata_17_sp_1(\s00_axi_rdata[17]_INST_0_i_1_n_0 ),
-        .s00_axi_rdata_18_sp_1(\s00_axi_rdata[18]_INST_0_i_1_n_0 ),
         .s00_axi_rdata_1_sp_1(\s00_axi_rdata[1]_INST_0_i_1_n_0 ),
         .s00_axi_rdata_2_sp_1(\s00_axi_rdata[2]_INST_0_i_1_n_0 ),
         .s00_axi_rdata_3_sp_1(\s00_axi_rdata[3]_INST_0_i_1_n_0 ),
@@ -737,6 +734,13 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[15] ),
         .I5(slv_reg2[15]),
         .O(\s00_axi_rdata[15]_INST_0_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \s00_axi_rdata[16]_INST_0 
+       (.I0(\s00_axi_rdata[16]_INST_0_i_1_n_0 ),
+        .I1(sel0[2]),
+        .O(s00_axi_rdata[16]));
   LUT6 #(
     .INIT(64'hCFAFCFA0C0AFC0A0)) 
     \s00_axi_rdata[16]_INST_0_i_1 
@@ -747,6 +751,13 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[16] ),
         .I5(slv_reg2[16]),
         .O(\s00_axi_rdata[16]_INST_0_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \s00_axi_rdata[17]_INST_0 
+       (.I0(\s00_axi_rdata[17]_INST_0_i_1_n_0 ),
+        .I1(sel0[2]),
+        .O(s00_axi_rdata[17]));
   LUT6 #(
     .INIT(64'hCFAFCFA0C0AFC0A0)) 
     \s00_axi_rdata[17]_INST_0_i_1 
@@ -757,6 +768,13 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[17] ),
         .I5(slv_reg2[17]),
         .O(\s00_axi_rdata[17]_INST_0_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \s00_axi_rdata[18]_INST_0 
+       (.I0(\s00_axi_rdata[18]_INST_0_i_1_n_0 ),
+        .I1(sel0[2]),
+        .O(s00_axi_rdata[18]));
   LUT6 #(
     .INIT(64'hCFAFCFA0C0AFC0A0)) 
     \s00_axi_rdata[18]_INST_0_i_1 
@@ -794,7 +812,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[1] ),
         .I5(slv_reg2[1]),
         .O(\s00_axi_rdata[1]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \s00_axi_rdata[20]_INST_0 
@@ -828,7 +846,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[21] ),
         .I5(slv_reg2[21]),
         .O(\s00_axi_rdata[21]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \s00_axi_rdata[22]_INST_0 
@@ -862,7 +880,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[23] ),
         .I5(slv_reg2[23]),
         .O(\s00_axi_rdata[23]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \s00_axi_rdata[24]_INST_0 
@@ -896,7 +914,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[25] ),
         .I5(slv_reg2[25]),
         .O(\s00_axi_rdata[25]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \s00_axi_rdata[26]_INST_0 
@@ -930,7 +948,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[27] ),
         .I5(slv_reg2[27]),
         .O(\s00_axi_rdata[27]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \s00_axi_rdata[28]_INST_0 
@@ -974,7 +992,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[2] ),
         .I5(slv_reg2[2]),
         .O(\s00_axi_rdata[2]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \s00_axi_rdata[30]_INST_0 
@@ -991,6 +1009,7 @@ module design_1_axi_perceptron_0_0_axi_perceptron_slave_lite_v1_0_S00_AXI
         .I4(\slv_reg0_reg_n_0_[30] ),
         .I5(slv_reg2[30]),
         .O(\s00_axi_rdata[30]_INST_0_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \s00_axi_rdata[31]_INST_0 
@@ -2018,10 +2037,10 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     s00_axi_rdata,
     s00_axi_aclk,
     Q,
+    \b_o_reg[7]_0 ,
     st1_carry__0_0,
     x1,
     x2,
-    \delta_r_reg[6]_0 ,
     \delta_r_reg[7]_0 ,
     sel0,
     s00_axi_rdata_0_sp_1,
@@ -2040,19 +2059,16 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     s00_axi_rdata_13_sp_1,
     s00_axi_rdata_14_sp_1,
     s00_axi_rdata_15_sp_1,
-    s00_axi_rdata_16_sp_1,
-    s00_axi_rdata_17_sp_1,
-    s00_axi_rdata_18_sp_1,
     s00_axi_aresetn);
   output s00_axi_aresetn_0;
   output y;
-  output [18:0]s00_axi_rdata;
+  output [15:0]s00_axi_rdata;
   input s00_axi_aclk;
-  input [24:0]Q;
+  input [4:0]Q;
+  input [24:0]\b_o_reg[7]_0 ;
   input [15:0]st1_carry__0_0;
   input x1;
   input x2;
-  input [4:0]\delta_r_reg[6]_0 ;
   input [7:0]\delta_r_reg[7]_0 ;
   input [2:0]sel0;
   input s00_axi_rdata_0_sp_1;
@@ -2071,16 +2087,13 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   input s00_axi_rdata_13_sp_1;
   input s00_axi_rdata_14_sp_1;
   input s00_axi_rdata_15_sp_1;
-  input s00_axi_rdata_16_sp_1;
-  input s00_axi_rdata_17_sp_1;
-  input s00_axi_rdata_18_sp_1;
   input s00_axi_aresetn;
 
   wire \FSM_sequential_st[0]_i_1_n_0 ;
   wire \FSM_sequential_st[1]_i_1_n_0 ;
   wire \FSM_sequential_st[2]_i_1_n_0 ;
   wire \FSM_sequential_st[2]_i_2_n_0 ;
-  wire [24:0]Q;
+  wire [4:0]Q;
   wire any_error_in_ep_i_1_n_0;
   wire any_error_in_ep_i_2_n_0;
   wire any_error_in_ep_i_3_n_0;
@@ -2107,6 +2120,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   wire \b[7]_i_3_n_0 ;
   wire \b[7]_i_4_n_0 ;
   wire [7:0]b_o;
+  wire [24:0]\b_o_reg[7]_0 ;
   wire \b_o_reg_n_0_[0] ;
   wire \b_o_reg_n_0_[1] ;
   wire \b_o_reg_n_0_[2] ;
@@ -2124,6 +2138,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   wire \b_reg_n_0_[6] ;
   wire \b_reg_n_0_[7] ;
   wire busy_i_1_n_0;
+  wire busy_reg_n_0;
   wire converged;
   wire converged_i_1_n_0;
   wire converged_i_2_n_0;
@@ -2140,9 +2155,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   wire \delta_r[7]_i_3_n_0 ;
   wire \delta_r[7]_i_4_n_0 ;
   wire delta_r_0;
-  wire [4:0]\delta_r_reg[6]_0 ;
   wire [7:0]\delta_r_reg[7]_0 ;
-  wire done_i_1_n_0;
   wire [15:0]epoch_count;
   wire \epoch_count[15]_i_1_n_0 ;
   wire \epoch_count_reg_n_0_[0] ;
@@ -2161,7 +2174,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   wire \epoch_count_reg_n_0_[7] ;
   wire \epoch_count_reg_n_0_[8] ;
   wire \epoch_count_reg_n_0_[9] ;
-  wire [15:1]in22;
+  wire [15:1]in21;
   wire p_1_in;
   wire \pat_idx[0]_i_1_n_0 ;
   wire \pat_idx[1]_i_1_n_0 ;
@@ -2169,9 +2182,8 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   wire s00_axi_aclk;
   wire s00_axi_aresetn;
   wire s00_axi_aresetn_0;
-  wire [18:0]s00_axi_rdata;
+  wire [15:0]s00_axi_rdata;
   wire \s00_axi_rdata[0]_INST_0_i_2_n_0 ;
-  wire \s00_axi_rdata[10]_INST_0_i_2_n_0 ;
   wire \s00_axi_rdata[1]_INST_0_i_2_n_0 ;
   wire \s00_axi_rdata[2]_INST_0_i_2_n_0 ;
   wire \s00_axi_rdata[3]_INST_0_i_2_n_0 ;
@@ -2179,8 +2191,6 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   wire \s00_axi_rdata[5]_INST_0_i_2_n_0 ;
   wire \s00_axi_rdata[6]_INST_0_i_2_n_0 ;
   wire \s00_axi_rdata[7]_INST_0_i_2_n_0 ;
-  wire \s00_axi_rdata[8]_INST_0_i_2_n_0 ;
-  wire \s00_axi_rdata[9]_INST_0_i_2_n_0 ;
   wire s00_axi_rdata_0_sn_1;
   wire s00_axi_rdata_10_sn_1;
   wire s00_axi_rdata_11_sn_1;
@@ -2188,9 +2198,6 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   wire s00_axi_rdata_13_sn_1;
   wire s00_axi_rdata_14_sn_1;
   wire s00_axi_rdata_15_sn_1;
-  wire s00_axi_rdata_16_sn_1;
-  wire s00_axi_rdata_17_sn_1;
-  wire s00_axi_rdata_18_sn_1;
   wire s00_axi_rdata_1_sn_1;
   wire s00_axi_rdata_2_sn_1;
   wire s00_axi_rdata_3_sn_1;
@@ -2302,7 +2309,6 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   wire st2_carry_n_1;
   wire st2_carry_n_2;
   wire st2_carry_n_3;
-  wire [18:17]status_reg;
   wire step_fn_return;
   wire \sum_dbg[9]_i_1_n_0 ;
   wire sx1;
@@ -2384,9 +2390,6 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   assign s00_axi_rdata_13_sn_1 = s00_axi_rdata_13_sp_1;
   assign s00_axi_rdata_14_sn_1 = s00_axi_rdata_14_sp_1;
   assign s00_axi_rdata_15_sn_1 = s00_axi_rdata_15_sp_1;
-  assign s00_axi_rdata_16_sn_1 = s00_axi_rdata_16_sp_1;
-  assign s00_axi_rdata_17_sn_1 = s00_axi_rdata_17_sp_1;
-  assign s00_axi_rdata_18_sn_1 = s00_axi_rdata_18_sp_1;
   assign s00_axi_rdata_1_sn_1 = s00_axi_rdata_1_sp_1;
   assign s00_axi_rdata_2_sn_1 = s00_axi_rdata_2_sp_1;
   assign s00_axi_rdata_3_sn_1 = s00_axi_rdata_3_sp_1;
@@ -2398,32 +2401,32 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   assign s00_axi_rdata_9_sn_1 = s00_axi_rdata_9_sp_1;
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
-    .INIT(16'hC30E)) 
+    .INIT(16'hA05E)) 
     \FSM_sequential_st[0]_i_1 
-       (.I0(\delta_r_reg[6]_0 [0]),
-        .I1(st[1]),
-        .I2(st[0]),
-        .I3(st[2]),
+       (.I0(st[2]),
+        .I1(Q[0]),
+        .I2(st[1]),
+        .I3(st[0]),
         .O(\FSM_sequential_st[0]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
-    .INIT(32'hF0F07FF0)) 
+    .INIT(32'hF70FFF00)) 
     \FSM_sequential_st[1]_i_1 
        (.I0(sx2),
         .I1(sx1),
-        .I2(st[1]),
-        .I3(st[0]),
-        .I4(st[2]),
+        .I2(st[2]),
+        .I3(st[1]),
+        .I4(st[0]),
         .O(\FSM_sequential_st[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFF00FFBB0F000000)) 
+    .INIT(64'hFF0F0000FF00BB00)) 
     \FSM_sequential_st[2]_i_1 
        (.I0(st1_carry__0_n_0),
         .I1(any_error_in_ep_reg_n_0),
         .I2(\FSM_sequential_st[2]_i_2_n_0 ),
-        .I3(st[1]),
-        .I4(st[0]),
-        .I5(st[2]),
+        .I3(st[2]),
+        .I4(st[1]),
+        .I5(st[0]),
         .O(\FSM_sequential_st[2]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT2 #(
@@ -2481,11 +2484,10 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I2(delta_c[6]),
         .I3(delta_c[5]),
         .O(any_error_in_ep_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'hC1)) 
     any_error_in_ep_i_4
-       (.I0(\delta_r_reg[6]_0 [0]),
+       (.I0(Q[0]),
         .I1(st[1]),
         .I2(st[0]),
         .O(any_error_in_ep_i_4_n_0));
@@ -2566,7 +2568,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[1]),
         .I2(\b[7]_i_3_n_0 ),
         .I3(b0[0]),
-        .I4(Q[17]),
+        .I4(\b_o_reg[7]_0 [17]),
         .I5(\b[7]_i_4_n_0 ),
         .O(b[0]));
   LUT6 #(
@@ -2576,7 +2578,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[1]),
         .I2(\b[7]_i_3_n_0 ),
         .I3(b0[1]),
-        .I4(Q[18]),
+        .I4(\b_o_reg[7]_0 [18]),
         .I5(\b[7]_i_4_n_0 ),
         .O(b[1]));
   LUT6 #(
@@ -2586,7 +2588,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[1]),
         .I2(\b[7]_i_3_n_0 ),
         .I3(b0[2]),
-        .I4(Q[19]),
+        .I4(\b_o_reg[7]_0 [19]),
         .I5(\b[7]_i_4_n_0 ),
         .O(b[2]));
   LUT6 #(
@@ -2596,7 +2598,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[1]),
         .I2(\b[7]_i_3_n_0 ),
         .I3(b0[3]),
-        .I4(Q[20]),
+        .I4(\b_o_reg[7]_0 [20]),
         .I5(\b[7]_i_4_n_0 ),
         .O(b[3]));
   LUT6 #(
@@ -2606,7 +2608,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[1]),
         .I2(\b[7]_i_3_n_0 ),
         .I3(b0[4]),
-        .I4(Q[21]),
+        .I4(\b_o_reg[7]_0 [21]),
         .I5(\b[7]_i_4_n_0 ),
         .O(b[4]));
   LUT6 #(
@@ -2616,7 +2618,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[1]),
         .I2(\b[7]_i_3_n_0 ),
         .I3(b0[5]),
-        .I4(Q[22]),
+        .I4(\b_o_reg[7]_0 [22]),
         .I5(\b[7]_i_4_n_0 ),
         .O(b[5]));
   LUT6 #(
@@ -2626,7 +2628,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[1]),
         .I2(\b[7]_i_3_n_0 ),
         .I3(b0[6]),
-        .I4(Q[23]),
+        .I4(\b_o_reg[7]_0 [23]),
         .I5(\b[7]_i_4_n_0 ),
         .O(b[6]));
   LUT5 #(
@@ -2634,8 +2636,8 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \b[7]_i_1 
        (.I0(st[2]),
         .I1(st[1]),
-        .I2(Q[0]),
-        .I3(status_reg[18]),
+        .I2(\b_o_reg[7]_0 [0]),
+        .I3(busy_reg_n_0),
         .I4(\b[7]_i_3_n_0 ),
         .O(\b[7]_i_1_n_0 ));
   LUT6 #(
@@ -2645,7 +2647,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[1]),
         .I2(\b[7]_i_3_n_0 ),
         .I3(b0[7]),
-        .I4(Q[24]),
+        .I4(\b_o_reg[7]_0 [24]),
         .I5(\b[7]_i_4_n_0 ),
         .O(b[7]));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
@@ -2670,7 +2672,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \b_o[0]_i_1 
        (.I0(\b_reg_n_0_[0] ),
-        .I1(Q[17]),
+        .I1(\b_o_reg[7]_0 [17]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -2679,7 +2681,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \b_o[1]_i_1 
        (.I0(\b_reg_n_0_[1] ),
-        .I1(Q[18]),
+        .I1(\b_o_reg[7]_0 [18]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -2688,7 +2690,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \b_o[2]_i_1 
        (.I0(\b_reg_n_0_[2] ),
-        .I1(Q[19]),
+        .I1(\b_o_reg[7]_0 [19]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -2697,7 +2699,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \b_o[3]_i_1 
        (.I0(\b_reg_n_0_[3] ),
-        .I1(Q[20]),
+        .I1(\b_o_reg[7]_0 [20]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -2706,7 +2708,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \b_o[4]_i_1 
        (.I0(\b_reg_n_0_[4] ),
-        .I1(Q[21]),
+        .I1(\b_o_reg[7]_0 [21]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -2715,7 +2717,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \b_o[5]_i_1 
        (.I0(\b_reg_n_0_[5] ),
-        .I1(Q[22]),
+        .I1(\b_o_reg[7]_0 [22]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -2724,7 +2726,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \b_o[6]_i_1 
        (.I0(\b_reg_n_0_[6] ),
-        .I1(Q[23]),
+        .I1(\b_o_reg[7]_0 [23]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -2733,7 +2735,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \b_o[7]_i_1 
        (.I0(\b_reg_n_0_[7] ),
-        .I1(Q[24]),
+        .I1(\b_o_reg[7]_0 [24]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -2838,18 +2840,18 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   LUT5 #(
     .INIT(32'hF3FE0002)) 
     busy_i_1
-       (.I0(\delta_r_reg[6]_0 [0]),
+       (.I0(Q[0]),
         .I1(st[2]),
         .I2(st[1]),
         .I3(st[0]),
-        .I4(status_reg[18]),
+        .I4(busy_reg_n_0),
         .O(busy_i_1_n_0));
   FDCE busy_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
         .CLR(s00_axi_aresetn_0),
         .D(busy_i_1_n_0),
-        .Q(status_reg[18]));
+        .Q(busy_reg_n_0));
   LUT5 #(
     .INIT(32'h04FF0400)) 
     converged_i_1
@@ -2866,7 +2868,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st1_carry__0_n_0),
         .I2(st[1]),
         .I3(st[0]),
-        .I4(\delta_r_reg[6]_0 [0]),
+        .I4(Q[0]),
         .I5(st[2]),
         .O(converged_i_2_n_0));
   FDCE converged_reg
@@ -3026,12 +3028,12 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   LUT6 #(
     .INIT(64'hAFAFCFC0A0A0CFC0)) 
     \delta_r[7]_i_5 
-       (.I0(\delta_r_reg[6]_0 [4]),
-        .I1(\delta_r_reg[6]_0 [3]),
+       (.I0(Q[4]),
+        .I1(Q[3]),
         .I2(sx1),
-        .I3(\delta_r_reg[6]_0 [1]),
+        .I3(Q[1]),
         .I4(sx2),
-        .I5(\delta_r_reg[6]_0 [2]),
+        .I5(Q[2]),
         .O(p_1_in));
   FDCE \delta_r_reg[0] 
        (.C(s00_axi_aclk),
@@ -3081,140 +3083,125 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .CLR(s00_axi_aresetn_0),
         .D(delta_c[7]),
         .Q(delta_r[7]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT4 #(
-    .INIT(16'hE020)) 
-    done_i_1
-       (.I0(st[0]),
-        .I1(st[1]),
-        .I2(st[2]),
-        .I3(status_reg[17]),
-        .O(done_i_1_n_0));
-  FDCE done_reg
-       (.C(s00_axi_aclk),
-        .CE(1'b1),
-        .CLR(s00_axi_aresetn_0),
-        .D(done_i_1_n_0),
-        .Q(status_reg[17]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \epoch_count[0]_i_1 
        (.I0(st[2]),
         .I1(\epoch_count_reg_n_0_[0] ),
         .O(epoch_count[0]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[10]_i_1 
        (.I0(st[2]),
-        .I1(in22[10]),
+        .I1(in21[10]),
         .O(epoch_count[10]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[11]_i_1 
        (.I0(st[2]),
-        .I1(in22[11]),
+        .I1(in21[11]),
         .O(epoch_count[11]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[12]_i_1 
        (.I0(st[2]),
-        .I1(in22[12]),
+        .I1(in21[12]),
         .O(epoch_count[12]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[13]_i_1 
        (.I0(st[2]),
-        .I1(in22[13]),
+        .I1(in21[13]),
         .O(epoch_count[13]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[14]_i_1 
        (.I0(st[2]),
-        .I1(in22[14]),
+        .I1(in21[14]),
         .O(epoch_count[14]));
   LUT4 #(
     .INIT(16'h000E)) 
     \epoch_count[15]_i_1 
-       (.I0(\delta_r_reg[6]_0 [0]),
+       (.I0(Q[0]),
         .I1(st[2]),
         .I2(st[0]),
         .I3(st[1]),
         .O(\epoch_count[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[15]_i_2 
        (.I0(st[2]),
-        .I1(in22[15]),
+        .I1(in21[15]),
         .O(epoch_count[15]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[1]_i_1 
        (.I0(st[2]),
-        .I1(in22[1]),
+        .I1(in21[1]),
         .O(epoch_count[1]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[2]_i_1 
        (.I0(st[2]),
-        .I1(in22[2]),
+        .I1(in21[2]),
         .O(epoch_count[2]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[3]_i_1 
        (.I0(st[2]),
-        .I1(in22[3]),
+        .I1(in21[3]),
         .O(epoch_count[3]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[4]_i_1 
        (.I0(st[2]),
-        .I1(in22[4]),
+        .I1(in21[4]),
         .O(epoch_count[4]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[5]_i_1 
        (.I0(st[2]),
-        .I1(in22[5]),
+        .I1(in21[5]),
         .O(epoch_count[5]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[6]_i_1 
        (.I0(st[2]),
-        .I1(in22[6]),
+        .I1(in21[6]),
         .O(epoch_count[6]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[7]_i_1 
        (.I0(st[2]),
-        .I1(in22[7]),
+        .I1(in21[7]),
         .O(epoch_count[7]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[8]_i_1 
        (.I0(st[2]),
-        .I1(in22[8]),
+        .I1(in21[8]),
         .O(epoch_count[8]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \epoch_count[9]_i_1 
        (.I0(st[2]),
-        .I1(in22[9]),
+        .I1(in21[9]),
         .O(epoch_count[9]));
   FDCE \epoch_count_reg[0] 
        (.C(s00_axi_aclk),
@@ -3319,7 +3306,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(sx1),
         .I2(st[0]),
         .I3(st[2]),
-        .I4(\delta_r_reg[6]_0 [0]),
+        .I4(Q[0]),
         .I5(st[1]),
         .O(\pat_idx[0]_i_1_n_0 ));
   LUT6 #(
@@ -3329,7 +3316,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(sx1),
         .I2(st[0]),
         .I3(st[2]),
-        .I4(\delta_r_reg[6]_0 [0]),
+        .I4(Q[0]),
         .I5(st[1]),
         .O(\pat_idx[1]_i_1_n_0 ));
   FDCE \pat_idx_reg[0] 
@@ -3356,233 +3343,182 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(y),
         .I2(sel0[0]),
         .I3(sel0[1]),
-        .I4(\epoch_count_reg_n_0_[0] ),
+        .I4(converged),
         .I5(\b_o_reg_n_0_[0] ),
         .O(\s00_axi_rdata[0]_INST_0_i_2_n_0 ));
-  MUXF7 \s00_axi_rdata[10]_INST_0 
+  LUT6 #(
+    .INIT(64'hFC00AAAA0C00AAAA)) 
+    \s00_axi_rdata[10]_INST_0 
        (.I0(s00_axi_rdata_10_sn_1),
-        .I1(\s00_axi_rdata[10]_INST_0_i_2_n_0 ),
-        .O(s00_axi_rdata[10]),
-        .S(sel0[2]));
-  LUT5 #(
-    .INIT(32'hF0CC00AA)) 
-    \s00_axi_rdata[10]_INST_0_i_2 
-       (.I0(\epoch_count_reg_n_0_[10] ),
         .I1(data5[10]),
-        .I2(data7[10]),
-        .I3(sel0[1]),
-        .I4(sel0[0]),
-        .O(\s00_axi_rdata[10]_INST_0_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'h00F000CCAAAAAAAA)) 
+        .I2(sel0[1]),
+        .I3(sel0[0]),
+        .I4(sel0[2]),
+        .I5(data7[10]),
+        .O(s00_axi_rdata[10]));
+  LUT5 #(
+    .INIT(32'h20FF2000)) 
     \s00_axi_rdata[11]_INST_0 
-       (.I0(s00_axi_rdata_11_sn_1),
-        .I1(\epoch_count_reg_n_0_[11] ),
-        .I2(data5[11]),
-        .I3(sel0[1]),
-        .I4(sel0[0]),
-        .I5(sel0[2]),
+       (.I0(data5[11]),
+        .I1(sel0[1]),
+        .I2(sel0[0]),
+        .I3(sel0[2]),
+        .I4(s00_axi_rdata_11_sn_1),
         .O(s00_axi_rdata[11]));
-  LUT6 #(
-    .INIT(64'h00F000CCAAAAAAAA)) 
+  LUT5 #(
+    .INIT(32'h20FF2000)) 
     \s00_axi_rdata[12]_INST_0 
-       (.I0(s00_axi_rdata_12_sn_1),
-        .I1(\epoch_count_reg_n_0_[12] ),
-        .I2(data5[12]),
-        .I3(sel0[1]),
-        .I4(sel0[0]),
-        .I5(sel0[2]),
+       (.I0(data5[12]),
+        .I1(sel0[1]),
+        .I2(sel0[0]),
+        .I3(sel0[2]),
+        .I4(s00_axi_rdata_12_sn_1),
         .O(s00_axi_rdata[12]));
-  LUT6 #(
-    .INIT(64'h00F000CCAAAAAAAA)) 
+  LUT5 #(
+    .INIT(32'h20FF2000)) 
     \s00_axi_rdata[13]_INST_0 
-       (.I0(s00_axi_rdata_13_sn_1),
-        .I1(\epoch_count_reg_n_0_[13] ),
-        .I2(data5[13]),
-        .I3(sel0[1]),
-        .I4(sel0[0]),
-        .I5(sel0[2]),
+       (.I0(data5[13]),
+        .I1(sel0[1]),
+        .I2(sel0[0]),
+        .I3(sel0[2]),
+        .I4(s00_axi_rdata_13_sn_1),
         .O(s00_axi_rdata[13]));
-  LUT6 #(
-    .INIT(64'h00F000CCAAAAAAAA)) 
+  LUT5 #(
+    .INIT(32'h20FF2000)) 
     \s00_axi_rdata[14]_INST_0 
-       (.I0(s00_axi_rdata_14_sn_1),
-        .I1(\epoch_count_reg_n_0_[14] ),
-        .I2(data5[14]),
-        .I3(sel0[1]),
-        .I4(sel0[0]),
-        .I5(sel0[2]),
+       (.I0(data5[14]),
+        .I1(sel0[1]),
+        .I2(sel0[0]),
+        .I3(sel0[2]),
+        .I4(s00_axi_rdata_14_sn_1),
         .O(s00_axi_rdata[14]));
-  LUT6 #(
-    .INIT(64'h00F000CCAAAAAAAA)) 
+  LUT5 #(
+    .INIT(32'h20FF2000)) 
     \s00_axi_rdata[15]_INST_0 
-       (.I0(s00_axi_rdata_15_sn_1),
-        .I1(\epoch_count_reg_n_0_[15] ),
-        .I2(data5[15]),
-        .I3(sel0[1]),
-        .I4(sel0[0]),
-        .I5(sel0[2]),
+       (.I0(data5[15]),
+        .I1(sel0[1]),
+        .I2(sel0[0]),
+        .I3(sel0[2]),
+        .I4(s00_axi_rdata_15_sn_1),
         .O(s00_axi_rdata[15]));
-  LUT5 #(
-    .INIT(32'h02FF0200)) 
-    \s00_axi_rdata[16]_INST_0 
-       (.I0(converged),
-        .I1(sel0[0]),
-        .I2(sel0[1]),
-        .I3(sel0[2]),
-        .I4(s00_axi_rdata_16_sn_1),
-        .O(s00_axi_rdata[16]));
-  LUT5 #(
-    .INIT(32'h02FF0200)) 
-    \s00_axi_rdata[17]_INST_0 
-       (.I0(status_reg[17]),
-        .I1(sel0[0]),
-        .I2(sel0[1]),
-        .I3(sel0[2]),
-        .I4(s00_axi_rdata_17_sn_1),
-        .O(s00_axi_rdata[17]));
-  LUT5 #(
-    .INIT(32'h02FF0200)) 
-    \s00_axi_rdata[18]_INST_0 
-       (.I0(status_reg[18]),
-        .I1(sel0[0]),
-        .I2(sel0[1]),
-        .I3(sel0[2]),
-        .I4(s00_axi_rdata_18_sn_1),
-        .O(s00_axi_rdata[18]));
   MUXF7 \s00_axi_rdata[1]_INST_0 
        (.I0(s00_axi_rdata_1_sn_1),
         .I1(\s00_axi_rdata[1]_INST_0_i_2_n_0 ),
         .O(s00_axi_rdata[1]),
         .S(sel0[2]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+  LUT5 #(
+    .INIT(32'hF0CCAA00)) 
     \s00_axi_rdata[1]_INST_0_i_2 
-       (.I0(data5[1]),
-        .I1(data7[1]),
-        .I2(sel0[0]),
+       (.I0(\b_o_reg_n_0_[1] ),
+        .I1(data5[1]),
+        .I2(data7[1]),
         .I3(sel0[1]),
-        .I4(\epoch_count_reg_n_0_[1] ),
-        .I5(\b_o_reg_n_0_[1] ),
+        .I4(sel0[0]),
         .O(\s00_axi_rdata[1]_INST_0_i_2_n_0 ));
   MUXF7 \s00_axi_rdata[2]_INST_0 
        (.I0(s00_axi_rdata_2_sn_1),
         .I1(\s00_axi_rdata[2]_INST_0_i_2_n_0 ),
         .O(s00_axi_rdata[2]),
         .S(sel0[2]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+  LUT5 #(
+    .INIT(32'hF0CCAA00)) 
     \s00_axi_rdata[2]_INST_0_i_2 
-       (.I0(data5[2]),
-        .I1(data7[2]),
-        .I2(sel0[0]),
+       (.I0(\b_o_reg_n_0_[2] ),
+        .I1(data5[2]),
+        .I2(data7[2]),
         .I3(sel0[1]),
-        .I4(\epoch_count_reg_n_0_[2] ),
-        .I5(\b_o_reg_n_0_[2] ),
+        .I4(sel0[0]),
         .O(\s00_axi_rdata[2]_INST_0_i_2_n_0 ));
   MUXF7 \s00_axi_rdata[3]_INST_0 
        (.I0(s00_axi_rdata_3_sn_1),
         .I1(\s00_axi_rdata[3]_INST_0_i_2_n_0 ),
         .O(s00_axi_rdata[3]),
         .S(sel0[2]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+  LUT5 #(
+    .INIT(32'hF0CCAA00)) 
     \s00_axi_rdata[3]_INST_0_i_2 
-       (.I0(data5[3]),
-        .I1(data7[3]),
-        .I2(sel0[0]),
+       (.I0(\b_o_reg_n_0_[3] ),
+        .I1(data5[3]),
+        .I2(data7[3]),
         .I3(sel0[1]),
-        .I4(\epoch_count_reg_n_0_[3] ),
-        .I5(\b_o_reg_n_0_[3] ),
+        .I4(sel0[0]),
         .O(\s00_axi_rdata[3]_INST_0_i_2_n_0 ));
   MUXF7 \s00_axi_rdata[4]_INST_0 
        (.I0(s00_axi_rdata_4_sn_1),
         .I1(\s00_axi_rdata[4]_INST_0_i_2_n_0 ),
         .O(s00_axi_rdata[4]),
         .S(sel0[2]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+  LUT5 #(
+    .INIT(32'hF0CCAA00)) 
     \s00_axi_rdata[4]_INST_0_i_2 
-       (.I0(data5[4]),
-        .I1(data7[4]),
-        .I2(sel0[0]),
+       (.I0(\b_o_reg_n_0_[4] ),
+        .I1(data5[4]),
+        .I2(data7[4]),
         .I3(sel0[1]),
-        .I4(\epoch_count_reg_n_0_[4] ),
-        .I5(\b_o_reg_n_0_[4] ),
+        .I4(sel0[0]),
         .O(\s00_axi_rdata[4]_INST_0_i_2_n_0 ));
   MUXF7 \s00_axi_rdata[5]_INST_0 
        (.I0(s00_axi_rdata_5_sn_1),
         .I1(\s00_axi_rdata[5]_INST_0_i_2_n_0 ),
         .O(s00_axi_rdata[5]),
         .S(sel0[2]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+  LUT5 #(
+    .INIT(32'hF0CCAA00)) 
     \s00_axi_rdata[5]_INST_0_i_2 
-       (.I0(data5[5]),
-        .I1(data7[5]),
-        .I2(sel0[0]),
+       (.I0(\b_o_reg_n_0_[5] ),
+        .I1(data5[5]),
+        .I2(data7[5]),
         .I3(sel0[1]),
-        .I4(\epoch_count_reg_n_0_[5] ),
-        .I5(\b_o_reg_n_0_[5] ),
+        .I4(sel0[0]),
         .O(\s00_axi_rdata[5]_INST_0_i_2_n_0 ));
   MUXF7 \s00_axi_rdata[6]_INST_0 
        (.I0(s00_axi_rdata_6_sn_1),
         .I1(\s00_axi_rdata[6]_INST_0_i_2_n_0 ),
         .O(s00_axi_rdata[6]),
         .S(sel0[2]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+  LUT5 #(
+    .INIT(32'hF0CCAA00)) 
     \s00_axi_rdata[6]_INST_0_i_2 
-       (.I0(data5[6]),
-        .I1(data7[6]),
-        .I2(sel0[0]),
+       (.I0(\b_o_reg_n_0_[6] ),
+        .I1(data5[6]),
+        .I2(data7[6]),
         .I3(sel0[1]),
-        .I4(\epoch_count_reg_n_0_[6] ),
-        .I5(\b_o_reg_n_0_[6] ),
+        .I4(sel0[0]),
         .O(\s00_axi_rdata[6]_INST_0_i_2_n_0 ));
   MUXF7 \s00_axi_rdata[7]_INST_0 
        (.I0(s00_axi_rdata_7_sn_1),
         .I1(\s00_axi_rdata[7]_INST_0_i_2_n_0 ),
         .O(s00_axi_rdata[7]),
         .S(sel0[2]));
-  LUT6 #(
-    .INIT(64'hCFAFCFA0C0AFC0A0)) 
+  LUT5 #(
+    .INIT(32'hF0CCAA00)) 
     \s00_axi_rdata[7]_INST_0_i_2 
-       (.I0(data5[7]),
-        .I1(data7[7]),
-        .I2(sel0[0]),
+       (.I0(\b_o_reg_n_0_[7] ),
+        .I1(data5[7]),
+        .I2(data7[7]),
         .I3(sel0[1]),
-        .I4(\epoch_count_reg_n_0_[7] ),
-        .I5(\b_o_reg_n_0_[7] ),
+        .I4(sel0[0]),
         .O(\s00_axi_rdata[7]_INST_0_i_2_n_0 ));
-  MUXF7 \s00_axi_rdata[8]_INST_0 
+  LUT6 #(
+    .INIT(64'hFC00AAAA0C00AAAA)) 
+    \s00_axi_rdata[8]_INST_0 
        (.I0(s00_axi_rdata_8_sn_1),
-        .I1(\s00_axi_rdata[8]_INST_0_i_2_n_0 ),
-        .O(s00_axi_rdata[8]),
-        .S(sel0[2]));
-  LUT5 #(
-    .INIT(32'hF0CC00AA)) 
-    \s00_axi_rdata[8]_INST_0_i_2 
-       (.I0(\epoch_count_reg_n_0_[8] ),
         .I1(data5[8]),
-        .I2(data7[8]),
-        .I3(sel0[1]),
-        .I4(sel0[0]),
-        .O(\s00_axi_rdata[8]_INST_0_i_2_n_0 ));
-  MUXF7 \s00_axi_rdata[9]_INST_0 
+        .I2(sel0[1]),
+        .I3(sel0[0]),
+        .I4(sel0[2]),
+        .I5(data7[8]),
+        .O(s00_axi_rdata[8]));
+  LUT6 #(
+    .INIT(64'hFC00AAAA0C00AAAA)) 
+    \s00_axi_rdata[9]_INST_0 
        (.I0(s00_axi_rdata_9_sn_1),
-        .I1(\s00_axi_rdata[9]_INST_0_i_2_n_0 ),
-        .O(s00_axi_rdata[9]),
-        .S(sel0[2]));
-  LUT5 #(
-    .INIT(32'hF0CC00AA)) 
-    \s00_axi_rdata[9]_INST_0_i_2 
-       (.I0(\epoch_count_reg_n_0_[9] ),
         .I1(data5[9]),
-        .I2(data7[9]),
-        .I3(sel0[1]),
-        .I4(sel0[0]),
-        .O(\s00_axi_rdata[9]_INST_0_i_2_n_0 ));
+        .I2(sel0[1]),
+        .I3(sel0[0]),
+        .I4(sel0[2]),
+        .I5(data7[9]),
+        .O(s00_axi_rdata[9]));
   CARRY4 s_pred__0_carry
        (.CI(1'b0),
         .CO({s_pred__0_carry_n_0,s_pred__0_carry_n_1,s_pred__0_carry_n_2,s_pred__0_carry_n_3}),
@@ -3966,90 +3902,90 @@ module design_1_axi_perceptron_0_0_binary_perceptron
   LUT4 #(
     .INIT(16'h2F02)) 
     st1_carry__0_i_1
-       (.I0(in22[14]),
+       (.I0(in21[14]),
         .I1(st1_carry__0_0[14]),
         .I2(st1_carry__0_0[15]),
-        .I3(in22[15]),
+        .I3(in21[15]),
         .O(st1_carry__0_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     st1_carry__0_i_2
-       (.I0(in22[12]),
+       (.I0(in21[12]),
         .I1(st1_carry__0_0[12]),
         .I2(st1_carry__0_0[13]),
-        .I3(in22[13]),
+        .I3(in21[13]),
         .O(st1_carry__0_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     st1_carry__0_i_3
-       (.I0(in22[10]),
+       (.I0(in21[10]),
         .I1(st1_carry__0_0[10]),
         .I2(st1_carry__0_0[11]),
-        .I3(in22[11]),
+        .I3(in21[11]),
         .O(st1_carry__0_i_3_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     st1_carry__0_i_4
-       (.I0(in22[8]),
+       (.I0(in21[8]),
         .I1(st1_carry__0_0[8]),
         .I2(st1_carry__0_0[9]),
-        .I3(in22[9]),
+        .I3(in21[9]),
         .O(st1_carry__0_i_4_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     st1_carry__0_i_5
        (.I0(st1_carry__0_0[15]),
-        .I1(in22[15]),
-        .I2(in22[14]),
+        .I1(in21[15]),
+        .I2(in21[14]),
         .I3(st1_carry__0_0[14]),
         .O(st1_carry__0_i_5_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     st1_carry__0_i_6
        (.I0(st1_carry__0_0[13]),
-        .I1(in22[13]),
-        .I2(in22[12]),
+        .I1(in21[13]),
+        .I2(in21[12]),
         .I3(st1_carry__0_0[12]),
         .O(st1_carry__0_i_6_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     st1_carry__0_i_7
        (.I0(st1_carry__0_0[11]),
-        .I1(in22[11]),
-        .I2(in22[10]),
+        .I1(in21[11]),
+        .I2(in21[10]),
         .I3(st1_carry__0_0[10]),
         .O(st1_carry__0_i_7_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     st1_carry__0_i_8
        (.I0(st1_carry__0_0[9]),
-        .I1(in22[9]),
-        .I2(in22[8]),
+        .I1(in21[9]),
+        .I2(in21[8]),
         .I3(st1_carry__0_0[8]),
         .O(st1_carry__0_i_8_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     st1_carry_i_1
-       (.I0(in22[6]),
+       (.I0(in21[6]),
         .I1(st1_carry__0_0[6]),
         .I2(st1_carry__0_0[7]),
-        .I3(in22[7]),
+        .I3(in21[7]),
         .O(st1_carry_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     st1_carry_i_2
-       (.I0(in22[4]),
+       (.I0(in21[4]),
         .I1(st1_carry__0_0[4]),
         .I2(st1_carry__0_0[5]),
-        .I3(in22[5]),
+        .I3(in21[5]),
         .O(st1_carry_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     st1_carry_i_3
-       (.I0(in22[2]),
+       (.I0(in21[2]),
         .I1(st1_carry__0_0[2]),
         .I2(st1_carry__0_0[3]),
-        .I3(in22[3]),
+        .I3(in21[3]),
         .O(st1_carry_i_3_n_0));
   LUT4 #(
     .INIT(16'h1F01)) 
@@ -4057,37 +3993,37 @@ module design_1_axi_perceptron_0_0_binary_perceptron
        (.I0(st1_carry__0_0[0]),
         .I1(\epoch_count_reg_n_0_[0] ),
         .I2(st1_carry__0_0[1]),
-        .I3(in22[1]),
+        .I3(in21[1]),
         .O(st1_carry_i_4_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     st1_carry_i_5
        (.I0(st1_carry__0_0[7]),
-        .I1(in22[7]),
-        .I2(in22[6]),
+        .I1(in21[7]),
+        .I2(in21[6]),
         .I3(st1_carry__0_0[6]),
         .O(st1_carry_i_5_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     st1_carry_i_6
        (.I0(st1_carry__0_0[5]),
-        .I1(in22[5]),
-        .I2(in22[4]),
+        .I1(in21[5]),
+        .I2(in21[4]),
         .I3(st1_carry__0_0[4]),
         .O(st1_carry_i_6_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     st1_carry_i_7
        (.I0(st1_carry__0_0[3]),
-        .I1(in22[3]),
-        .I2(in22[2]),
+        .I1(in21[3]),
+        .I2(in21[2]),
         .I3(st1_carry__0_0[2]),
         .O(st1_carry_i_7_n_0));
   LUT4 #(
     .INIT(16'h0990)) 
     st1_carry_i_8
        (.I0(st1_carry__0_0[1]),
-        .I1(in22[1]),
+        .I1(in21[1]),
         .I2(st1_carry__0_0[0]),
         .I3(\epoch_count_reg_n_0_[0] ),
         .O(st1_carry_i_8_n_0));
@@ -4097,7 +4033,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .CO({st2_carry_n_0,st2_carry_n_1,st2_carry_n_2,st2_carry_n_3}),
         .CYINIT(\epoch_count_reg_n_0_[0] ),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[4:1]),
+        .O(in21[4:1]),
         .S({\epoch_count_reg_n_0_[4] ,\epoch_count_reg_n_0_[3] ,\epoch_count_reg_n_0_[2] ,\epoch_count_reg_n_0_[1] }));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 st2_carry__0
@@ -4105,7 +4041,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .CO({st2_carry__0_n_0,st2_carry__0_n_1,st2_carry__0_n_2,st2_carry__0_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[8:5]),
+        .O(in21[8:5]),
         .S({\epoch_count_reg_n_0_[8] ,\epoch_count_reg_n_0_[7] ,\epoch_count_reg_n_0_[6] ,\epoch_count_reg_n_0_[5] }));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 st2_carry__1
@@ -4113,7 +4049,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .CO({st2_carry__1_n_0,st2_carry__1_n_1,st2_carry__1_n_2,st2_carry__1_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in22[12:9]),
+        .O(in21[12:9]),
         .S({\epoch_count_reg_n_0_[12] ,\epoch_count_reg_n_0_[11] ,\epoch_count_reg_n_0_[10] ,\epoch_count_reg_n_0_[9] }));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 st2_carry__2
@@ -4121,7 +4057,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .CO({NLW_st2_carry__2_CO_UNCONNECTED[3:2],st2_carry__2_n_2,st2_carry__2_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW_st2_carry__2_O_UNCONNECTED[3],in22[15:13]}),
+        .O({NLW_st2_carry__2_O_UNCONNECTED[3],in21[15:13]}),
         .S({1'b0,\epoch_count_reg_n_0_[15] ,\epoch_count_reg_n_0_[14] ,\epoch_count_reg_n_0_[13] }));
   LUT1 #(
     .INIT(2'h1)) 
@@ -4276,7 +4212,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w1[0]_i_1 
        (.I0(w10[0]),
         .I1(\w1[7]_i_3_n_0 ),
-        .I2(Q[1]),
+        .I2(\b_o_reg[7]_0 [1]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4286,7 +4222,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w1[1]_i_1 
        (.I0(w10[1]),
         .I1(\w1[7]_i_3_n_0 ),
-        .I2(Q[2]),
+        .I2(\b_o_reg[7]_0 [2]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4296,7 +4232,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w1[2]_i_1 
        (.I0(w10[2]),
         .I1(\w1[7]_i_3_n_0 ),
-        .I2(Q[3]),
+        .I2(\b_o_reg[7]_0 [3]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4306,7 +4242,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w1[3]_i_1 
        (.I0(w10[3]),
         .I1(\w1[7]_i_3_n_0 ),
-        .I2(Q[4]),
+        .I2(\b_o_reg[7]_0 [4]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4316,7 +4252,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w1[4]_i_1 
        (.I0(w10[4]),
         .I1(\w1[7]_i_3_n_0 ),
-        .I2(Q[5]),
+        .I2(\b_o_reg[7]_0 [5]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4326,7 +4262,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w1[5]_i_1 
        (.I0(w10[5]),
         .I1(\w1[7]_i_3_n_0 ),
-        .I2(Q[6]),
+        .I2(\b_o_reg[7]_0 [6]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4336,7 +4272,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w1[6]_i_1 
        (.I0(w10[6]),
         .I1(\w1[7]_i_3_n_0 ),
-        .I2(Q[7]),
+        .I2(\b_o_reg[7]_0 [7]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4348,20 +4284,20 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[2]),
         .I2(st[1]),
         .I3(st[0]),
-        .I4(Q[0]),
-        .I5(status_reg[18]),
+        .I4(\b_o_reg[7]_0 [0]),
+        .I5(busy_reg_n_0),
         .O(\w1[7]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0000E2F0F0F0F0F0)) 
     \w1[7]_i_2 
        (.I0(w10[7]),
         .I1(\w1[7]_i_3_n_0 ),
-        .I2(Q[8]),
+        .I2(\b_o_reg[7]_0 [8]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
         .O(w1[7]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \w1[7]_i_3 
@@ -4372,7 +4308,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w1_o[0]_i_1 
        (.I0(\w1_reg_n_0_[0] ),
-        .I1(Q[1]),
+        .I1(\b_o_reg[7]_0 [1]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4381,7 +4317,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w1_o[1]_i_1 
        (.I0(\w1_reg_n_0_[1] ),
-        .I1(Q[2]),
+        .I1(\b_o_reg[7]_0 [2]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4390,7 +4326,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w1_o[2]_i_1 
        (.I0(\w1_reg_n_0_[2] ),
-        .I1(Q[3]),
+        .I1(\b_o_reg[7]_0 [3]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4399,7 +4335,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w1_o[3]_i_1 
        (.I0(\w1_reg_n_0_[3] ),
-        .I1(Q[4]),
+        .I1(\b_o_reg[7]_0 [4]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4408,7 +4344,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w1_o[4]_i_1 
        (.I0(\w1_reg_n_0_[4] ),
-        .I1(Q[5]),
+        .I1(\b_o_reg[7]_0 [5]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4417,7 +4353,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w1_o[5]_i_1 
        (.I0(\w1_reg_n_0_[5] ),
-        .I1(Q[6]),
+        .I1(\b_o_reg[7]_0 [6]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4426,7 +4362,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w1_o[6]_i_1 
        (.I0(\w1_reg_n_0_[6] ),
-        .I1(Q[7]),
+        .I1(\b_o_reg[7]_0 [7]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4437,14 +4373,14 @@ module design_1_axi_perceptron_0_0_binary_perceptron
        (.I0(st[0]),
         .I1(st[1]),
         .I2(st[2]),
-        .I3(Q[0]),
-        .I4(status_reg[18]),
+        .I3(\b_o_reg[7]_0 [0]),
+        .I4(busy_reg_n_0),
         .O(\w1_o[7]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h00ACCCCC)) 
     \w1_o[7]_i_2 
        (.I0(\w1_reg_n_0_[7] ),
-        .I1(Q[8]),
+        .I1(\b_o_reg[7]_0 [8]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4614,7 +4550,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w2[0]_i_1 
        (.I0(w20[0]),
         .I1(\w2[7]_i_3_n_0 ),
-        .I2(Q[9]),
+        .I2(\b_o_reg[7]_0 [9]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4624,7 +4560,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w2[1]_i_1 
        (.I0(w20[1]),
         .I1(\w2[7]_i_3_n_0 ),
-        .I2(Q[10]),
+        .I2(\b_o_reg[7]_0 [10]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4634,7 +4570,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w2[2]_i_1 
        (.I0(w20[2]),
         .I1(\w2[7]_i_3_n_0 ),
-        .I2(Q[11]),
+        .I2(\b_o_reg[7]_0 [11]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4644,7 +4580,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w2[3]_i_1 
        (.I0(w20[3]),
         .I1(\w2[7]_i_3_n_0 ),
-        .I2(Q[12]),
+        .I2(\b_o_reg[7]_0 [12]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4654,7 +4590,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w2[4]_i_1 
        (.I0(w20[4]),
         .I1(\w2[7]_i_3_n_0 ),
-        .I2(Q[13]),
+        .I2(\b_o_reg[7]_0 [13]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4664,7 +4600,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w2[5]_i_1 
        (.I0(w20[5]),
         .I1(\w2[7]_i_3_n_0 ),
-        .I2(Q[14]),
+        .I2(\b_o_reg[7]_0 [14]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4674,7 +4610,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     \w2[6]_i_1 
        (.I0(w20[6]),
         .I1(\w2[7]_i_3_n_0 ),
-        .I2(Q[15]),
+        .I2(\b_o_reg[7]_0 [15]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
@@ -4686,20 +4622,20 @@ module design_1_axi_perceptron_0_0_binary_perceptron
         .I1(st[2]),
         .I2(st[1]),
         .I3(st[0]),
-        .I4(Q[0]),
-        .I5(status_reg[18]),
+        .I4(\b_o_reg[7]_0 [0]),
+        .I5(busy_reg_n_0),
         .O(\w2[7]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0000E2F0F0F0F0F0)) 
     \w2[7]_i_2 
        (.I0(w20[7]),
         .I1(\w2[7]_i_3_n_0 ),
-        .I2(Q[16]),
+        .I2(\b_o_reg[7]_0 [16]),
         .I3(st[0]),
         .I4(st[2]),
         .I5(st[1]),
         .O(w20_in[7]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \w2[7]_i_3 
@@ -4727,7 +4663,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w2_o[0]_i_1 
        (.I0(w2[0]),
-        .I1(Q[9]),
+        .I1(\b_o_reg[7]_0 [9]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4736,7 +4672,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w2_o[1]_i_1 
        (.I0(w2[1]),
-        .I1(Q[10]),
+        .I1(\b_o_reg[7]_0 [10]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4745,7 +4681,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w2_o[2]_i_1 
        (.I0(w2[2]),
-        .I1(Q[11]),
+        .I1(\b_o_reg[7]_0 [11]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4754,7 +4690,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w2_o[3]_i_1 
        (.I0(w2[3]),
-        .I1(Q[12]),
+        .I1(\b_o_reg[7]_0 [12]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4763,7 +4699,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w2_o[4]_i_1 
        (.I0(w2[4]),
-        .I1(Q[13]),
+        .I1(\b_o_reg[7]_0 [13]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4772,7 +4708,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w2_o[5]_i_1 
        (.I0(w2[5]),
-        .I1(Q[14]),
+        .I1(\b_o_reg[7]_0 [14]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4781,7 +4717,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w2_o[6]_i_1 
        (.I0(w2[6]),
-        .I1(Q[15]),
+        .I1(\b_o_reg[7]_0 [15]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),
@@ -4790,7 +4726,7 @@ module design_1_axi_perceptron_0_0_binary_perceptron
     .INIT(32'h00ACCCCC)) 
     \w2_o[7]_i_1 
        (.I0(w2[7]),
-        .I1(Q[16]),
+        .I1(\b_o_reg[7]_0 [16]),
         .I2(st[0]),
         .I3(st[1]),
         .I4(st[2]),

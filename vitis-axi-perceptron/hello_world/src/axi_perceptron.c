@@ -39,44 +39,28 @@ void AxiPerceptron_Start(AxiPerceptron* dev, u8 targets) {
     write(dev, AXIPERC_REG_CTRL, ctrl);
 }
 
-void AxiPerceptron_TrainBlocking(AxiPerceptron* dev, u8 targets,
-                                u16* epochs_out, u32* status_out,
+void AxiPerceptron_TrainBlocking(AxiPerceptron* dev, u8 targets, u32* status_out,
                                 u32 poll_us, u32 max_wait_ms)
 {
     const u32 max_iters = (max_wait_ms * 1000u) / (poll_us ? poll_us : 1u);
 
     /* Start */
     u32 status = read(dev, AXIPERC_REG_STATUS);
-    u32 last_e = status & AXIPERC_STATUS_EPOCHS_MASK;
     AxiPerceptron_Start(dev, targets);
 
     /* Poll */
-    int progressed = 0;
-    int stable_cnt = 0;
     for (u32 i = 0; i < max_iters; ++i) {
         status = read(dev, AXIPERC_REG_STATUS);
-        u32 busy   = (status & AXIPERC_STATUS_BUSY_MASK) ? 1u : 0u;
         u32 conv   = (status & AXIPERC_STATUS_CONV_MASK) ? 1u : 0u;
-        u32 epochs =  status & AXIPERC_STATUS_EPOCHS_MASK;
 
-        if (epochs != last_e) {
-            progressed = 1;
-            stable_cnt = 0;
-            last_e     = epochs;
-        } else {
-            ++stable_cnt;
-        }
-
-        /* Exit when: not busy AND (progressed & stable long enough OR converged stable) */
-        if (!busy && ((progressed && stable_cnt >= 5) || (conv && stable_cnt >= 3))) {
+        if (conv) {
             break;
-        }
+        } 
 
         if (poll_us) usleep(poll_us);
     }
 
     if (status_out) *status_out = status;
-    if (epochs_out) *epochs_out = (u16)(status & AXIPERC_STATUS_EPOCHS_MASK);
 }
 
 u32 AxiPerceptron_ReadStatus(const AxiPerceptron* dev) {
@@ -98,7 +82,6 @@ void AxiPerceptron_ReadResult(const AxiPerceptron* dev, s8* sum_q4_4, u8* y_bit)
     if (sum_q4_4) {
         const unsigned nbits = 8 + 2; /* W + 2 when W=8 */
         s32 raw = (s32)((rr >> 1) & ((1u << nbits) - 1));
-        raw = AxiPerceptron_Sext(raw, nbits);
         *sum_q4_4 = (s8)raw;
     }
 }

@@ -4,7 +4,7 @@
     "xci_name": "design_1_axi_perceptron_0_0",
     "cell_name": "axi_perceptron_0",
     "component_reference": "xilinx.com:user:axi_perceptron:1.0",
-    "ip_revision": "3",
+    "ip_revision": "4",
     "gen_directory": "../../../../../../vivado-axi-perceptron.gen/sources_1/bd/design_1/ip/design_1_axi_perceptron_0_0",
     "parameters": {
       "component_parameters": {
@@ -37,7 +37,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "3" } ],
+        "IPREVISION": [ { "value": "4" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../vivado-axi-perceptron.gen/sources_1/bd/design_1/ip/design_1_axi_perceptron_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],

@@ -73,12 +73,9 @@ static void print_eta(s8 eta_q4_4) {
 }
 
 static void print_status(u32 status) {
-    xil_printf("   Status: 0x%08x (busy=%u, done=%u, conv=%u, epochs=%u) \r\n",
+    xil_printf("   Status: 0x%08x (conv=%u) \r\n",
                status,
-               (status & AXIPERC_STATUS_BUSY_MASK) ? 1u : 0u,
-               (status & AXIPERC_STATUS_DONE_MASK) ? 1u : 0u,
-               (status & AXIPERC_STATUS_CONV_MASK) ? 1u : 0u,
-               (status & AXIPERC_STATUS_EPOCHS_MASK));
+               (status & AXIPERC_STATUS_CONV_MASK) ? 1u : 0u);
 }
 
 int main(void) {
@@ -89,7 +86,7 @@ int main(void) {
     AxiPerceptron p;
 
     // Target logic function to train
-    u8 targets = AXIPERC_TARGETS_AND;
+    u8 targets = AXIPERC_TARGETS_XNOR;
 
     // Maximum number of training epochs
     u16 max_epochs = 64;
@@ -98,9 +95,6 @@ int main(void) {
 
     // Initial weights and bias (all zeros to start)
     s8 w1_init = 0, w2_init = 0, b_init = 0;
-
-    // Actual epochs used during training 
-    u16 epochs = 0;
 
     // Status register value 
     u32 status = 0;
@@ -125,7 +119,7 @@ int main(void) {
     xil_printf("   Training: ");
     print_targets_name(targets);
     xil_printf(" function...\r\n");
-    AxiPerceptron_TrainBlocking(&p, targets, &epochs, &status, 100, 3000);
+    AxiPerceptron_TrainBlocking(&p, targets, &status, 100, 3000);
 
     // Results
     xil_printf("\r\nTraining completed.\r\n");
