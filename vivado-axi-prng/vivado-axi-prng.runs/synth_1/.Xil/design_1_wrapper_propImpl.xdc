@@ -1,7 +1,0 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/emari/Desktop/mbv-axi-slave-ip-repo/vivado-axi-prng/vivado-axi-prng.srcs/constrs_1/new/Basys3_Master.xdc rfile:../../../vivado-axi-prng.srcs/constrs_1/new/Basys3_Master.xdc id:1} [current_design]
-set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN W5   IOSTANDARD LVCMOS33 } [get_ports sys_clock]
-set_property src_info {type:XDC file:1 line:67 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports reset]
-set_property src_info {type:XDC file:1 line:70 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports prng_reset_0]
