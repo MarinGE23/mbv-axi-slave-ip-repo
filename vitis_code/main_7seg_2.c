@@ -25,7 +25,6 @@ int main()
             xil_printf("\n\r");
             data = 0;
         } else {
-            xil_printf("%d", digit);
             data = (data<<8) + digit;
         };
         AXI_7SEG_WRITE_REG(AXI_7SEG_BASEADDR, SEG7_REG_DIGIT_VALUES, data);
